@@ -1,0 +1,134 @@
+.navbar {
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: -10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  background: linear-gradient(to right, #093c53, #065579);
+}
+
+.nav-item-left {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  min-width: 20%;
+  padding: 8px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.nav-item-left > a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.nav-item-left:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border: 1px solid #c4c4c4;
+}
+
+.nav-left {
+  /* border: 1px solid white; */
+  display: flex;
+  width: 45%;
+  justify-content: space-around;
+  margin-left: 20px;
+}
+
+.nav-left > a {
+  text-decoration: none;
+  color: white;
+  font-size: 28px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.nav-right {
+  /* border: 1px solid white; */
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-right: 20px;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  min-width: 25%;
+  padding: 8px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border: 1px solid #c4c4c4;
+}
+
+.nav-item > a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.search {
+  width: 70%;
+  border: 1px solid #c4c4c4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.search input {
+  width: 60%;
+  margin: auto;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: white;
+  text-decoration: none !important;
+  border-bottom: none;
+  background: transparent;
+}
+
+.search input::placeholder {
+  color: rgb(193, 207, 209);
+}
+
+.search input:focus {
+  border: none;
+  outline: none;
+}
+
+.search-button button {
+  padding: 4px 20px 4px 20px;
+  border-radius: 50px;
+  border: none;
+  margin: 7px 7px;
+  background-color: #0084ff;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.search-button button span {
+  display: flex;
+  font-size: 27px;
+}
+
+@media screen and (max-width: 600px) {
+}
