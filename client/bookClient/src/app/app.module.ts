@@ -11,6 +11,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminComponent } from './admin/admin.component';
+import { AddNewBookComponent } from './admin/add-new-book/add-new-book.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BooksComponent,
     CartComponent,
     ProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AdminComponent,
+    AddNewBookComponent,
   ],
   imports: [
     BrowserModule,
