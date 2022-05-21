@@ -39,6 +39,12 @@ public class Response {
 		this.setBookList(bookList);
 	}
 	
+	public Response(Boolean status, String message, List<User> userList, Boolean check) {
+		this.setStatus(status);
+		this.setMessage(message);
+		this.setUserList(userList);
+	}
+	
 //	public Response(Boolean status, String message, List<User> userList) {
 //		this.setStatus(status);
 //		this.setMessage(message);
