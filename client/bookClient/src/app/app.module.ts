@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminComponent } from './admin/admin.component';
 import { AddNewBookComponent } from './admin/add-new-book/add-new-book.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { AddNewBookComponent } from './admin/add-new-book/add-new-book.component
     NotFoundComponent,
     AdminComponent,
     AddNewBookComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

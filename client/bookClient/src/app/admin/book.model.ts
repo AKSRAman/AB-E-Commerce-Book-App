@@ -1,4 +1,4 @@
-export interface Book{
+export interface book{
     id:String|null;
     title:String|null;
     authors:String|null;
@@ -7,4 +7,5 @@ export interface Book{
     imageUrl:string|null;
     price:number|null;
     rating: number|null;
+    description:String|null;
 }
