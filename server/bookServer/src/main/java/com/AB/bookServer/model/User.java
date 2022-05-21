@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @Document(collection="users")
 @Component
 public class User {
+	
 	@Id
 	private String id;
 	
@@ -27,6 +28,7 @@ public class User {
 	private double mobNumber;
 	 
 	private String profilePic;
+	
 	
 	public String getId() {
 		return id;
