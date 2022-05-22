@@ -11,6 +11,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminComponent } from './admin/admin.component';
+import { AddNewBookComponent } from './admin/add-new-book/add-new-book.component';
+import { LoginComponent } from './login/login.component';
+import { AdminbookComponent } from './admin/adminbook/adminbook.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +25,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BooksComponent,
     CartComponent,
     ProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AdminComponent,
+    AddNewBookComponent,
+    LoginComponent,
+    AdminbookComponent,
   ],
   imports: [
     BrowserModule,
