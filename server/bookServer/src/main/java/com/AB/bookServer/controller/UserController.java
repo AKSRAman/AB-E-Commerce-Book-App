@@ -34,6 +34,9 @@ public class UserController {
 	public ResponseEntity<?> getUserDetails() {
 		return ResponseEntity.ok(userOperation.getUser());
 	}
+	
+	
+	
 }
 
 
