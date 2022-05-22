@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminComponent } from './admin/admin.component';
 import { AddNewBookComponent } from './admin/add-new-book/add-new-book.component';
 import { LoginComponent } from './login/login.component';
+import { AdminbookComponent } from './admin/adminbook/adminbook.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { LoginComponent } from './login/login.component';
     AdminComponent,
     AddNewBookComponent,
     LoginComponent,
+    AdminbookComponent,
   ],
   imports: [
     BrowserModule,
