@@ -49,7 +49,4 @@ public class BookController {
 	public Response deleteContactById(@PathVariable ObjectId id) {
 		return bookOperation.deleteBook(id);
 	}
-	
-	
-	
 }

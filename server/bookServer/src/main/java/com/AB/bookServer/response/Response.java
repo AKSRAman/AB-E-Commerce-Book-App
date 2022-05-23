@@ -15,6 +15,7 @@ public class Response {
 	private User user;
 	private List<Book> bookList;
 	private List<User> userList;
+	private String token;
 	
 	public Response(Boolean status, String message) {
 		this.setStatus(status);
@@ -43,6 +44,12 @@ public class Response {
 		this.setStatus(status);
 		this.setMessage(message);
 		this.setUserList(userList);
+	}
+	
+	public Response(Boolean status, String message, String token) {
+		this.setStatus(status);
+		this.setMessage(message);
+		this.setToken(token);
 	}
 	
 //	public Response(Boolean status, String message, List<User> userList) {
@@ -96,6 +103,14 @@ public class Response {
 
 	public void setUserList(List<User> userList) {
 		this.userList = userList;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 	
 }
