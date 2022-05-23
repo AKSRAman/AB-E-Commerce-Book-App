@@ -27,7 +27,9 @@ public class Book {
 	private int price;
 	
 	private double rating;
-
+  
+	private String description;
+	
 	private Date addedOn;
 
 	private Date updatedOn;
@@ -118,6 +120,14 @@ public class Book {
 
 	public void setRating(double rating) {
 		this.rating = rating;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

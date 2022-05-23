@@ -15,6 +15,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AddNewBookComponent } from './admin/add-new-book/add-new-book.component';
 import { LoginComponent } from './login/login.component';
 import { AdminbookComponent } from './admin/adminbook/adminbook.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -30,12 +31,14 @@ import { AdminbookComponent } from './admin/adminbook/adminbook.component';
     AddNewBookComponent,
     LoginComponent,
     AdminbookComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
