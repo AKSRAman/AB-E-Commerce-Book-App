@@ -72,7 +72,7 @@ public class BookServiceMethod implements BookService {
 	@Override
 	public Response deleteBook(ObjectId id) {
 		bookRepo.deleteById(id);
-		Response data = new Response(true, "Contact deleted successfully");
+		Response data = new Response(true, "Contact deleted successfully by Id "+ id);
 		return data;
 	}
 }
