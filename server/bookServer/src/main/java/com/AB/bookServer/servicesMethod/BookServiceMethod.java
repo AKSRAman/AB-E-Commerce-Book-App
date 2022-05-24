@@ -39,7 +39,6 @@ public class BookServiceMethod implements BookService {
 
 	@Override
 	public Response getBooks() {
-			
 //		List<Book> output = bookRepo.findAll();
 		List<Book> output = bookRepo.findIsDeleted();
 		if (!output.isEmpty()) {
@@ -57,7 +56,7 @@ public class BookServiceMethod implements BookService {
 			Book bookToSave = findBook.get();
 			bookToSave.setUpdatedOn(new Date(System.currentTimeMillis()));
 			bookToSave.setTitle(bookToSave.getTitle() != null ? bookData.getTitle() : bookToSave.getTitle());
-			bookToSave.setAuthors(bookToSave.getAuthors() != null ? bookData.getAuthors() : bookToSave.getAuthors());
+			bookToSave.setAuthors(bookToSave.getAuthor() != null ? bookData.getAuthor() : bookToSave.getAuthor());
 			bookToSave.setPages(bookToSave.getPages() <= 0 ? bookData.getPages() : bookToSave.getPages());
 			bookToSave.setPrice(bookToSave.getPrice() <= 0 ? bookData.getPrice() : bookToSave.getPrice());
 			bookToSave.setPublishDate(bookToSave.getPublishDate() != null ? bookData.getPublishDate() : bookToSave.getPublishDate());

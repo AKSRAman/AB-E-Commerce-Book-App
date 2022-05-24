@@ -36,8 +36,6 @@ export class BooksComponent implements OnInit {
       this.allBooks=res.bookList;
 
     });
-    
-
 
   }
 }

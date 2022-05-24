@@ -1,5 +1,12 @@
-<div class="books" >
-  <div class="card">
-
+<div class="card-body">
+  <div class="card-wrap" *ngFor="let book of allBooks">
+    <div class="card-header one">
+      <i class="fas fa-code"></i>
+    </div>
+    <div class="card-content">
+      <h1 class="card-title">{{book.title}}</h1>
+      <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <button class="card-btn">View</button>
+    </div>
   </div>
 </div>

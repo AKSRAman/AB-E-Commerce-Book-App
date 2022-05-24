@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.AB.bookServer.model.Book;
@@ -19,14 +19,13 @@ import com.AB.bookServer.response.Response;
 import com.AB.bookServer.services.BookService;
 
 @RestController
-@RequestMapping("/books")
 @CrossOrigin(origins = "http://localhost:4200")
 public class BookController {
 	
 	@Autowired
 	private BookService bookOperation;
 	
-	@PostMapping("/addNewBooks")
+	@PostMapping("/books")
 	public ResponseEntity<?> addNewBooks(@RequestBody Book book) {
 		Response output = bookOperation.saveBook(book);
 		if(output.getStatus()==true) {
@@ -35,17 +34,17 @@ public class BookController {
 		return ResponseEntity.status(400).body(output);
 	}
 	
-	@GetMapping("/getBooks")
+	@GetMapping("/books")
 	public ResponseEntity<?> getAllBooks() {
 		return ResponseEntity.ok(bookOperation.getBooks());
 	}
 	
-	@PutMapping("/updateBook/{id}")
+	@PutMapping("/books/{id}")
 	public Response updateBookById(@PathVariable ObjectId id, @RequestBody Book book) {
 		return bookOperation.updateBook(id,book);
 	}
 
-	@DeleteMapping("/deleteBook/{id}")
+	@DeleteMapping("/books/{id}")
 	public Response deleteBookById(@PathVariable ObjectId id) {
 		return bookOperation.deleteBook(id);
 	}
