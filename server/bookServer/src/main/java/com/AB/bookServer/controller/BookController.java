@@ -27,7 +27,7 @@ public class BookController {
 	private BookService bookOperation;
 	
 	@PostMapping("/addNewBooks")
-	public ResponseEntity<?> getAllContac(@RequestBody Book book) {
+	public ResponseEntity<?> addNewBooks(@RequestBody Book book) {
 		Response output = bookOperation.saveBook(book);
 		if(output.getStatus()==true) {
 			return ResponseEntity.ok(output);
@@ -36,17 +36,17 @@ public class BookController {
 	}
 	
 	@GetMapping("/getBooks")
-	public ResponseEntity<?> getAllContact() {
+	public ResponseEntity<?> getAllBooks() {
 		return ResponseEntity.ok(bookOperation.getBooks());
 	}
 	
 	@PutMapping("/updateBook/{id}")
-	public Response updateContactById(@PathVariable ObjectId id, @RequestBody Book book) {
+	public Response updateBookById(@PathVariable ObjectId id, @RequestBody Book book) {
 		return bookOperation.updateBook(id,book);
 	}
 
 	@DeleteMapping("/deleteBook/{id}")
-	public Response deleteContactById(@PathVariable ObjectId id) {
+	public Response deleteBookById(@PathVariable ObjectId id) {
 		return bookOperation.deleteBook(id);
 	}
 }

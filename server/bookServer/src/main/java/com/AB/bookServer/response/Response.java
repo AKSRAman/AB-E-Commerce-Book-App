@@ -3,6 +3,7 @@ package com.AB.bookServer.response;
 import java.util.List;
 
 import com.AB.bookServer.model.Book;
+import com.AB.bookServer.model.Review;
 import com.AB.bookServer.model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -13,8 +14,10 @@ public class Response {
 	private String message;
 	private Book book;
 	private User user;
+	private Review review;
 	private List<Book> bookList;
 	private List<User> userList;
+	private List<Review> reviewList;
 	private String token;
 	
 	public Response(Boolean status, String message) {
@@ -34,6 +37,12 @@ public class Response {
 		this.setUser(user);
 	}
 	
+	public Response(Boolean status, String message, Review review) {
+		this.setStatus(status);
+		this.setMessage(message);
+		this.setReview(review);
+	}
+	
 	public Response(Boolean status, String message, List<Book> bookList) {
 		this.setStatus(status);
 		this.setMessage(message);
@@ -44,6 +53,12 @@ public class Response {
 		this.setStatus(status);
 		this.setMessage(message);
 		this.setUserList(userList);
+	}
+	
+	public Response(Boolean status, String message,Boolean check, List<Review> reviewList ) {
+		this.setStatus(status);
+		this.setMessage(message);
+		this.setReviewList(reviewList);
 	}
 	
 	public Response(Boolean status, String message, String token) {
@@ -111,6 +126,22 @@ public class Response {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public List<Review> getReviewList() {
+		return reviewList;
+	}
+
+	public void setReviewList(List<Review> reviewList) {
+		this.reviewList = reviewList;
+	}
+
+	public Review getReview() {
+		return review;
+	}
+
+	public void setReview(Review review) {
+		this.review = review;
 	}
 	
 }
