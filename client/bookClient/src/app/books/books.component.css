@@ -1,0 +1,11 @@
+.books{
+    width: 100%;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+   border: 1px solid black;
+   height:200px;
+}
+.card{
+   border: 1px solid red;
+}

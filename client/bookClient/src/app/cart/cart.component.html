@@ -1,1 +1,58 @@
-<p>cart works!</p>
+<div id=""></div>
+
+<div class="container">
+
+    <div class="flex">
+      
+        <div class="col-lg mainBox m-2">
+
+            <div class="row">
+               
+                <div id="productImage" class="col-9" style="height: 500px; overflow: hidden;">{{singleBook.imageUrl}}</div>
+            </div>
+            <div class="flex mt-4">
+                <div class="col-3" style="height: 60px;"></div>
+                <div class="col d-grid">
+                    <button onclick="addProductsToCart()" class="btn btn-lg btn-outline-danger">ADD TO CART</button>
+                </div>
+                <div class="col d-grid">
+                    <button class="btn btn-lg btn-success"><a class="text-white" href="cart.html">BUY NOW</a></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Div -->
+        <div class="col-lg mainBox m-3">
+
+            <div>
+               {{singleBook.title}}
+            </div>
+            <div id="productName"></div>
+            <div id="productPrice">
+                <p class="priceColor fw-bold">Special Price</p>
+            </div>
+            <a class="text-black" href="goldmembership.html">
+                <div id="goldMember" class="mx-1 my-4 px-3 border rounded-3">
+                    <p class=" m-0 fw-bold">Become a <span style="color: #9b8338;">Gold member</span> today and you get
+                        this for <span style="color: #c82506;">Free</span></p>
+                    <p class="text-black-50 m-1"></p>
+                </div>
+            </a>
+            <div class="deliveryFontColor">
+                <div id="detailsDiv"></div>
+                <p class="mt-0 mb-2 fw-bold " style="font-size: 13px;">Expiry Date: 31-Jan-2023</p>
+                <p class="m-1 ms-4 ">Free Shipping Applicable</p>
+                <p class="m-1 ms-4 ">Cash on delivery available</p>
+            </div>
+            <div class="my-3 p-2 deliveryFontColor">
+                <span>Deliver to</span>
+                <input type="text" class="border-bottom border-dark " id="deliveryCheck">
+                <button onclick="pincodeCheck()" class="btn btn-sm btn-outline-secondary">Check</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+

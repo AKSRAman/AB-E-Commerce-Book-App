@@ -1,0 +1,62 @@
+* {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.maxWidth {
+    max-width: 1250px;
+}
+
+/* div {
+    border: 1px solid red;
+} */
+
+.mainBox {
+    height: 600px;
+}
+
+.smallImgBox {
+    height: 130px;
+    overflow: hidden;
+}
+
+#deliveryCheck {
+    border: hidden;
+}
+
+#productCompany {
+    height: 30px;
+}
+
+#productName {
+    height: 50px;
+}
+
+#productPrice {
+    height: 90px;
+}
+
+.priceColor {
+    color: green;
+    font-size: 14px;
+}
+
+#goldMember {
+    background-color: #f8f8f8;
+    box-shadow: 0px 0px 4px 1px rgb(173, 173, 173);
+}
+
+#goldMember:hover {
+    cursor: pointer;
+    transform: scale(1.001);
+    box-shadow: 0px 0px 12px 2px rgb(173, 173, 173);
+}
+
+.deliveryFontColor {
+    color: #7a8090;
+}
+
+.colorGrey {
+    color: rgb(156, 156, 156);
+    font-size: small;
+    padding-left: 2%;
+}

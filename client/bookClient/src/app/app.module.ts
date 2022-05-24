@@ -16,9 +16,6 @@ import { AddNewBookComponent } from './admin/add-new-book/add-new-book.component
 import { AdminbookComponent } from './admin/adminbook/adminbook.component';
 import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
-import { AdminavbarComponent } from './admin/adminavbar/adminavbar.component';
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +29,7 @@ import { AdminavbarComponent } from './admin/adminavbar/adminavbar.component';
     AddNewBookComponent,
     AdminbookComponent,
     AuthComponent,
-    AdminavbarComponent,
+   
 
   ],
   imports: [

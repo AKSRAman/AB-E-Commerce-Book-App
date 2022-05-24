@@ -1,18 +1,117 @@
-<div >
-    <form #authForm="ngForm"(ngSubmit)="onSubmit(authForm)">
+<div class="login" *ngIf="isLogin">
+  <p>Login To Your Account</p>
+  <p>Dont have Account <span (click)="onSwitchMode()">Sign Up here?</span></p>
+  <div class="custom">Continue With Google</div>
+  <div class="custom">Continue With FaceBook</div>
+  <div class="custom">continue With Twiter</div>
+  <p>or</p>
+  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+    <div>
+      <input
+        type="text"
+        ngModel
+        name="name"
+        required
+        minlength="3"
+        placeholder="Name"
+      />
+    </div>
+    <div>
+      <input
+        type="email"
+        ngModel
+        name="email"
+        required
+        email
+        placeholder="Email Id"
+      />
+    </div>
+    <div>
+      <input
+        type="number"
+        ngModel
+        name="mobNumber"
+        required
+        minlength="10"
+        maxlength="10"
+        placeholder="Email Id"
+      />
+    </div>
+    <div>
+      <input 
+        type="text"
+        ngModel
+        name="address"
+        required
+        minlength="3"
+        placeholder="Address"
+      />
+    </div>
 
-      <div >
-        <label for="email">E-Mail</label>
-        <input type="email"id="email"ngModel name="email"required email/>
-      </div>
-      <div >
-        <label for="password">Password</label>
-        <input type="password"id="password" ngModel name="password" required minlength="6"/>
-      </div>
-      <div>
-        <button type="submit" [disabled]="!authForm.valid"
-        >{{isLogin? "Login":"Signup"}}</button>|
-        <button  type="button"(click)="onSwitchMode()">Switch to {{isLogin?"Signup":"Login"}}</button>
-      </div>
-    </form>
-  </div>
+    <div>
+      <input
+        type="password"
+        id="password"
+        ngModel
+        name="password"
+        required
+        placeholder="Password"
+        minlength="6"
+      />
+    </div>
+    <div>
+      <button type="submit" [disabled]="!authForm.valid">Login
+       </button>|
+      <button type="button" (click)="onSwitchMode()"> Switch Sign Up
+      </button>
+    </div>
+  </form>
+</div>
+<div class="login" *ngIf="!isLogin">
+  <p> Create New Account </p>
+  <p>Already have account <span (click)="onSwitchMode()"> login here?</span></p>
+  <div class="custom">Continue With Google</div>
+  <div class="custom">Continue With FaceBook</div>
+  <div class="custom">continue With Twiter</div>
+  <p>or</p>
+  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+    <div>
+      <input
+        type="text"
+        ngModel
+        name="name"
+        required
+        minlength="3"
+        placeholder="Name"
+      />
+    </div>
+    <div>
+      <input
+        type="email"
+        ngModel
+        name="email"
+        required
+        email
+        placeholder="Email Id"
+      />
+    </div>
+    <div>
+      <input
+        type="password"
+        id="password"
+        ngModel
+        name="password"
+        required
+        placeholder="Password"
+        minlength="6"
+      />
+    </div>
+    <div>
+
+      <button type="submit" [disabled]="!authForm.valid">Sign Up</button>|
+      <button type="button" (click)="onSwitchMode()"> Switch Login Up
+      </button>
+    </div>
+  </form>
+</div>
+
