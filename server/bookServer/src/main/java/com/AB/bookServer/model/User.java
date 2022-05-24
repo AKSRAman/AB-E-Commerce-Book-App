@@ -1,13 +1,15 @@
 package com.AB.bookServer.model;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
-@Document(collection="users")
 @Component
+@Document(collection="users")
 public class User {
 	
 	@Id
@@ -15,20 +17,27 @@ public class User {
 	
 	private String role;
 	
-	private String userName;
+	private String fullName;
 	
+	@Indexed(unique=true)
 	private String email;
-	 
+	
 	private String password;
 	
 	private String address;
 	
-	private List<Book> books;
-	
+	@Indexed(unique=true)
 	private double mobNumber;
 	 
 	private String profilePic;
 	
+	private List<Book> booksCart;
+	
+	private Boolean isDeleted = false;
+	
+	private Date addedOn;
+
+	private Date updatedOn;
 	
 	public String getId() {
 		return id;
@@ -36,11 +45,11 @@ public class User {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getUserName() {
-		return userName;
+	public String getfullName() {
+		return fullName;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setFullName(String userName) {
+		this.fullName = userName;
 	}
 	public String getEmail() {
 		return email;
@@ -53,12 +62,6 @@ public class User {
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	public List<Book> getBooks() {
-		return books;
-	}
-	public void setBooks(List<Book> books) {
-		this.books = books;
 	}
 	public double getMobNumber() {
 		return mobNumber;
@@ -84,7 +87,28 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-	
-
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+	public Date getAddedOn() {
+		return addedOn;
+	}
+	public void setAddedOn(Date addedOn) {
+		this.addedOn = addedOn;
+	}
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+	public List<Book> getBooksCart() {
+		return booksCart;
+	}
+	public void setBooksCart(List<Book> booksCart) {
+		this.booksCart = booksCart;
+	}
 }

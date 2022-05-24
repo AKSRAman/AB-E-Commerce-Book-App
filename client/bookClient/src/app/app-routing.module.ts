@@ -6,13 +6,14 @@ import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { AuthComponent } from './auth/auth.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'books', component: BooksComponent },
   { path: 'cart', component: CartComponent },
   { path: 'admin', component:  AdminComponent},
-  //{ path: 'profile', component: ProfileComponent },
+  { path: 'auth', component: AuthComponent },
+  { path: 'profile', component: AuthComponent },
   { path: '**', component: NotFoundComponent }
   
 ];

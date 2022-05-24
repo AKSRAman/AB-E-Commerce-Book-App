@@ -5,42 +5,27 @@ import {
   Injectable
 } from "@angular/core";
 import { Book } from "../book.model";
+import { AllBookResponse, Comman, SingleBookResponse } from "../response.model";
 @Injectable({
   providedIn: 'root'
 })
 
 export class BookServices {
-  
-baseurl="http://localhost:8080/books"
-   
-  constructor(private http: HttpClient) {
 
+baseurl="http://localhost:8080/books"   
+  constructor(private http: HttpClient) {
   }
   getAllBooks() {
-    return this.http.get < {
-      status: boolean,
-      message: string,
-      bookList: [{
-        addedOn: "",
-        authors: "",
-        category: "",
-        description: "",
-        id: "",
-        imageUrl: "",
-        pages: 0,
-        price: 0,
-        publishDate: "",
-        rating: 0,
-        title: "",
-        updatedOn: "",
-      },]
-    } > (this.baseurl+"/getBooks");
+    return this.http.get <AllBookResponse>(this.baseurl);
   }
   deleteBook(id:string|null){
-    return  this.http.delete<{status:boolean,message:string}>(this.baseurl+"/deleteBook/"+id);
+    return  this.http.delete<Comman>(this.baseurl+id);
   }
   addNewBook(newBook:Book){
-    return this.http.post<{status:boolean,message:string,book:Book}>(this.baseurl+"/addNewBooks",newBook);
+    return this.http.post<SingleBookResponse>(this.baseurl,newBook).subscribe(res=>{console.log("Book Added Successfully")});;
+  }
+  updateBook( book:Book){
+    return this.http.put<SingleBookResponse>(this.baseurl+book.id,book);
   }
   
 }

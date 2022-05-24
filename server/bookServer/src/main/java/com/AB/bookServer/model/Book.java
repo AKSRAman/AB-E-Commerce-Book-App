@@ -7,32 +7,35 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
 @Component
-@Document(collection="books")
+@Document(collection = "books")
 public class Book {
+
 	@Id
 	private String id;
 
 	private String title;
 
-	private String authors;
+	private String description;
 
-	private int pages;
+	private String authors;
 
 	private String category;
 
+	private String imageUrl;
+
+	private int pages = 50;
+
+	private int price = 25;
+
+	private int reviews = 0;
+
 	private String publishDate;
 
-	private String imageUrl;
-	
-	private int price;
-	
-	private double rating;
-  
-	private String description;
-	
 	private Date addedOn;
 
 	private Date updatedOn;
+
+	private Boolean isDeleted = false;
 
 	public String getId() {
 		return id;
@@ -114,20 +117,28 @@ public class Book {
 		this.price = price;
 	}
 
-	public double getRating() {
-		return rating;
-	}
-
-	public void setRating(double rating) {
-		this.rating = rating;
-	}
-
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public int getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(int reviews) {
+		this.reviews = reviews;
+	}
+
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
+
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
 	}
 
 }
