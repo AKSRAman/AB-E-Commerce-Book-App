@@ -17,7 +17,7 @@ public class Book {
 
 	private String description;
 
-	private String authors;
+	private String author;
 
 	private String category;
 
@@ -53,12 +53,12 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getAuthors() {
-		return authors;
+	public String getAuthor() {
+		return author;
 	}
 
-	public void setAuthors(String authors) {
-		this.authors = authors;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public int getPages() {
