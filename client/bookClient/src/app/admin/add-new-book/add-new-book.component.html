@@ -3,15 +3,15 @@
    <span class="text-white text-xl font-sans "> Add New Book To Collection</span>
 </div>
 <div class=" p-4">
-   <form>
+   <form #addBook="ngForm" (ngSubmit)="addNewBook(addBook)">
       <div class="mb-3">
         <label for="Book Title" class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-sky-500">Book Title</label>
-        <input type="email" class="w-full rounded-md  border-sky-500 " name="book-title" placeholder="eg:Book Title">
+        <input type="email" class="w-full rounded-md  border-sky-500 " ngModel name="book-title" placeholder="eg:Book Title">
       </div>
      
       <div class="mb-3">
          <label for="Book Title" class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-sky-500">Image Url</label>
-         <input type="email" class="w-full rounded-md  border-sky-500 " name="bookImageUrl" placeholder="eg:http://bookimage">
+         <input type="email" class="w-full rounded-md  border-sky-500 "  ngModel name="bookImageUrl" placeholder="eg:http://bookimage">
         </div>
 
         <div class="flex">
@@ -21,9 +21,9 @@
       </div> 
 
         <div class="flex justify-between">
-        <input type="text" class="rounded-md  border-sky-500" placeholder="eg:200"  name="book">
-        <input type="text" class="rounded-md  border-sky-500 " placeholder="eg:100"  name="book">
-        <input type="text" class="rounded-md  border-sky-500 "placeholder="eg:7.5"   name="book">
+        <input type="text" class="rounded-md  border-sky-500"  ngModel  placeholder="eg:200"  name="price">
+        <input type="text" class="rounded-md  border-sky-500 "   ngModel placeholder="eg:100"  name="pages">
+        <input type="text" class="rounded-md  border-sky-500 "  ngModel placeholder="eg:7.5"   name="rating">
         </div>
 
       <div class="mb-3 mt-3 ">
@@ -35,7 +35,7 @@
          <span class="bg-clip-text  text-transparent bg-gradient-to-r from-cyan-500 to-sky-500"> Description: </span>
       </div>
       <div>
-         <textarea class="caret-violet-500 w-full rounded-md  border-sky-500" name="description"> </textarea>
+         <textarea class="caret-violet-500 w-full rounded-md  border-sky-500" ngModel name="description"> </textarea>
    </div>
 
       <div class="flex gap-12 mt-8 justify-center text-white">

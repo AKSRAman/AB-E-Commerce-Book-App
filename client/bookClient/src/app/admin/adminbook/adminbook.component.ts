@@ -5,7 +5,7 @@ import {
 import {
   BookServices
 } from 'src/app/books/book.services';
-import { Book } from '../book.model';
+import { Book } from '../../book.model';
 @Component({
   selector: 'app-adminbook',
   templateUrl: './adminbook.component.html',
@@ -63,7 +63,7 @@ tempBook:Book={
 }
 
 updateBook(){
-  //this.bookServices.updateBook(this.tempBook)
+  this.bookServices.updateBook(this.tempBook)
 }
 deteteBook(id:string|null){
   this.bookServices.deleteBook(id).subscribe(res=>{this.getBooksData()});

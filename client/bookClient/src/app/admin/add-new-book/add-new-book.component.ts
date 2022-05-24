@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { BookServices } from 'src/app/books/book.services';
+import { Book } from '../../book.model';
 
 @Component({
   selector: 'app-add-new-book',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNewBookComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookServices:BookServices) { }
 
   ngOnInit(): void {
   }
+  tempBook:Book={
+    addedOn: "",
+      authors: "",
+      category: "",
+      description: "",
+      id: "",
+      imageUrl: "",
+      pages: 0,
+      price: 0,
+      publishDate: "",
+      rating: 0,
+      title: "",
+      updatedOn: "",
+  }
+
+  addNewBook(form:NgForm){
+    this.tempBook=form.value;
   
+ this.bookServices.addNewBook(this.tempBook);
+  }
 }

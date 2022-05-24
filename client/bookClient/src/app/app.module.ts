@@ -13,9 +13,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminComponent } from './admin/admin.component';
 import { AddNewBookComponent } from './admin/add-new-book/add-new-book.component';
-import { LoginComponent } from './login/login.component';
 import { AdminbookComponent } from './admin/adminbook/adminbook.component';
 import { FormsModule } from '@angular/forms';
+import { AuthComponent } from './auth/auth.component';
+import { AdminavbarComponent } from './admin/adminavbar/adminavbar.component';
 
 
 @NgModule({
@@ -29,8 +30,9 @@ import { FormsModule } from '@angular/forms';
     NotFoundComponent,
     AdminComponent,
     AddNewBookComponent,
-    LoginComponent,
     AdminbookComponent,
+    AuthComponent,
+    AdminavbarComponent,
 
   ],
   imports: [

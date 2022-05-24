@@ -1,10 +1,14 @@
-export interface Book{
-    id:String|null;
-    title:String|null;
-    authors:String|null;
-    pages:number|null;
-	category:String|null;
-    imageUrl:string|null;
-    price:number|null;
-    rating: number|null;
+export interface Book {
+    addedOn:string|null,
+    authors: string|null,
+    category: string|null,
+    description: string|null,
+    id: string|null,
+    imageUrl: string|null,
+    pages:number|null,
+    price: number|null,
+    publishDate: string|null,
+    rating: number|null,
+    title: string|null,
+    updatedOn: string|null,
 }

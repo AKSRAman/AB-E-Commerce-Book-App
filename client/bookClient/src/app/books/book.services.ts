@@ -11,8 +11,7 @@ import { Book } from "../book.model";
 
 export class BookServices {
   
-baseurl="http://localhost:8080/books"
-   
+baseurl="http://localhost:8080/books"   
   constructor(private http: HttpClient) {
 
   }
@@ -40,7 +39,10 @@ baseurl="http://localhost:8080/books"
     return  this.http.delete<{status:boolean,message:string}>(this.baseurl+"/deleteBook/"+id);
   }
   addNewBook(newBook:Book){
-    return this.http.post<{status:boolean,message:string,book:Book}>(this.baseurl+"/addNewBooks",newBook);
+    return this.http.post<{status:boolean,message:string,book:Book}>(this.baseurl+"/addNewBooks",newBook).subscribe(res=>{console.log("Data Sent")});;
+  }
+  updateBook( book:Book){
+    return this.http.put<{status:boolean,message:string,book:Book}>(this.baseurl+"/updateBook"+book.id,book);
   }
   
 }
