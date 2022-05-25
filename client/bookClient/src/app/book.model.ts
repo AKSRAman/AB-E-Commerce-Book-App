@@ -1,6 +1,6 @@
 export interface Book {
     addedOn:string|null,
-    authors: string|null,
+    author: string|null,
     category: string|null,
     description: string|null,
     id: string|null,

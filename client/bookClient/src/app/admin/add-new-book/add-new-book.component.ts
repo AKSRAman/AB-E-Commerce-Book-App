@@ -16,7 +16,7 @@ export class AddNewBookComponent implements OnInit {
   }
   tempBook:Book={
     addedOn: "",
-      authors: "",
+      author: "",
       category: "",
       description: "",
       id: "",

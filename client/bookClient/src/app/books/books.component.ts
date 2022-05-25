@@ -21,7 +21,7 @@ export class BooksComponent implements OnInit {
  ]
   allBooks: Book[] = [{
     addedOn: "",
-    authors: "",
+    author: "",
     category: "",
     description: "",
     id: "",
@@ -33,6 +33,7 @@ export class BooksComponent implements OnInit {
     title: "",
     updatedOn: "",
   },];
+  
   constructor(  private bookService: BookServices) { }
 
   ngOnInit(): void {

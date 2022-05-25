@@ -56,7 +56,7 @@ public class BookServiceMethod implements BookService {
 			Book bookToSave = findBook.get();
 			bookToSave.setUpdatedOn(new Date(System.currentTimeMillis()));
 			bookToSave.setTitle(bookToSave.getTitle() != null ? bookData.getTitle() : bookToSave.getTitle());
-			bookToSave.setAuthors(bookToSave.getAuthor() != null ? bookData.getAuthor() : bookToSave.getAuthor());
+			bookToSave.setAuthor(bookToSave.getAuthor() != null ? bookData.getAuthor() : bookToSave.getAuthor());
 			bookToSave.setPages(bookToSave.getPages() <= 0 ? bookData.getPages() : bookToSave.getPages());
 			bookToSave.setPrice(bookToSave.getPrice() <= 0 ? bookData.getPrice() : bookToSave.getPrice());
 			bookToSave.setPublishDate(bookToSave.getPublishDate() != null ? bookData.getPublishDate() : bookToSave.getPublishDate());

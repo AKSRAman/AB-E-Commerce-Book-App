@@ -1,13 +1,16 @@
-<div class="navbar">
+<div class="navbar" >
     <div class="nav-left">
         <div class="nav-item-left">
             <a routerLink="/">
                 <div class="nav-logo">
                     <img alt="img" src="../../assets/images/bookLogo.jpg" />
                 </div>
+                &nbsp; &nbsp;<h3>AB-Book Store</h3>
             </a>
         </div>
-        
+    </div>
+
+    <div class="nav-right">
         <div class="search">
             <input type="text" placeholder="Search...">
             <div class="search-button">
@@ -18,34 +21,40 @@
                 </button>
             </div>
         </div>
+        <div class="nav-item">
+            <a routerLink="/cart"><span class="material-symbols-outlined">
+                shopping_cart
+            </span><span class="top">&nbsp;cart</span> </a>
+        </div> 
     </div>
-
-    <div class="nav-right">
+</div>
+<br>
+<br>
+<br>
+<div class="topBar">
+    <div class="top-bar-panel">
         <div class="nav-item">
             <a routerLink="/books"><span class="material-symbols-outlined">
                     library_books
                 </span><span class="top">&nbsp;Books</span> </a>
         </div>
-        <div class="nav-item">
-            <a routerLink="/cart"><span class="material-symbols-outlined">
-                    library_books
-                </span><span class="top">&nbsp;cart</span> </a>
-        </div>
+
         <div class="nav-item">
             <a routerLink="/profile"><span class="material-symbols-outlined">
                     library_books
-                </span><span class="top">&nbsp;</span>user </a>
+                </span><span class="top">&nbsp;</span>Profile </a>
         </div>
+
+        <div class="nav-item">
+            <a routerLink="/auth"><span class="material-symbols-outlined">
+                    account_circle
+                </span> <span class="top">&nbsp;Login/SignUp</span></a>
+        </div>
+
         <div class="nav-item">
             <a routerLink="/admin"><span class="material-symbols-outlined">
                     shopping_cart
                 </span> <span class="top">&nbsp;Admin</span></a>
         </div>
-        <div class="nav-item">
-            <a routerLink="/auth"><span class="material-symbols-outlined">
-                    account_circle
-                </span> <span class="top">&nbsp;Admin</span></a>
-        </div>
     </div>
 </div>
-

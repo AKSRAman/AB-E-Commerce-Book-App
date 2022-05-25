@@ -1,9 +1,108 @@
-.login{
-   padding:5%;
-  
-} 
+.signup-main {
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-input{
-margin:1%;
-width:40%;
+.signup {
+  /* border: 2px solid rgb(121, 233, 76); */
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgb(219, 197, 197);
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  height: 70vh;
+  width: 75%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid rgb(123, 50, 240); */
+  float: left;
+  width: 55%;
+  /* width: 55%; */
+  text-align: center;
+  height: 100%;
+}
+
+.signup-image {
+  display: flex;
+  justify-content: center;
+  /* border: 2px solid rgb(211, 48, 36); */
+  margin-top: 50px;
+  float: right;
+  width: 45%;
+  text-align: center;
+  height: 100%;
+}
+
+.form-submit {
+  /* border: 2px solid rgb(15, 173, 173); */
+  display: flex;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-radius: 25px;
+  color: white;
+  padding: 8px 40px;
+  background: linear-gradient(to right, #ab1dcf, #f80759);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  margin: auto;
+  outline: none;
+  /* border: none; */
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.input {
+  /* border: 2px solid rgb(224, 238, 35); */
+  height: 25px;
+  font-size: 17px;
+  border: 1px solid #052f57;
+  width: 85%;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom: 1.9px solid black;
+  border-bottom-style: 1px solid black;
+  margin-bottom: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.signup-title {
+  padding: 10px;
+  background: linear-gradient(to right, #052f57, #0b82b1);
+  color: white;
+}
+
+@media screen and (max-width: 1000px) {
+  .signup-image >img {
+    display: none;
+  }
+
+  .input {
+    width: 90%;
+  }
+
+  .register-form {
+     margin: auto;
+   float: left;
+   width: 98%;
+ }
+ .signup{
+    width: 90%;
+ }
 }

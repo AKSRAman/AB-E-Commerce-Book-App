@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book.model';
+import { BookServices } from '../books/book.services';
 
 @Component({
   selector: 'app-cart',
@@ -8,13 +9,26 @@ import { Book } from '../book.model';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  constructor(  private bookService: BookServices) { }
 
-  ngOnInit(): void {
-  }
+  allBooks: Book[] = [{
+    addedOn: "",
+    author: "",
+    category: "",
+    description: "",
+    id: "",
+    imageUrl: "",
+    pages: 0,
+    price: 0,
+    publishDate: "",
+    rating: 0,
+    title: "",
+    updatedOn: "",
+  },];
+
   singleBook:Book={
     addedOn: "",
-      authors: "bobby",
+      author: "bobby",
       category: "history",
       description: "my book",
       id: "",
@@ -26,5 +40,18 @@ export class CartComponent implements OnInit {
       title: "booby boiograpy",
       updatedOn: "fvsghdntj",
   };
+
+  ngOnInit(): void {
+    this.getBooksData();
+  }
+
+  getBooksData() {
+    this.bookService.getAllBooks().subscribe((res) => {
+      console.log(res.bookList);
+      this.allBooks=res.bookList;
+
+    });
+
+  }
 
 }
