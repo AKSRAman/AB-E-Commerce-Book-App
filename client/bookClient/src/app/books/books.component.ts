@@ -48,6 +48,9 @@ export class BooksComponent implements OnInit {
 
     });
 
+
+  }
+
     startSlideshow() {
       this.imgSrc = this.images[5];
       let counter = 0;

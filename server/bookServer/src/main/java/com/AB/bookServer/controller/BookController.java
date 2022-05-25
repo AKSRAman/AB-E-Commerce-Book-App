@@ -1,7 +1,11 @@
 package com.AB.bookServer.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -48,4 +53,29 @@ public class BookController {
 	public Response deleteBookById(@PathVariable ObjectId id) {
 		return bookOperation.deleteBook(id);
 	}
+	
+	@GetMapping("/books/page")
+	public Map<String,Object>getAllBookInPage(@RequestParam (name="pageno", defaultValue="0") int pageNo,
+	        @RequestParam(name="pagesize",defaultValue="1")int pageSize,
+	        @RequestParam(name="sortby",defaultValue="id")String sortBy){
+	    return bookOperation.getAllBookInPage(pageNo, pageSize, sortBy);
+	    }
+	
+	@GetMapping("/books/search")
+	public ResponseEntity<?>getBooksBySearch(@RequestParam (name="val", defaultValue="l") String val){
+//			@RequestParam (name="pageno", defaultValue="0") int pageNo,
+//	        @RequestParam(name="pagesize",defaultValue="1")int pageSize,
+//	        @RequestParam(name="sortby",defaultValue="id")String sortBy){pageNo, pageSize, sortBy
+		try {
+		    List<Book> books = bookOperation.getBooksBySearch(val);
+		   
+		    return new ResponseEntity<>(books,HttpStatus.OK);
+		}
+		catch(Exception e) {
+			 return new ResponseEntity<>(e.getMessage(),HttpStatus.OK);
+		}
+	}
+	
+	
+
 }
