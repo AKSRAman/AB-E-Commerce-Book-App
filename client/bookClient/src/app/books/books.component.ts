@@ -47,9 +47,7 @@ export class BooksComponent implements OnInit {
       this.allBooks=res.bookList;
 
     });
-<<<<<<< Updated upstream
-=======
-  }
+
     startSlideshow() {
       this.imgSrc = this.images[5];
       let counter = 0;
@@ -63,7 +61,9 @@ export class BooksComponent implements OnInit {
   }
   
 
->>>>>>> Stashed changes
+
 
   }
+
+  
 
