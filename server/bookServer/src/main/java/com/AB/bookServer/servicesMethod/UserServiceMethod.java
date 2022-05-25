@@ -91,7 +91,7 @@ public class UserServiceMethod implements UserService {
 			Response data = new Response(true, "Success", findUserResponse.get());
 			return data;
 		}
-		Response data = new Response(false, "failed");
+		Response data = new Response(false,"failed");
 		return data;
 	}
 	
