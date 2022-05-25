@@ -1,6 +1,24 @@
-<div id=""></div>
+<div class="cart-main">
+    <div class="cart-list">
+        <div class="cart-cover">
+            <div class="cart-product" *ngFor="let book of allBooks">
+                <div class="cart-product-image">
+                    <img src="{{book.imageUrl}}" />
+                </div>
+                <div class="cart-product-details">
+                    {{book.author}}
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    <div class="cart-total">
+        right
+    </div>
+</div>
 
-<div class="container">
+
+<!-- <div class="container">
 
     <div class="flex">
       
@@ -21,7 +39,7 @@
             </div>
         </div>
 
-        <!-- Content Div -->
+     
         <div class="col-lg mainBox m-3">
 
             <div>
@@ -55,4 +73,4 @@
 
 </div>
 
-
+ -->

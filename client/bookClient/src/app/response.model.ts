@@ -3,7 +3,7 @@
     message: string,
     bookList: [{
       addedOn: "",
-      authors: "",
+      author: "",
       category: "",
       description: "",
       id: "",
@@ -22,7 +22,7 @@
     message: string,
     bookList: {
       addedOn: "",
-      authors: "",
+      author: "",
       category: "",
       description: "",
       id: "",

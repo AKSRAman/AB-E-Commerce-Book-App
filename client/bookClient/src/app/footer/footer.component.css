@@ -1,0 +1,137 @@
+.footer-main {
+  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.footer-cover {
+  display: flex;
+  flex-direction: column;
+  height: 91vh;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0084ff;
+  height: 60%;
+}
+/* #fe4066 */
+.footer-bottom {
+  margin: auto;
+  padding-top: 1%;
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-heading h1 {
+  font-size: 45px;
+  color: white;
+}
+
+.footer-text {
+  margin-top: 1%;
+  font-size: 20px;
+  color: white;
+}
+
+.footer-button a {
+  display: inline-block;
+  height: 56px;
+  line-height: 56px;
+  margin: 70px auto 0;
+  font-size: 16px;
+  padding: 0 34px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  color: #0084ff;
+}
+
+.footer-bottom-box {
+  padding: 15px;
+  border-radius: 5px;
+  width: 15%;
+}
+
+.footer-bottom-box h3 {
+  font-size: 18px;
+  color: #5c5758;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.footer-bottom-box ul {
+  font-size: 14px;
+  color: #8c8889;
+  list-style: none;
+}
+
+.footer-bottom-bar {
+  background: linear-gradient(to right, #14152e, #065579);
+  color: #ffffff;
+  border-top: 1px solid gray;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 60px;
+}
+
+.footer-bottom-bar-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.footer-bottom-bar-text > div {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-top {
+    align-items: center;
+    text-align: center;
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  .footer-bottom {
+    margin: auto;
+    padding-top: 1%;
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .footer-bottom-bar {
+    padding-top: 5px;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+  }
+
+  .footer-bottom-bar-text {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .footer-bottom-bar-text > div {
+   padding: 10px;
+  }
+}

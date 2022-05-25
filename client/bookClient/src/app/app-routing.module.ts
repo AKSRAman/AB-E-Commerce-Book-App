@@ -13,9 +13,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'admin', component:  AdminComponent},
   { path: 'auth', component: AuthComponent },
-  { path: 'profile', component: AuthComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '**', component: NotFoundComponent }
-  
 ];
 
 @NgModule({

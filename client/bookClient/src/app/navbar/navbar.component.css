@@ -1,14 +1,28 @@
 .navbar {
-  height: 75px;
-  margin-left: -10px;
-  margin-right: -10px;
-  margin-top: -10px;
+  z-index: 1;
+  position: fixed;
+  height: 72px;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px;
+  align-items: center;
   background: linear-gradient(to right, #14152e, #065579);
+  width: 100%;
+  transition: 0.3s;
+}
+
+.topBar {
+  z-index: 1;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #0084ff, #0084ff);
+  width: 100%;
+  margin: auto;
 }
 
 .nav-logo {
@@ -55,10 +69,10 @@
 }
 
 .nav-left {
-  /* border: 1px solid white; */
   display: flex;
-  width: 45%;
+  width: 20%;
   justify-content: space-around;
+  align-items: center;
   margin-left: 5px;
 }
 
@@ -70,12 +84,18 @@
 }
 
 .nav-right {
-  /* border: 1px solid white; */
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-right: 20px;
+  margin-right: 15px;
+}
+
+.top-bar-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .top {
@@ -89,24 +109,31 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  min-width: 25%;
+  /* min-width: 25%; */
   padding: 8px;
   border-radius: 8px;
   transition: 0.3s;
   cursor: pointer;
 }
 
-.nav-item:hover {
+/* .nav-item:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
   border: 1px solid #c4c4c4;
-}
+} */
 
 .nav-item > a {
   color: white;
   text-decoration: none;
   font-size: 20px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding-left: 4px;
+}
+
+.nav-item-left > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search {
@@ -166,22 +193,20 @@
   font-size: 27px;
 }
 
-
 .visibility {
-    display: none;
-  }
-
+  display: none;
+}
 
 @media screen and (max-width: 600px) {
-    .navbar {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 10px;
-        background: linear-gradient(to right, #14152e, #065579);
-      }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    background: linear-gradient(to right, #14152e, #065579);
+  }
 
-.search {
+  .search {
     width: 40%;
     border: 1px solid #c4c4c4;
     display: flex;

@@ -10,7 +10,7 @@ export class AdminbookComponent implements OnInit {
   allBooks: Book[] = [
     {
       addedOn: '',
-      authors: '',
+      author: '',
       category: '',
       description: '',
       id: '',
@@ -27,7 +27,7 @@ export class AdminbookComponent implements OnInit {
   constructor(private bookServices: BookServices) {}
   tempBook: Book = {
     addedOn: '',
-    authors: '',
+    author: '',
     category: '',
     description: '',
     id: '',
