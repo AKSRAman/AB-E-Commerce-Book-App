@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
  <div class="container w-full mb-4  grid gap-4 grid-cols-2 " *ngIf="!editMode">
    <div class="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg" *ngFor="let book of allBooks; let i=index">
      <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
@@ -20,6 +21,29 @@
      </div>
    </div>
  </div>
+=======
+<div class="card-body"  *ngIf="!editMode">
+  <div class="card-wrap" *ngFor="let book of allBooks;let i=index">
+    <div class="card-header">
+      <img src="{{book.imageUrl}}"/>
+    </div>
+    <div class="card-content">
+      <h1 class="card-title">{{book.title}}</h1>
+      <div class="card-detail">
+        <p class="card-text">Author : {{book.author}} </p>
+        <p class="card-text">Price : {{book.price}}</p>
+      </div>
+      <div class="button">
+      <button type="submit"  class="card-btn"(click)="setEditMode(true,i)">Update</button>
+      <button type="submit" class="card-btn" (click)="deteteBook(book.id)">Delete</button>
+    </div>
+    </div>
+  </div>
+</div>
+ 
+ 
+ 
+>>>>>>> Stashed changes
  <div *ngIf="editMode" class="flex flex:1 ml-10">
   <div class="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg w-full">
    <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"

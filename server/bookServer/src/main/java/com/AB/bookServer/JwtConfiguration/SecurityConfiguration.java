@@ -48,8 +48,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	// 	httpSecurity.csrf().disable().authorizeRequests().antMatchers("/user/login","/user/addNewUser","/user/getCookies","/books").permitAll().anyRequest()
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
+<<<<<<< Updated upstream
 
 		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/user/login","/user/addNewUser","/books","/books/page","/books/search").permitAll().anyRequest()
+=======
+		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/user/login","/user/addNewUser","/user/getUser","/books","/books/page","/books/search").permitAll().anyRequest()
+>>>>>>> Stashed changes
 				.authenticated()
 				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.addFilterBefore(myFilter, UsernamePasswordAuthenticationFilter.class);

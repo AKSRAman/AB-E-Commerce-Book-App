@@ -93,11 +93,12 @@
   </form>
 </div> -->
 
-<div class="signup-main">
+
+<div class="signup-main"*ngIf="!isLogin" >
   <div class="signup">
       <div class="signup-content">
        
-        <h2 class="signup-title"> SIGN UP </h2>
+        <h2 class="signup-title">  <p>Already have Account <span (click)="onSwitchMode()">Login here?</span></p></h2>
         <br />
         <br />
         <div class="signup-form">
@@ -143,6 +144,53 @@
             <div class="try-submit">
               <button type="submit" [disabled]="!authForm.valid">Login
               </button>
+              <button class="form-submit" type="button" (click)="onSwitchMode()"> Switch Log in
+              </button>
+            </div>
+            
+          </form>
+
+          <div class="signup-image">
+          
+              <img alt="signUp" src="../../assets/images/signUp.jpg" />
+           
+          </div>
+
+        </div>
+      </div>
+    </div>
+  
+</div>
+<div class="signup-main">
+  <div class="signup">
+      <div class="signup-content">
+       
+        <h2 class="signup-title">  <p>Dont have Account <span (click)="onSwitchMode()">Sign Up here?</span></p> </h2>
+        <br />
+        <br />
+        <div class="signup-form">
+          <form class="register-form" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+
+            
+            <br />
+            <div>
+              <label htmlFor="email">
+                <i class="zmdi zmdi-email">&nbsp;&nbsp;&nbsp;</i>
+              </label>
+              <input class="input" type="email" ngModel name="email" required email placeholder="Email" />
+            </div>
+            <br />
+          <div>
+              <label htmlFor="cpassword">
+                <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
+              </label>
+              <input class="input" type="password" id="password" ngModel name="password" required placeholder="Password"
+                minlength="6" />
+            </div>
+
+            <div class="try-submit">
+              <button type="submit" [disabled]="!authForm.valid">Login
+              </button>
               <button class="form-submit" type="button" (click)="onSwitchMode()"> Switch Sign Up
               </button>
             </div>
@@ -160,6 +208,8 @@
     </div>
   
 </div>
+
+
 
 
 <!-- <div class="login" *ngIf="!isLogin">
