@@ -43,10 +43,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
-
+// "/user/getUser"
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
+<<<<<<< Updated upstream
 		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/user/login","/user/addNewUser","/user/getUser","/books/page","/books/search").permitAll().anyRequest()
+=======
+		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/user/login","/user/addNewUser","/user/getCookies","/books").permitAll().anyRequest()
+>>>>>>> Stashed changes
 				.authenticated()
 				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.addFilterBefore(myFilter, UsernamePasswordAuthenticationFilter.class);

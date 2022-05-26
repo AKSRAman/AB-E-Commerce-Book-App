@@ -1,6 +1,7 @@
 package com.AB.bookServer.controller;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.bson.types.ObjectId;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,6 +50,17 @@ public class UserController {
 		return ResponseEntity.ok(jwt.getAllClaimsFromToken(token));
 	}
 	
+	@GetMapping("/getCookies")
+	public ResponseEntity<?> getCookies(HttpServletRequest req, HttpServletResponse res) {
+//		System.out.println(req.getCookies());
+//		System.out.println("amanKumarCookies");
+		Cookie cookie = new Cookie("name", "aman");
+		cookie.setHttpOnly(true);
+		res.addCookie(cookie);
+		//res.addHeader("jwtToken", "");
+		return ResponseEntity.ok(req.getCookies());
+	}
+	
 	@PostMapping("/addNewUser")
 	public ResponseEntity<?> addNewUser(@RequestBody User userData) {
 		Response data = userOperation.saveUser(userData);
@@ -58,7 +71,12 @@ public class UserController {
 	}
 
 	@GetMapping("/getUser")
-	public ResponseEntity<?> getUserDetails() {
+	public ResponseEntity<?> getUserDetails(@RequestHeader(value="Authorization") String token, HttpServletResponse res) {
+		System.out.println(token);
+		System.out.println("amanKumarToken");
+		Cookie cookie = new Cookie("jwttoken", "aman");
+		cookie.setHttpOnly(true);
+		res.addCookie(cookie);
 		return ResponseEntity.ok(userOperation.getUser());
 	}
 
@@ -73,6 +91,7 @@ public class UserController {
 		User userFound = userRepo.findByEmail(user.getEmail());
 		String token = jwt.generateToken(userFound);
 		Cookie cookie = new Cookie("jwtToken", token);
+		cookie.setHttpOnly(true);
 		response.addCookie(cookie);
 		response.addHeader("jwtToken", token);
 		return new Response(true, "You have logged in successfully with emailId : " + user.getEmail(), token);

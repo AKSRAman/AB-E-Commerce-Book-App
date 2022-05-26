@@ -1,7 +1,7 @@
  <div class="container w-full mb-4  grid gap-4 grid-cols-2 " *ngIf="!editMode">
    <div class="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg" *ngFor="let book of allBooks; let i=index">
      <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
-       src="https://tse1.mm.bing.net/th?id=OIP.xhaezqi4_3sno_al35ypFwHaHa&pid=Api&P=0&w=180&h=180" alt="" />
+       src="{{book.imageUrl}}" alt="" />
      <div class="p-6 flex flex-col justify-start">
        <h5 class="text-gray-900 text-xl font-medium mb-2">{{book.title}}</h5>
        <p class="text-gray-700 text-base mb-4 ">{{book.description}}
@@ -38,3 +38,70 @@
     </div>
   </div>
 </div>
+
+<ol class="featured-list">
+	<li>
+		<div>
+			<span>01</span>
+			<span class="div"></span>
+			<span>STEP</span>
+		</div>
+		<div>
+			<h2>Conduct market research</h2>
+			<span>Market research will tell you if there’s an opportunity to turn your idea into a successful business. </span>
+		</div>
+		<div><span class="div"></span>
+			<span class="material-symbols-rounded">
+				lightbulb
+			</span>
+		</div>
+	</li>
+	<li>
+		<div>
+			<span>02</span>
+			<span class="div"></span>
+			<span>STEP</span>
+		</div>
+		<div>
+			<h2>Conduct market research</h2>
+			<span>Market research will tell you if there’s an opportunity to turn your idea into a successful business. </span>
+		</div>
+		<div><span class="div"></span>
+			<span class="material-symbols-rounded">
+				currency_exchange
+			</span>
+		</div>
+	</li>
+	<li>
+		<div>
+			<span>03</span>
+			<span class="div"></span>
+			<span>STEP</span>
+		</div>
+		<div>
+			<h2>Conduct market research</h2>
+			<span>Market research will tell you if there’s an opportunity to turn your idea into a successful business. </span>
+		</div>
+		<div><span class="div"></span>
+			<span class="material-symbols-rounded">
+				query_stats
+			</span>
+		</div>
+	</li>
+	<li>
+		<div>
+			<span>04</span>
+			<span class="div"></span>
+			<span>STEP</span>
+		</div>
+		<div>
+			<h2>Conduct market research</h2>
+			<span>Market research will tell you if there’s an opportunity to turn your idea into a successful business. </span>
+		</div>
+		<div><span class="div"></span>
+			<span class="material-symbols-rounded">
+				schema
+			</span>
+		</div>
+	</li>
+</ol>

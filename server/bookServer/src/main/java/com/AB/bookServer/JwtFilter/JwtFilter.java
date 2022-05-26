@@ -33,6 +33,12 @@ public class JwtFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws ServletException, IOException {
 		String requestTokenHeader = request.getHeader("Authorization");
+		String requestTokenHeader2 = request.getHeader("x-api-key");
+		System.out.println("open");
+		System.out.println(requestTokenHeader);
+		System.out.println("mid");
+		System.out.println(requestTokenHeader2);
+		System.out.println("close");
 		String username = null;
 		String jwtToken = null;
 		if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
