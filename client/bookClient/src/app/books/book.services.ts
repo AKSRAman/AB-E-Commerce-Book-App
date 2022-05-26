@@ -19,9 +19,19 @@ export class BookServices {
   getAllBooks() {
     return this.http.get<AllBookResponse>(this.baseurl);
   }
+
   deleteBook(id: string | null) {
-    return this.http.delete<Comman>(this.baseurl + id);
+    let token: any = localStorage.getItem("jwtToken");
+    token = JSON.parse(token);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'x-api-key': "I am coming from frontend",
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    return this.http.delete<Comman>(this.baseurl + "/" + id,httpOptions);
   }
+
   addNewBook(newBook: Book) {
     return this.http.post<SingleBookResponse>(this.baseurl, newBook).subscribe(res => { console.log("Book Added Successfully") });;
   }
@@ -30,23 +40,22 @@ export class BookServices {
   }
 
   getUser(): Observable<any> {
+    let token: any = localStorage.getItem("jwtToken");
+    token = JSON.parse(token);
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        // 'Access-Control-Allow-Origin': 'http://localhost:4200',
-        // 'Access-Control-Allow-Methods': 'GET',
         'x-api-key': "I am coming from frontend",
-        // 'Accept': '*/*',
-        'authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWFua3VtYXJAZ21haWwuY29tIiwibmFtZSI6IkFtYW4gS3VtYXIiLCJleHAiOjE2NTM1NTEzMjksInVzZXJJZCI6IjYyOGQyNDE3MDMxNGIyNzZhMTI5YzFmMyIsImlhdCI6MTY1MzUzMzMyOX0.Lx25mi2Z6lDjftxXN3trBdGV7ZP9POiDj6MFCoc_jRBsi7c9ER-gNYrScw8J8lKuLPs36EQFCPbpibVTMIdTFw'
+        'Authorization': `Bearer ${token}`
       })
     };
-
-    // HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "Your Oauth token");
-
     return this.http.get("http://localhost:8080/user/getUser", httpOptions);
   }
-
   getCookies() {
     return this.http.get("http://localhost:8080/user/getCookies");
   }
+
 }
+
+
+// const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWFua3VtYXJAZ21haWwuY29tIiwibmFtZSI6IkFtYW4gS3VtYXIiLCJleHAiOjE2NTM1NzA4ODYsInVzZXJJZCI6IjYyOGQyNDE3MDMxNGIyNzZhMTI5YzFmMyIsImlhdCI6MTY1MzU1Mjg4Nn0.NZ3BEKp6eLK5zsKn3DV2g14FgslJrw_orSvR5EEb0HsTklH9GM_5FFVTJjIP8LBQ6C7fYGGllKmtzutHqHrJ7g');
+// return this.http.get("http://localhost:8080/user/getUser", { headers });

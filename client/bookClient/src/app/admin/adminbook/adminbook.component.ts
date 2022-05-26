@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BookServices } from 'src/app/books/book.services';
+import { HomeServices } from 'src/app/home/home.service';
 import { Book } from '../../book.model';
 @Component({
   selector: 'app-adminbook',
@@ -24,7 +26,8 @@ export class AdminbookComponent implements OnInit {
     },
   ];
   editMode = false;
-  constructor(private bookServices: BookServices) {}
+  isAdmin = false;
+  constructor(private bookServices: BookServices, private homeService: HomeServices, private router: Router) { }
   tempBook: Book = {
     addedOn: '',
     author: '',
@@ -41,6 +44,7 @@ export class AdminbookComponent implements OnInit {
   };
   ngOnInit(): void {
     this.getBooksData();
+    this.fetchUserData()
   }
 
   getBooksData() {
@@ -61,10 +65,27 @@ export class AdminbookComponent implements OnInit {
     this.bookServices.updateBook(this.tempBook);
     alert(`Book with id ${this.tempBook.id} updated successfuly`);
   }
+
   deteteBook(id: string | null) {
     this.bookServices.deleteBook(id).subscribe((res) => {
       this.getBooksData();
-      alert(res);
+      console.log(res)
     });
+  }
+
+  fetchUserData() {
+    this.homeService.fetchUser().subscribe((res: any) => {
+      console.log(res, "admin"), this.validateAdmin(res)
+    });
+  }
+
+  validateAdmin(input: any) {
+    if (input.user.role == "admin") {
+      this.isAdmin = true
+      alert(`Welcome Admin ${input.user.fullName}, currently you are at admin page`)
+    } else {
+      this.router.navigateByUrl('/books')
+      alert(`Hii ${input.user.fullName} You are not admin`)
+    }
   }
 }

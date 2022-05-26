@@ -1,6 +1,8 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book.model';
 import { BookServices } from '../books/book.services';
+import { HomeServices } from '../home/home.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +11,21 @@ import { BookServices } from '../books/book.services';
 })
 export class CartComponent implements OnInit {
 
-  constructor(  private bookService: BookServices) { }
+  // constructor(private homeService: HomeServices) { }
+
+  // ngOnInit(): void {
+  //   this.fetchUserData()
+  // }
+
+  // fetchUserData() {
+  //   this.homeService.fetchUser().subscribe((res: any) => {
+  //     this.assignValue(res);
+  //   });
+  // }
+
+  constructor(private bookService: BookServices, private homeService: HomeServices, private http: HttpClient) { }
+
+  totalPrice: number = 0
 
   allBooks: Book[] = [{
     addedOn: "",
@@ -26,32 +42,68 @@ export class CartComponent implements OnInit {
     updatedOn: "",
   },];
 
-  singleBook:Book={
+  singleBook: Book = {
     addedOn: "",
-      author: "bobby",
-      category: "history",
-      description: "my book",
-      id: "",
-      imageUrl: "fwbgrehntjmyfhghdtnfj",
-      pages: 1011,
-      price:11110,
-      publishDate: "",
-      rating: 0,
-      title: "booby boiograpy",
-      updatedOn: "fvsghdntj",
+    author: "bobby",
+    category: "history",
+    description: "my book",
+    id: "",
+    imageUrl: "fwbgrehntjmyfhghdtnfj",
+    pages: 1011,
+    price: 11110,
+    publishDate: "",
+    rating: 0,
+    title: "booby boiograpy",
+    updatedOn: "fvsghdntj",
   };
+
+  userId: string = ""
 
   ngOnInit(): void {
     this.getBooksData();
+    this.fetchUserData();
   }
 
   getBooksData() {
     this.bookService.getAllBooks().subscribe((res) => {
       console.log(res.bookList);
-      this.allBooks=res.bookList;
-
+      this.allBooks = res.bookList;
     });
-
   }
 
+  fetchUserData() {
+    this.homeService.fetchUser().subscribe((res: any) => {
+      this.assignValue(res);
+    });
+  }
+
+  assignValue(res: any) {
+    console.log(res, "cart")
+    this.allBooks = res.user.booksCart
+    this.userId = res.user.id
+    this.totalCalculator(this.allBooks)
+  }
+
+  removeItem(index: number) {
+    let token: any = localStorage.getItem("jwtToken");
+    token = JSON.parse(token);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'x-api-key': "I am coming from frontend",
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    this.http.delete(`http://localhost:8080/user/removeFromCart/${index}`, httpOptions).subscribe({
+      next: (response) => { console.log(response), this.fetchUserData() }, error: (error) => { console.log(error); alert("There is some error item could not be removed") },
+    });
+  }
+
+
+  totalCalculator(arr: any) {
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+      total += arr[i].price
+    }
+    this.totalPrice = total
+  }
 }

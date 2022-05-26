@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeServices } from '../home/home.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  id: string = ""
+  name: string = "";
+  email: string = ""
+  mobile: number = 0
+  address: string = ""
 
-  constructor() { }
+  constructor(private homeService: HomeServices) { }
 
   ngOnInit(): void {
+    this.fetchUserData()
+  }
+
+  fetchUserData() {
+    this.homeService.fetchUser().subscribe((res: any) => {
+      this.assignValue(res);
+    });
+  }
+
+  assignValue(obj: any) {
+    console.log(obj.user, "profile")
+    this.id = obj.user.id
+    this.name = obj.user.fullName;
+    this.email = obj.user.email;
+    this.mobile = obj.user.mobNumber;
+    this.address = obj.user.address;
   }
 
 }

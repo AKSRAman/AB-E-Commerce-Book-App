@@ -15,7 +15,7 @@ public class User {
 	@Id
 	private String id;
 	
-	private String role;
+	private String role="user";
 	
 	private String fullName;
 	

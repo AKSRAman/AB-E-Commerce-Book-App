@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book.model';
 
@@ -34,7 +35,7 @@ export class BooksComponent implements OnInit {
     updatedOn: "",
   },];
 
-  constructor(private bookService: BookServices) { }
+  constructor(private bookService: BookServices, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getBooksData();
@@ -62,22 +63,37 @@ export class BooksComponent implements OnInit {
     }, 2000)
   }
 
-
-
-  
-
   getUserData() {
     this.bookService.getUser().subscribe((res: any) => {
-      console.log(res,"Yess i am coming from protected route");
+      console.log(res, "Yess i am coming from protected route");
     });
- }
+  }
+
+  onEdit() {
+    window.scrollTo(0, 0);
+  }
+
+  addInCart(book: Book) {
+    let token: any = localStorage.getItem("jwtToken");
+    token = JSON.parse(token);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'x-api-key': "I am coming from frontend",
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    this.http.post('http://localhost:8080/user/addToCart', book, httpOptions)
+      .subscribe({
+        next: (response) => console.log(response), error: (error) => console.log(error),
+      });
+  }
 
 
 
-// getMyCookie(){
-//   this.bookService.getCookies().subscribe((res) => {
-//     console.log(res,"yes cookiesFound");
-//   });
-// }
+  // getMyCookie(){
+  //   this.bookService.getCookies().subscribe((res) => {
+  //     console.log(res,"yes cookiesFound");
+  //   });
+  // }
 
 }

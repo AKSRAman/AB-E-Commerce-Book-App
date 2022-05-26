@@ -1,19 +1,19 @@
 <div class="signup-main" *ngIf="!isLogin">
   <div class="signup">
     <div class="signup-content">
-      <h2 class="signup-title" >
+      <h2 class="signup-title">
         <p>Already have Account <span (click)="onSwitchMode()">Login here?</span></p>
       </h2>
       <br />
       <br />
       <div class="signup-form">
-        <form class="register-form" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+        <form class="register-form" #authForm="ngForm" (ngSubmit)="onRegistraion(authForm)">
           <br />
           <div>
             <label htmlFor="name">
               <i class="zmdi zmdi-account">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input class="input" type="text" ngModel name="name" required minlength="3" placeholder="Name" />
+            <input class="input" type="text" ngModel name="fullName" required minlength="3" placeholder="Name" />
           </div>
           <br />
           <div>
@@ -43,12 +43,13 @@
               <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
             </label>
             <input class="input" type="password" id="password" ngModel name="password" required placeholder="Password"
-              minlength="6" />
+              minlength="5" />
           </div>
 
           <div class="try-submit">
             <button type="submit" [disabled]="!authForm.valid">Login
             </button>
+            <br />
             <button class="form-submit" type="button" (click)="onSwitchMode()"> Switch Log in
             </button>
           </div>
@@ -75,7 +76,7 @@
       <br />
       <br />
       <div class="signup-form">
-        <form class="register-form" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+        <form class="register-form" #authForm="ngForm" (ngSubmit)="onLogin(authForm)">
           <br />
           <div>
             <label htmlFor="email">
@@ -89,7 +90,7 @@
               <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
             </label>
             <input class="input" type="password" id="password" ngModel name="password" required placeholder="Password"
-              minlength="6" />
+              minlength="5" />
           </div>
 
           <div class="try-submit">

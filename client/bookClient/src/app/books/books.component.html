@@ -12,7 +12,8 @@
         <p class="card-text">Author : {{book.author}} </p>
         <p class="card-text">Price : {{book.price}}</p>
       </div>
-      <button class="card-btn">View</button>
+      <button class="card-btn" (click)="onEdit()">View</button>
+      <button class="card-btn" (click)="addInCart(book)">Add to Cart</button>
     </div>
   </div>
 </div>

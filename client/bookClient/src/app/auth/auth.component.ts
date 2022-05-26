@@ -8,18 +8,30 @@ import { AuthServices } from './auth.services';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
- isLogin=true;
-  constructor(private auth:AuthServices) { }
+
+  isLogin = true;
+
+  constructor(private auth: AuthServices) { }
 
   ngOnInit(): void {
+
   }
-  
-  onSwitchMode(){
-    this.isLogin=!this.isLogin;
+
+  onSwitchMode() {
+    this.isLogin = !this.isLogin;
   }
-  
-  onSubmit(form:NgForm){
-   this.auth.login(form)
+
+  onLogin(form: NgForm) {
+    console.log(form.value,"amanform login")
+    this.auth.userLogin(form.value)
     form.reset();
   }
+
+  onRegistraion(form: NgForm) {
+    console.log(form.value,"amanform register")
+    this.auth.userRegister(form.value)
+    form.reset();
+  }
+
+
 }
