@@ -16,7 +16,7 @@ import { NgForm } from "@angular/forms";
     constructor(private http: HttpClient) {
     }
   login(form:NgForm){
-      this.http.post(this.baseurl,form.value);
+      this.http.post(this.baseurl,form.value)
   }
 
 
