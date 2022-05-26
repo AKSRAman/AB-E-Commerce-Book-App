@@ -35,7 +35,7 @@ export class BookServices {
         'Content-Type': 'application/json',
         // 'Access-Control-Allow-Origin': 'http://localhost:4200',
         // 'Access-Control-Allow-Methods': 'GET',
-        'x-api-key': "aman api key",
+        'x-api-key': "I am coming from frontend",
         // 'Accept': '*/*',
         'authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWFua3VtYXJAZ21haWwuY29tIiwibmFtZSI6IkFtYW4gS3VtYXIiLCJleHAiOjE2NTM1NTEzMjksInVzZXJJZCI6IjYyOGQyNDE3MDMxNGIyNzZhMTI5YzFmMyIsImlhdCI6MTY1MzUzMzMyOX0.Lx25mi2Z6lDjftxXN3trBdGV7ZP9POiDj6MFCoc_jRBsi7c9ER-gNYrScw8J8lKuLPs36EQFCPbpibVTMIdTFw'
       })

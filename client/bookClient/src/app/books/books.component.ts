@@ -40,7 +40,7 @@ export class BooksComponent implements OnInit {
     this.getBooksData();
     this.startSlideshow();
     this.getUserData();
-    this.getMyCookie();
+    // this.getMyCookie();
   }
 
   getBooksData() {
@@ -62,36 +62,22 @@ export class BooksComponent implements OnInit {
     }, 2000)
   }
 
-<<<<<<< Updated upstream
 
-  }
 
-    startSlideshow() {
-      this.imgSrc = this.images[5];
-      let counter = 0;
-      setInterval(() => {
-          if (counter == this.images.length) {
-              counter = 0;
-          }
-          this.imgSrc = this.images[counter]
-          counter++;
-      }, 2000)
-=======
+  
+
   getUserData() {
-    this.bookService.getUser().subscribe((res) => {
+    this.bookService.getUser().subscribe((res: any) => {
       console.log(res,"Yess i am coming from protected route");
     });
->>>>>>> Stashed changes
-  }
+ }
 
-getMyCookie(){
-  this.bookService.getCookies().subscribe((res) => {
-    console.log(res,"yes cookiesFound");
-  });
+
+
+// getMyCookie(){
+//   this.bookService.getCookies().subscribe((res) => {
+//     console.log(res,"yes cookiesFound");
+//   });
+// }
+
 }
-
-
-}
-
-
-
