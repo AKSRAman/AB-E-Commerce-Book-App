@@ -17,6 +17,7 @@ import { AdminbookComponent } from './admin/adminbook/adminbook.component';
 import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
 import { FooterComponent } from './footer/footer.component';
+import { SingleBookComponent } from './single-book/single-book.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { FooterComponent } from './footer/footer.component';
     AdminbookComponent,
     AuthComponent,
     FooterComponent,
+    SingleBookComponent,
    
 
   ],

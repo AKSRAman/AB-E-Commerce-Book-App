@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthComponent } from './auth/auth.component';
+import { SingleBookComponent } from './single-book/single-book.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'books', component: BooksComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'admin', component:  AdminComponent},
   { path: 'auth', component: AuthComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'single', component: SingleBookComponent},
   { path: '**', component: NotFoundComponent }
 ];
 
