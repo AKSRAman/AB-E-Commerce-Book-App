@@ -1,29 +1,48 @@
 <div class="signup-main">
-    <div class="signup">
-        <div class="signup-content">
-         
-          <h2 class="signup-title"> Product Description </h2>
-          <br />
-          <br />
-          <div class="signup-form">
-            <div class="signup-image">
+  <div class="signup">
+    <div class="signup-content">
+      <h2 class="signup-title">Product Description</h2>
+      <br />
+      <br />
+      <div class="signup-form">
+        <div class="signup-image">
+          <img alt="signUp" src="{{ book.imageUrl }}" />
+        </div>
+        <div class="details">
+          <form class="register-form" #authForm="ngForm">
+            <br />
+            <div>
+        
+                {{ book.title}}
             
-                <img alt="signUp" src="{{book.imageUrl}}" />
-             
             </div>
-              <div class="details">
-               <h2>{{book.title}}</h2>
-               <h3>{{book.description}}</h3>
-               <h3>{{book.author}}</h3>
-               <h1>{{book.price}}</h1>
-              </div>
-              
-          
-  
+          <br/>
+            <div>
+               {{ book.description }}
            
-          </div>
+            </div>
+            <br />
+            <div>
+           
+            {{ book.author}}
+            
+            </div>
+            <br />
+            <div>
+                {{ book.price}}
+            </div>
+            <br />
+            <div>
+                {{ book.pages}}
+            </div>
+
+            <div class="try-submit">
+              <button type="submit" [disabled]="!authForm.valid">Add To Cart</button>
+              <button type="button">Buy Now</button>
+            </div>
+          </form>
         </div>
       </div>
-    
+    </div>
   </div>
-  
+</div>

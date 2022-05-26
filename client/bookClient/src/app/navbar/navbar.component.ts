@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HostListener } from '@angular/core';
-
+import { fromEvent, Observable } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
+import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

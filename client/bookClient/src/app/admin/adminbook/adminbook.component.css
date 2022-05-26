@@ -1,140 +1,3 @@
-<<<<<<< Updated upstream
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
-
-body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: "Montserrat", sans-serif;
-	background-color: #cacbcd;
-}
-
-:root {
-	--material-orange: #ff5722;
-}
-
-.featured-list {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	flex-direction: column;
-	list-style-type: none;
-	padding: 0;
-	max-width: 500px;
-}
-
-.featured-list li {
-	display: flex;
-	justify-content: flex-start;
-	align-items: stretch;
-	flex-direction: row;
-	background-color: #dddee0;
-	position: relative;
-	border-radius: 16px;
-	overflow: hidden;
-	box-shadow: 4px 5px 10px 0 #a3a3a3;
-	cursor: pointer;
-	margin: 0.6em 0;
-}
-
-.featured-list li::before {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	content: " ";
-	box-shadow: 0 0 0 2px #f5f5f576 inset;
-	border-radius: 16px;
-}
-
-.featured-list li > div {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	flex-direction: row;
-	padding: 0 0.8em;
-}
-
-.featured-list li > div:first-child {
-	position: relative;
-	z-index: 1;
-}
-
-.featured-list li > div:first-child::before {
-	position: absolute;
-	background: rgb(131, 60, 38);
-	background: linear-gradient(
-		90deg,
-		rgba(221, 72, 25, 1) 0%,
-		rgba(255, 87, 34, 1) 60%
-	);
-	content: " ";
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	border-top-right-radius: 48px;
-	border-bottom-right-radius: 48px;
-	box-shadow: 1px 0 4px #3e3e3ed9;
-}
-
-/*
-    .featured-list li>div:first-child::after {
-      position: absolute;
-      background-color: var(--material-orange);
-      content: ' ';
-      aspect-ratio: 1;
-      height: 100%;
-      top: 0;
-      left: 50%;
-      transform: rotate(45deg);
-      z-index: -1;
-    }
-
-*/
-.featured-list li > div:nth-child(2) {
-	flex: 1;
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	flex-direction: column;
-	padding: 0.4em;
-}
-
-.featured-list li > div:first-child span {
-	font-size: 32px;
-	color: #fafafa;
-	font-weight: lighter;
-	opacity: 0.9;
-	margin: 0 0.2em;
-}
-
-.featured-list li > div:nth-child(2) h2 {
-	font-size: 14px;
-}
-
-.featured-list li > div:nth-child(2) span {
-	font-size: 11px;
-}
-
-.featured-list li > div:last-child span {
-	font-size: 48px;
-	color: var(--material-orange);
-}
-
-.featured-list span.div {
-	width: 1px;
-	height: 80%;
-	background: rgb(255, 255, 255);
-	background: linear-gradient(
-		0deg,
-		rgba(255, 255, 255, 0) 0%,
-		rgba(117, 117, 117, 1) 50%,
-		rgba(255, 255, 255, 0) 100%
-	);
-	opacity: 0.8;
-=======
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 * {
   margin: 0px;
@@ -210,13 +73,114 @@ body {
   text-transform: uppercase;
 }
 
- .button{
-     display:flex;
-    justify-content:space-between;
- }
-
-
+.button {
+  display: flex;
+  justify-content: space-between;
+}
 
 @media only screen and (max-width: 768px) {
->>>>>>> Stashed changes
+}
+
+.signup-main {
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-form {
+  display: flex;
+  justify-content: center;
+  gap: 4%;
+}
+
+.signup {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgb(219, 197, 197);
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  height: 70vh;
+  width: 75%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.details {
+  width: 60%;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+}
+
+.signup-image {
+  justify-content: center;
+  width: 25%;
+  height: auto;
+
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.signup-image img {
+  width: 100%;
+}
+.try-submit {
+  display:flex;
+  gap: 10%;
+  
+  justify-content:center;
+}
+.try-submit > button {
+  margin-top: 20px;
+  background-color: rgb(0, 204, 255);
+  border: none;
+  border-radius: 100px;
+  padding: 5px 30px;
+  color: white;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.input {
+  /* border: 2px solid rgb(224, 238, 35); */
+  height: 25px;
+  font-size: 17px;
+  border: 1px solid #052f57;
+  width: 85%;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom: 1.9px solid black;
+  border-bottom-style: 1px solid black;
+  margin-bottom: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.signup-title {
+  padding: 10px;
+  background: linear-gradient(to right, #052f57, #0b82b1);
+  color: white;
+}
+
+@media screen and (max-width: 1000px) {
+  .signup-image > img {
+    display: none;
+  }
+
+  .signup {
+    width: 90%;
+  }
 }

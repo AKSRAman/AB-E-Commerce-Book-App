@@ -6,9 +6,14 @@
     justify-content: center;
     align-items: center;
   }
+  .signup-form{
+     
+      display: flex;
+      justify-content: center;
+      gap:4%;
+  }
   
   .signup {
-    /* border: 2px solid rgb(121, 233, 76); */
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -23,47 +28,40 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
       rgba(0, 0, 0, 0.22) 0px 15px 12px;
   }
+  .details {
+      width: 60%;
+  }
+
   
   .register-form {
     display: flex;
     flex-direction: column;
-    /* border: 2px solid rgb(123, 50, 240); */
-    float: left;
-    width: 55%;
-    /* width: 55%; */
+    width: 100%;
     text-align: center;
     height: 100%;
   }
   
   .signup-image {
-    display: flex;
-    justify-content: center;
-    /* border: 2px solid rgb(211, 48, 36); */
-    margin-top: 50px;
-    float: right;
-    width: 45%;
-    text-align: center;
-    height: 100%;
-  }
-  
-  .form-submit {
-    /* border: 2px solid rgb(15, 173, 173); */
-    display: flex;
-    text-transform: uppercase;
-    font-size: 15px;
-    border-radius: 25px;
-    color: white;
-    padding: 8px 40px;
-    background: linear-gradient(to right, #ab1dcf, #f80759);
+    
+    justify-content: center; 
+    width: 25%;
+    height:auto;
+    
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-      rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    margin: auto;
-    outline: none;
-    /* border: none; */
-    cursor: pointer;
-    transition: all 0.1s;
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
   }
-  
+
+  .signup-image img {
+    width: 100%;
+  }
+  .try-submit>button{
+    margin-top:5%;
+   padding:2%;
+   border-radius:10% ;
+    background: #0084ff;
+     width:20%;
+  }
+ 
   .input {
     /* border: 2px solid rgb(224, 238, 35); */
     height: 25px;
@@ -88,19 +86,25 @@
     color: white;
   }
   
+ 
+  
   @media screen and (max-width: 1000px) {
     .signup-image >img {
       display: none;
     }
-  
     
-  
-    .details{
-       margin: auto;
-    border:2 px solid black;
-   }
    .signup{
       width: 90%;
    }
   }
-  
+  .try-submit > button {
+    margin-top: 20px;
+    width: 30%;
+    background-color: rgb(0, 204, 255);
+    border: none;
+    border-radius: 100px;
+    padding: 5px 30px;
+    color: white;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
