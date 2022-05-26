@@ -4,16 +4,17 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .signup {
+  margin-top: 50px;
   /* border: 2px solid rgb(121, 233, 76); */
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid rgb(219, 197, 197);
+  /* border: 1px solid rgb(237, 238, 247); */
   color: black;
   text-align: center;
   border-radius: 10px;
@@ -83,6 +84,7 @@ input:focus {
 }
 
 .signup-title {
+  cursor: pointer;
   padding: 10px;
   background: linear-gradient(to right, #052f57, #0b82b1);
   color: white;

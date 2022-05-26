@@ -1,212 +1,116 @@
-<!-- <div class="login" *ngIf="isLogin">
-  <p>Login To Your Account</p>
-  <p>Dont have Account <span (click)="onSwitchMode()">Sign Up here?</span></p>
-  <div class="custom">Continue With Google</div>
-  <div class="custom">Continue With FaceBook</div>
-  <div class="custom">continue With Twiter</div>
-  <p>or</p>
-  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
-    <div>
-      <input
-        type="text"
-        ngModel
-        name="name"
-        required
-        minlength="3"
-        placeholder="Name"
-      />
-    </div>
-    <div>
-      <input
-        type="email"
-        ngModel
-        name="email"
-        required
-        email
-        placeholder="Email Id"
-      />
-    </div>
-    <div>
-      <input
-        type="number"
-        ngModel
-        name="mobNumber"
-        required
-        minlength="10"
-        maxlength="10"
-        placeholder="Email Id"
-      />
-    </div>
-    <div>
-      <input 
-        type="text"
-        ngModel
-        name="address"
-        required
-        minlength="3"
-        placeholder="Address"
-      />
-    </div>
-
-    <div>
-      <input
-        type="password"
-        id="password"
-        ngModel
-        name="password"
-        required
-        placeholder="Password"
-        minlength="6"
-      />
-    </div>
-    <div>
-      <button type="submit" [disabled]="!authForm.valid">Login
-       </button>|
-      <button type="button" (click)="onSwitchMode()"> Switch Sign Up
-      </button>
-    </div>
-  </form>
-</div> -->
-
-<!-- <div class="login" *ngIf="!isLogin">
-  <p> Create New Account </p>
-  <p>Already have account <span (click)="onSwitchMode()"> login here?</span></p>
-  <div class="custom">Continue With Google</div>
-  <div class="custom">Continue With FaceBook</div>
-  <div class="custom">continue With Twiter</div>
-  <p>or</p>
-  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
-    <div>
-      <input type="text" ngModel name="name" required minlength="3" placeholder="Name" />
-    </div>
-    <div>
-      <input type="email" ngModel name="email" required email placeholder="Email Id" />
-    </div>
-    <div>
-      <input type="password" id="password" ngModel name="password" required placeholder="Password" minlength="6" />
-    </div>
-    <div>
-      <button type="submit" [disabled]="!authForm.valid">Sign Up</button>|
-      <button type="button" (click)="onSwitchMode()"> Switch Login Up
-      </button>
-    </div>
-  </form>
-</div> -->
-
-
-<div class="signup-main"*ngIf="!isLogin" >
+<div class="signup-main" *ngIf="!isLogin">
   <div class="signup">
-      <div class="signup-content">
-       
-        <h2 class="signup-title">  <p>Already have Account <span (click)="onSwitchMode()">Login here?</span></p></h2>
-        <br />
-        <br />
-        <div class="signup-form">
-          <form class="register-form" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
-            <br />
-            <div>
-              <label htmlFor="name">
-                <i class="zmdi zmdi-account">&nbsp;&nbsp;&nbsp;</i>
-              </label>
-              <input class="input" type="text" ngModel name="name" required minlength="3" placeholder="Name" />
-            </div>
-            <br />
-            <div>
-              <label htmlFor="email">
-                <i class="zmdi zmdi-email">&nbsp;&nbsp;&nbsp;</i>
-              </label>
-              <input class="input" type="email" ngModel name="email" required email placeholder="Email" />
-            </div>
-            <br />
-            <div>
-              <label htmlFor="phone">
-                <i class="zmdi zmdi-phone">&nbsp;&nbsp;&nbsp;</i>
-              </label>
-              <input class="input" type="number" ngModel name="mobNumber" required minlength="10" maxlength="10"
-                placeholder="Phone" />
-            </div>
-            <br />
-            <div>
-              <label htmlFor="work">
-                <i class="zmdi zmdi-slideshow">&nbsp;&nbsp;&nbsp;</i>
-              </label>
-              <input class="input" type="text" ngModel name="address" required minlength="3" placeholder="Address" />
-            </div>
-            <br />
-            <div>
-              <label htmlFor="cpassword">
-                <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
-              </label>
-              <input class="input" type="password" id="password" ngModel name="password" required placeholder="Password"
-                minlength="6" />
-            </div>
-
-            <div class="try-submit">
-              <button type="submit" [disabled]="!authForm.valid">Login
-              </button>
-              <button class="form-submit" type="button" (click)="onSwitchMode()"> Switch Log in
-              </button>
-            </div>
-            
-          </form>
-
-          <div class="signup-image">
-          
-              <img alt="signUp" src="../../assets/images/signUp.jpg" />
-           
-          </div>
-
-        </div>
-      </div>
-    </div>
-  
-</div>
-<div class="signup-main">
-  <div class="signup">
-      <div class="signup-content">
-       
-        <h2 class="signup-title">  <p>Dont have Account <span (click)="onSwitchMode()">Sign Up here?</span></p> </h2>
-        <br />
-        <br />
-        <div class="signup-form">
-          <form class="register-form" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
-
-            
-            <br />
-            <div>
-              <label htmlFor="email">
-                <i class="zmdi zmdi-email">&nbsp;&nbsp;&nbsp;</i>
-              </label>
-              <input class="input" type="email" ngModel name="email" required email placeholder="Email" />
-            </div>
-            <br />
+    <div class="signup-content">
+      <h2 class="signup-title" >
+        <p>Already have Account <span (click)="onSwitchMode()">Login here?</span></p>
+      </h2>
+      <br />
+      <br />
+      <div class="signup-form">
+        <form class="register-form" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+          <br />
           <div>
-              <label htmlFor="cpassword">
-                <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
-              </label>
-              <input class="input" type="password" id="password" ngModel name="password" required placeholder="Password"
-                minlength="6" />
-            </div>
-
-            <div class="try-submit">
-              <button type="submit" [disabled]="!authForm.valid">Login
-              </button>
-              <button class="form-submit" type="button" (click)="onSwitchMode()"> Switch Sign Up
-              </button>
-            </div>
-            
-          </form>
-
-          <div class="signup-image">
-          
-              <img alt="signUp" src="../../assets/images/signUp.jpg" />
-           
+            <label htmlFor="name">
+              <i class="zmdi zmdi-account">&nbsp;&nbsp;&nbsp;</i>
+            </label>
+            <input class="input" type="text" ngModel name="name" required minlength="3" placeholder="Name" />
+          </div>
+          <br />
+          <div>
+            <label htmlFor="email">
+              <i class="zmdi zmdi-email">&nbsp;&nbsp;&nbsp;</i>
+            </label>
+            <input class="input" type="email" ngModel name="email" required email placeholder="Email" />
+          </div>
+          <br />
+          <div>
+            <label htmlFor="phone">
+              <i class="zmdi zmdi-phone">&nbsp;&nbsp;&nbsp;</i>
+            </label>
+            <input class="input" type="number" ngModel name="mobNumber" required minlength="10" maxlength="10"
+              placeholder="Phone" />
+          </div>
+          <br />
+          <div>
+            <label htmlFor="work">
+              <i class="zmdi zmdi-slideshow">&nbsp;&nbsp;&nbsp;</i>
+            </label>
+            <input class="input" type="text" ngModel name="address" required minlength="3" placeholder="Address" />
+          </div>
+          <br />
+          <div>
+            <label htmlFor="cpassword">
+              <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
+            </label>
+            <input class="input" type="password" id="password" ngModel name="password" required placeholder="Password"
+              minlength="6" />
           </div>
 
+          <div class="try-submit">
+            <button type="submit" [disabled]="!authForm.valid">Login
+            </button>
+            <button class="form-submit" type="button" (click)="onSwitchMode()"> Switch Log in
+            </button>
+          </div>
+
+        </form>
+
+        <div class="signup-image">
+
+          <img alt="signUp" src="../../assets/images/signUp.jpg" />
+
         </div>
+
       </div>
     </div>
-  
+  </div>
+
+</div>
+<div class="signup-main" *ngIf="isLogin">
+  <div class="signup">
+    <div class="signup-content">
+      <h2 class="signup-title">
+        <p>Dont have Account <span (click)="onSwitchMode()">Sign Up here?</span></p>
+      </h2>
+      <br />
+      <br />
+      <div class="signup-form">
+        <form class="register-form" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+          <br />
+          <div>
+            <label htmlFor="email">
+              <i class="zmdi zmdi-email">&nbsp;&nbsp;&nbsp;</i>
+            </label>
+            <input class="input" type="email" ngModel name="email" required email placeholder="Email" />
+          </div>
+          <br />
+          <div>
+            <label htmlFor="cpassword">
+              <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
+            </label>
+            <input class="input" type="password" id="password" ngModel name="password" required placeholder="Password"
+              minlength="6" />
+          </div>
+
+          <div class="try-submit">
+            <button type="submit" [disabled]="!authForm.valid">Login
+            </button>
+            <button class="form-submit" type="button" (click)="onSwitchMode()"> Switch Sign Up
+            </button>
+          </div>
+
+        </form>
+
+        <div class="signup-image">
+
+          <img alt="signUp" src="../../assets/images/signUp.jpg" />
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </div>
 
 

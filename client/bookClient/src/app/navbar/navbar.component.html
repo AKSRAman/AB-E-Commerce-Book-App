@@ -12,7 +12,7 @@
 
     <div class="nav-right">
         <div class="search">
-             <!-- <input type="text" placeholder="Search..."(input)="debounce(main,1000)">  -->
+            <input type="text" placeholder="Search..." id="searchBox">
             <div class="search-button">
                 <button>
                     <span class="material-symbols-outlined">
@@ -20,7 +20,6 @@
                     </span>
                 </button>
             </div>
-           
         </div>
         <div class="nav-item">
             <a routerLink="/cart"><span class="material-symbols-outlined">
@@ -32,6 +31,9 @@
 <br>
 <br>
 <br>
+
+<div id="debounceDiv" ></div>
+
 <div class="topBar">
     <div class="top-bar-panel">
         <div class="nav-item">
@@ -54,14 +56,14 @@
 
         <div class="nav-item">
             <a routerLink="/admin"><span class="material-symbols-outlined">
-                library_books
+                    shopping_cart
                 </span> <span class="top">&nbsp;Admin</span></a>
         </div>
         <div class="nav-item">
             <a routerLink="/single"><span class="material-symbols-outlined">
                     shopping_cart
-                </span> <span class="top">&nbsp;Book D</span></a>
+                </span> <span class="top">&nbsp;book desc</span></a>
         </div>
     </div>
 </div>
-<div id="search_div" style="cursor: pointer;"></div>
+
