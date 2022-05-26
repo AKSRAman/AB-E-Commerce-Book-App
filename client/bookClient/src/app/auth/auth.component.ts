@@ -17,6 +17,7 @@ export class AuthComponent implements OnInit {
   onSwitchMode(){
     this.isLogin=!this.isLogin;
   }
+  
   onSubmit(form:NgForm){
    this.auth.login(form)
     form.reset();

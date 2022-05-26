@@ -57,7 +57,9 @@ public class UserController {
 		Cookie cookie = new Cookie("name", "aman");
 		cookie.setHttpOnly(true);
 		res.addCookie(cookie);
+		
 		//res.addHeader("jwtToken", "");
+		
 		return ResponseEntity.ok(req.getCookies());
 	}
 	
