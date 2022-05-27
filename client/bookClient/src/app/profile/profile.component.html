@@ -1,8 +1,48 @@
-<h1>Welcome {{name}}</h1>
 <br />
-<P>Your id : {{id}}</P>
-<P>Your name : {{name}}</P>
-<P>Your email : {{email}}</P>
-<P>Your mobile : {{mobile}}</P>
-<P>Your address : {{address}}</P>
+<br />
+<div class="profile">
+    <div class="profile-header">
+        <div class="profile-cover"
+            style="background-image: url('https://mpng.subpng.com/20180329/zue/kisspng-computer-icons-user-profile-person-5abd85306ff7f7.0592226715223698404586.jpg')">
+        </div>
+        <img class="profile-avatar"
+            src="https://mpng.subpng.com/20180329/zue/kisspng-computer-icons-user-profile-person-5abd85306ff7f7.0592226715223698404586.jpg"
+            alt="avatar" />
+        <h1 class="profile-fullname">{{name}}</h1>
+        <h2 class="profile-jobtitle">{{id}}</h2>
+    </div>
+
+    <div class="profile-main">
+        <div class="profile-content">
+            <div class="profile-subtitle">MESSAGE</div>
+            <p class="profile-detail">
+                Hii {{name}} hope you are doing well, Welcome to AB-Book-Store
+            </p>
+        </div>
+
+        <div class="profile-content">
+            <div class="profile-subtitle">DETAILS</div>
+            <div class="profile-detail">
+                <span class="material-symbols-outlined">
+                    home
+                </span> &nbsp; {{address}}
+            </div>
+            <div class="profile-detail">
+                <span class="material-symbols-outlined">
+                    call
+                </span> &nbsp; {{mobile}}
+            </div>
+            <div class="profile-detail">
+                <span class="material-symbols-outlined">
+                    mail
+                </span> &nbsp; {{email}}
+            </div>
+        </div>
+
+        <div class="profile-buttons">
+            <button class="welcome">Welcome</button>
+        </div>
+    </div>
+</div>
+<br />
 <br />
