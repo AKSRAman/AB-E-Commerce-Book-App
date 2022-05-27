@@ -5,14 +5,13 @@
   display: flex;
   justify-content: center;
 }
-
 .signup {
   margin-top: 50px;
+  border: 2px solid black;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: black;
   text-align: center;
   border-radius: 10px;
   position: absolute;
@@ -21,7 +20,6 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
-
 .register-form {
   display: flex;
   flex-direction: column;
@@ -30,7 +28,6 @@
   text-align: center;
   height: 100%;
 }
-
 .signup-image {
   display: flex;
   justify-content: center;
@@ -40,7 +37,6 @@
   text-align: center;
   height: 100%;
 }
-
 .form-submit {
   display: flex;
   text-transform: uppercase;
@@ -111,11 +107,9 @@ input:focus {
   .signup-image > img {
     display: none;
   }
-
   .input {
     width: 90%;
   }
-
   .register-form {
     margin: auto;
     float: left;

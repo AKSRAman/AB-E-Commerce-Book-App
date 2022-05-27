@@ -2,48 +2,98 @@
   <div class="signup">
     <div class="signup-content">
       <h2 class="signup-title">
+<<<<<<< Updated upstream
         <p>Already have Account ? &nbsp; <span (click)="onSwitchMode()">Login here</span></p>
+=======
+        <p>
+          Already have Account <span (click)="onSwitchMode()">Login here?</span>
+        </p>
+>>>>>>> Stashed changes
       </h2>
       <br />
       <br />
       <div class="signup-form">
-        <form class="register-form" #authForm="ngForm" (ngSubmit)="onRegistraion(authForm)">
+        <form
+          class="register-form"
+          #authForm="ngForm"
+          (ngSubmit)="onRegistraion(authForm)"
+        >
           <br />
           <div>
             <label htmlFor="name">
               <i class="zmdi zmdi-account">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input class="input" type="text" ngModel name="fullName" required minlength="3" placeholder="Name" />
+            <input
+              class="input"
+              type="text"
+              ngModel
+              name="fullName"
+              required
+              minlength="3"
+              placeholder="Name"
+            />
           </div>
           <br />
           <div>
             <label htmlFor="email">
               <i class="zmdi zmdi-email">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input class="input" type="email" ngModel name="email" required email placeholder="Email" />
+            <input
+              class="input"
+              type="email"
+              ngModel
+              name="email"
+              required
+              email
+              placeholder="Email"
+            />
           </div>
           <br />
           <div>
             <label htmlFor="phone">
               <i class="zmdi zmdi-phone">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input class="input" type="number" ngModel name="mobNumber" required minlength="10" maxlength="10"
-              placeholder="Phone" />
+            <input
+              class="input"
+              type="number"
+              ngModel
+              name="mobNumber"
+              required
+              minlength="10"
+              maxlength="10"
+              placeholder="Phone"
+            />
           </div>
           <br />
           <div>
             <label htmlFor="work">
               <i class="zmdi zmdi-slideshow">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input class="input" type="text" ngModel name="address" required minlength="3" placeholder="Address" />
+            <input
+              class="input"
+              type="text"
+              ngModel
+              name="address"
+              required
+              minlength="3"
+              placeholder="Address"
+            />
           </div>
           <br />
           <div>
             <label htmlFor="cpassword">
               <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input class="input" type="password" id="password" ngModel name="password" required placeholder="Password"
-              minlength="5" />
+            <input
+              class="input"
+              type="password"
+              id="password"
+              ngModel
+              name="password"
+              required
+              placeholder="Password"
+              minlength="5"
+            />
           </div>
 
           <div class="try-submit">
@@ -53,17 +103,14 @@
             <button class="form-switch" type="button" (click)="onSwitchMode()"> Switch Log in
             </button>
           </div>
-
         </form>
 
         <div class="signup-image">
           <img alt="signUp" src="../../assets/images/signUp.jpg" />
         </div>
-
       </div>
     </div>
   </div>
-
 </div>
 <div class="signup-main" *ngIf="isLogin">
   <div class="signup">
@@ -74,21 +121,41 @@
       <br />
       <br />
       <div class="signup-form">
-        <form class="register-form" #authForm="ngForm" (ngSubmit)="onLogin(authForm)">
+        <form
+          class="register-form"
+          #authForm="ngForm"
+          (ngSubmit)="onLogin(authForm)"
+        >
           <br />
           <div>
             <label htmlFor="email">
               <i class="zmdi zmdi-email">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input class="input" type="email" ngModel name="email" required email placeholder="Email" />
+            <input
+              class="input"
+              type="email"
+              ngModel
+              name="email"
+              required
+              email
+              placeholder="Email"
+            />
           </div>
           <br />
           <div>
             <label htmlFor="cpassword">
               <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input class="input" type="password" id="password" ngModel name="password" required placeholder="Password"
-              minlength="5" />
+            <input
+              class="input"
+              type="password"
+              id="password"
+              ngModel
+              name="password"
+              required
+              placeholder="Password"
+              minlength="5"
+            />
           </div>
 
           <div class="try-submit">
@@ -102,7 +169,6 @@
         <div class="signup-image">
           <img alt="signUp" src="../../assets/images/signUp.jpg" />
         </div>
-
       </div>
     </div>
   </div>

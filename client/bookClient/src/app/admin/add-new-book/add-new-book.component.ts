@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BookServices } from 'src/app/books/book.services';
 import { Book } from '../../book.model';
 
@@ -10,7 +11,8 @@ import { Book } from '../../book.model';
 })
 export class AddNewBookComponent implements OnInit {
 
-  constructor(private bookServices: BookServices) { }
+
+  constructor(private bookServices:BookServices ,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -29,9 +31,11 @@ export class AddNewBookComponent implements OnInit {
     updatedOn: "",
   }
 
-  addNewBook(form: NgForm) {
-    this.tempBook = form.value;
 
-    this.bookServices.addNewBook(this.tempBook);
+  addNewBook(){ 
+  this.bookServices.addNewBook(this.tempBook);
+this.router.navigate(['/admin/books'])
+
   }
+  
 }

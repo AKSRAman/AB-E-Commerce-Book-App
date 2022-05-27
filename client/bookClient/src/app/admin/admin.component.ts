@@ -9,9 +9,9 @@ import { BookServices } from '../books/book.services';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
+  
   constructor(private bookService: BookServices) { }
-
+  toggle:boolean=true;
   allBooks: Book[] = [{
     addedOn: "",
     author: "",
@@ -27,7 +27,10 @@ export class AdminComponent implements OnInit {
     updatedOn: "",
   },];
 
+  onClick(toggle:boolean){
+    this.toggle=toggle
 
+  }
   ngOnInit(): void {
     this.getBooksData
   }

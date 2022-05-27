@@ -1,28 +1,27 @@
 <div class="cart-main">
-    <div class="cart-list">
-        <div class="cart-cover">
-            <div class="cart-product" *ngFor="let book of allBooks ; index as i">
-                <div class="cart-product-image">
-                    <img src="{{book.imageUrl}}" />
-                </div>
-                <div class="cart-product-details">
-                    Sr. No. : {{i+1}}<br />
-                    Title : {{book.title}}<br />
-                    Description : {{book.description}} <br />
-                    Price : {{book.price}} Rupees<br />
-                    Author : {{book.author}} <br />
-                    Pages : {{book.pages}} <br />
-                    <button (click)="removeItem(i)">Remove</button>
-                </div>
-            </div>
+  <div class="cart-list">
+    <div class="cart-cover">
+      <div class="cart-product" *ngFor="let book of allBooks; index as i">
+        <div class="cart-product-image">
+          <img src="{{ book.imageUrl }}" />
         </div>
+        <div class="cart-product-details">
+          Sr. No. : {{ i + 1 }}<br />
+          Title : {{ book.title }}<br />
+          Description : {{ book.description }} <br />
+          Price : {{ book.price }} Rupees<br />
+          Author : {{ book.author }} <br />
+          Pages : {{ book.pages }} <br />
+          <button (click)="removeItem(i)">Remove</button>
+        </div>
+      </div>
     </div>
-    <div class="cart-total">
-        Total Items - {{allBooks.length}} <br />
-        Total Amount - {{totalPrice}}
-    </div>
+  </div>
+  <div class="cart-total">
+    Total Items - {{ allBooks.length }} <br />
+    Total Amount - {{ totalPrice }}
+  </div>
 </div>
-
 
 <!-- <div class="container">
 

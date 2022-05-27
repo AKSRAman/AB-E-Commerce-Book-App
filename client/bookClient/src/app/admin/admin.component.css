@@ -1,0 +1,21 @@
+.adminnavbar {
+  display: flex;
+  justify-content: space-around;
+  background: linear-gradient(to right, #052f57, #0b82b1);
+  height: 40px;
+  align-items: center;
+}
+
+.adminnavbar div {
+  display:block;
+  height: 40px;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  justify-content: center;
+}
+
+.adminnavbar div:hover {
+
+  border-bottom: 2px solid white;
+}

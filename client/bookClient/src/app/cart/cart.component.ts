@@ -7,7 +7,7 @@ import { HomeServices } from '../home/home.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
 
@@ -31,21 +31,21 @@ export class CartComponent implements OnInit {
   },];
 
   singleBook: Book = {
-    addedOn: "",
-    author: "bobby",
-    category: "history",
-    description: "my book",
-    id: "",
-    imageUrl: "fwbgrehntjmyfhghdtnfj",
+    addedOn: '',
+    author: 'bobby',
+    category: 'history',
+    description: 'my book',
+    id: '',
+    imageUrl: 'fwbgrehntjmyfhghdtnfj',
     pages: 1011,
     price: 11110,
-    publishDate: "",
+    publishDate: '',
     rating: 0,
-    title: "booby boiograpy",
-    updatedOn: "fvsghdntj",
+    title: 'booby boiograpy',
+    updatedOn: 'fvsghdntj',
   };
 
-  userId: string = ""
+  userId: string = '';
 
   ngOnInit(): void {
     this.fetchUserData();
@@ -70,32 +70,39 @@ export class CartComponent implements OnInit {
   }
 
   assignValue(res: any) {
-    console.log(res, "cart")
-    this.allBooks = res.user.booksCart
-    this.userId = res.user.id
-    this.totalCalculator(this.allBooks)
+    console.log(res, 'cart');
+    this.allBooks = res.user.booksCart;
+    this.userId = res.user.id;
+    this.totalCalculator(this.allBooks);
   }
 
   removeItem(index: number) {
-    let token: any = localStorage.getItem("jwtToken");
+    let token: any = localStorage.getItem('jwtToken');
     token = JSON.parse(token);
     const httpOptions = {
       headers: new HttpHeaders({
-        'x-api-key': "I am coming from frontend",
-        'Authorization': `Bearer ${token}`
-      })
+        'x-api-key': 'I am coming from frontend',
+        Authorization: `Bearer ${token}`,
+      }),
     };
-    this.http.delete(`http://localhost:8080/user/removeFromCart/${index}`, httpOptions).subscribe({
-      next: (response) => { console.log(response), this.fetchUserData() }, error: (error) => { console.log(error); alert("There is some error item could not be removed") },
-    });
+    this.http
+      .delete(`http://localhost:8080/user/removeFromCart/${index}`, httpOptions)
+      .subscribe({
+        next: (response) => {
+          console.log(response), this.fetchUserData();
+        },
+        error: (error) => {
+          console.log(error);
+          alert('There is some error item could not be removed');
+        },
+      });
   }
-
 
   totalCalculator(arr: any) {
     let total = 0;
     for (let i = 0; i < arr.length; i++) {
-      total += arr[i].price
+      total += arr[i].price;
     }
-    this.totalPrice = total
+    this.totalPrice = total;
   }
 }

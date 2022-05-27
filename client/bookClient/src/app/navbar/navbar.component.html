@@ -1,4 +1,5 @@
 <div class="navbar">
+<<<<<<< Updated upstream
     <div class="nav-left">
         <div class="nav-item-left">
             <a routerLink="/">
@@ -7,9 +8,21 @@
                 </div>
                 &nbsp; &nbsp;<h3>AB-Book Store</h3>
             </a>
+=======
+  <div class="nav-left">
+    <div class="nav-item-left">
+      <a routerLink="/">
+        <div class="nav-logo">
+          <img alt="img" src="../../assets/images/bookLogo.jpg" />
+>>>>>>> Stashed changes
         </div>
+        &nbsp; &nbsp;
+        <h3>AB-Book Store</h3>
+      </a>
     </div>
+  </div>
 
+<<<<<<< Updated upstream
     <div class="nav-right">
         <div class="search">
             <input type="text" placeholder="Search..." id="searchBox">
@@ -26,40 +39,62 @@
                     shopping_cart
                 </span><span class="top">&nbsp;cart</span> </a>
         </div>
+=======
+  <div class="nav-right">
+    <div class="search">
+      <input type="text" placeholder="Search..." id="searchBox" />
+      <div class="search-button">
+        <button>
+          <span class="material-symbols-outlined"> search </span>
+        </button>
+      </div>
     </div>
+    <div class="nav-item">
+      <a routerLink="/cart"
+        ><span class="material-symbols-outlined"> shopping_cart </span
+        ><span class="top">&nbsp;cart</span>
+      </a>
+>>>>>>> Stashed changes
+    </div>
+  </div>
 </div>
-<br>
-<br>
-<br>
+<br />
+<br />
+<br />
 
 <div id="debounceDiv"></div>
 
 <div class="topBar">
-    <div class="top-bar-panel">
-        <div class="nav-item">
-            <a routerLink="/books"><span class="material-symbols-outlined">
-                    library_books
-                </span><span class="top">&nbsp;Books</span> </a>
-        </div>
+  <div class="top-bar-panel">
+    <div class="nav-item">
+      <a routerLink="/books"
+        ><span class="material-symbols-outlined"> library_books </span
+        ><span class="top">&nbsp;Books</span>
+      </a>
+    </div>
 
-        <div class="nav-item">
-            <a routerLink="/profile"><span class="material-symbols-outlined">
-                    library_books
-                </span><span class="top">&nbsp;</span>Profile </a>
-        </div>
+    <div class="nav-item">
+      <a routerLink="/profile"
+        ><span class="material-symbols-outlined"> library_books </span
+        ><span class="top">&nbsp;</span>Profile
+      </a>
+    </div>
 
-        <div class="nav-item" *ngIf="loginStatus">
-            <a routerLink="/"><span class="material-symbols-outlined">
-                    account_circle
-                </span> <span class="top">&nbsp;LogOut</span></a>
-        </div>
+    <div class="nav-item" *ngIf="loginStatus">
+      <a routerLink="/"
+        ><span class="material-symbols-outlined"> account_circle </span>
+        <span class="top">&nbsp;LogOut</span></a
+      >
+    </div>
 
-        <div class="nav-item" *ngIf="!loginStatus">
-            <a routerLink="/auth"><span class="material-symbols-outlined">
-                    account_circle
-                </span> <span class="top">&nbsp;Login/SignUp</span></a>
-        </div>
+    <div class="nav-item" *ngIf="!loginStatus">
+      <a routerLink="/auth"
+        ><span class="material-symbols-outlined"> account_circle </span>
+        <span class="top">&nbsp;Login/SignUp</span></a
+      >
+    </div>
 
+<<<<<<< Updated upstream
         <div class="nav-item">
             <a routerLink="/admin"><span class="material-symbols-outlined">
                     shopping_cart
@@ -67,3 +102,19 @@
         </div>
     </div>
 </div>
+=======
+    <div class="nav-item">
+      <a routerLink="/admin"
+        ><span class="material-symbols-outlined"> shopping_cart </span>
+        <span class="top">&nbsp;Admin</span></a
+      >
+    </div>
+    <div class="nav-item">
+      <a routerLink="/single"
+        ><span class="material-symbols-outlined"> shopping_cart </span>
+        <span class="top">&nbsp;book desc</span></a
+      >
+    </div>
+  </div>
+</div>
+>>>>>>> Stashed changes
