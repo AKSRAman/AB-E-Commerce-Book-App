@@ -14,11 +14,29 @@ import { HomeServices } from '../home/home.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+<<<<<<< Updated upstream
   timerId: number = 1000;
 
   constructor(private homeService: HomeServices) { }
+=======
+  timerId: number =1000;
+ data:any;
+  constructor() { }
+>>>>>>> Stashed changes
 
   ngOnInit(): void {
+//     const searchBox = document.getElementById('searchBox') as HTMLInputElement;
+// const typeahead = fromEvent(searchBox, 'input').pipe(
+//   map(e => (e.target as HTMLInputElement).value),
+//   filter(text => text.length > 3),
+//   debounceTime(1000),
+//   distinctUntilChanged(),
+//   switchMap(searchTerm => ajax(`http://localhost:8080/books/search?=${searchTerm}`))
+// );
+// typeahead.subscribe(data => {
+//  this.data=data;
+//  console.log(data);
+// });
   }
   
   loginStatus: boolean = this.homeService.loginStatus

@@ -21,5 +21,7 @@ public interface BookService {
 	public Map<String, Object> getAllBookInPage(int pageNo, int pageSize, String sortBy);
 
 	public List<Book> getBooksBySearch(String val);
+
+	public Object getSingleBook(ObjectId id);
 	
 }

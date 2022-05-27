@@ -12,12 +12,21 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+<<<<<<< Updated upstream
+=======
+import org.springframework.data.mongodb.repository.Query;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+>>>>>>> Stashed changes
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.AB.bookServer.model.Book;
 import com.AB.bookServer.repository.BookRepository;
 import com.AB.bookServer.response.Response;
 import com.AB.bookServer.services.BookService;
+//import com.bobby.crud.model.Todo;
 
 @Service
 public class BookServiceMethod implements BookService {
@@ -37,19 +46,20 @@ public class BookServiceMethod implements BookService {
 		response.put("Current Page No.", bookPage.getNumber());
 		return response;
 	}
+
 	@Override
-	public  List<Book> getBooksBySearch(String val){
-		     List<Book> books0 = bookRepo.findByQueryInCategory(val);
-		
-		     List<Book> books1 =bookRepo.findByQueryInauthor(val);
-			
-		     List<Book> books2 = bookRepo.findByQueryInTitle(val);	
-		     books0.addAll(books1);
-		     System.out.println(books0);
-		     books0.addAll(books2);
-		     return books0;
+	public List<Book> getBooksBySearch(String val) {
+		List<Book> books0 = bookRepo.findByQueryInCategory(val);
+
+		List<Book> books1 = bookRepo.findByQueryInauthor(val);
+
+		List<Book> books2 = bookRepo.findByQueryInTitle(val);
+		books0.addAll(books1);
+		System.out.println(books0);
+		books0.addAll(books2);
+		return books0;
 	}
-	
+
 	@Override
 	public Response saveBook(Book book) {
 		try {
@@ -74,6 +84,17 @@ public class BookServiceMethod implements BookService {
 		List<Book> output = bookRepo.findIsDeleted();
 		if (!output.isEmpty()) {
 			Response data = new Response(true, "success", output);
+			return data;
+		}
+		Response data = new Response(false, "failed");
+		return data;
+	}
+
+	@Override
+	public Response getSingleBook(ObjectId id) {
+		Optional<Book> book = bookRepo.findById(id);
+		if (book.isPresent()) {
+			Response data = new Response(true, "success", book.get());
 			return data;
 		}
 		Response data = new Response(false, "failed");

@@ -50,9 +50,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.cors().disable();
 		httpSecurity.csrf().disable().authorizeRequests()
+<<<<<<< Updated upstream
 				.antMatchers("/user/login", "/user/", "/books", "/books/page", "/books/search").permitAll()
 				.antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
 				.anyRequest().authenticated().and().exceptionHandling().and().sessionManagement()
+=======
+				.antMatchers("/user/login", "/user/addNewUser", "/books", "/books/page", "/books/search","/books/{id}").permitAll()
+				.anyRequest().authenticated().and().sessionManagement()
+>>>>>>> Stashed changes
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.addFilterBefore(myFilter, UsernamePasswordAuthenticationFilter.class);
 	}
