@@ -26,7 +26,7 @@ export class HomeServices {
         const httpOptions = {
             headers: new HttpHeaders({
                 'x-api-key': "I am coming from frontend",
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWFua3VtYXJAZ21haWwuY29tIiwibmFtZSI6IkFtYW4gS3VtYXIiLCJleHAiOjE2NTM2NTY0NjgsInVzZXJJZCI6IjYyOGQyNDE3MDMxNGIyNzZhMTI5YzFmMyIsImlhdCI6MTY1MzYzODQ2OH0.c5XMyNkJOl_Kdsi6xk1JJqhWKuelqoYXHnrnnRJfSjL6KDKIEGLq8gvgShXZDhAtmnqABXR15KGrAYyhv6rgJA`
             })
         };
         return this.http.get("http://localhost:8080/user/fetchUser", httpOptions);

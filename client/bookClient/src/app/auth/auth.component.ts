@@ -32,6 +32,4 @@ export class AuthComponent implements OnInit {
     this.auth.userRegister(form.value)
     form.reset();
   }
-
-
 }
