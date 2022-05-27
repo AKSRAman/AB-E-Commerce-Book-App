@@ -32,13 +32,14 @@ public class JwtFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws ServletException, IOException {
-		String requestTokenHeader = request.getHeader("Authorization");
+		
 		String requestTokenHeader2 = request.getHeader("x-api-key");
-		System.out.println("open");
+		String requestTokenHeader = request.getHeader("Authorization");
+		System.out.println("filter open");
 		System.out.println(requestTokenHeader);
-		System.out.println("mid");
+		System.out.println("filter in mid");
 		System.out.println(requestTokenHeader2);
-		System.out.println("close");
+		System.out.println("filter close");
 		String username = null;
 		String jwtToken = null;
 		if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {

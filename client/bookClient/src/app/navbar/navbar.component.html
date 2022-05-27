@@ -48,7 +48,13 @@
                 </span><span class="top">&nbsp;</span>Profile </a>
         </div>
 
-        <div class="nav-item">
+        <div class="nav-item" *ngIf="loginStatus">
+            <a routerLink="/"><span class="material-symbols-outlined">
+                    account_circle
+                </span> <span class="top">&nbsp;LogOut</span></a>
+        </div>
+
+        <div class="nav-item" *ngIf="!loginStatus">
             <a routerLink="/auth"><span class="material-symbols-outlined">
                     account_circle
                 </span> <span class="top">&nbsp;Login/SignUp</span></a>

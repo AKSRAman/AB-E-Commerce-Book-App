@@ -20,7 +20,7 @@
   export interface SingleBookResponse {
     status: boolean,
     message: string,
-    bookList: {
+    book: {
       addedOn: "",
       author: "",
       category: "",

@@ -16,8 +16,19 @@ const routes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'single', component: SingleBookComponent},
-  { path: '**', component: NotFoundComponent }
-];
+  { path: '**', component: NotFoundComponent },
+
+
+//   {path:'books', component: SingleBookComponent,
+//   children: [
+//     {
+//       path: ':id', 
+//       component: SingleBookComponent,
+      
+//     }
+//   ]
+// }
+ ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

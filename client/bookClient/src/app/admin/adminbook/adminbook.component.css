@@ -1,9 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Montserrat", sans-serif;
+	background-color: #cacbcd;
+}
+
+:root {
+	--material-orange: #ff5722;
+}
+
+.featured-list {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	list-style-type: none;
+	padding: 0;
+	max-width: 500px;
+}
+
+.featured-list li {
+	display: flex;
+	justify-content: flex-start;
+	align-items: stretch;
+	flex-direction: row;
+	background-color: #dddee0;
+	position: relative;
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 4px 5px 10px 0 #a3a3a3;
+	cursor: pointer;
+	margin: 0.6em 0;
+}
+
+.featured-list li::before {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: " ";
+	box-shadow: 0 0 0 2px #f5f5f576 inset;
+	border-radius: 16px;
+}
+
+.featured-list li > div {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+	padding: 0 0.8em;
+}
+
+.featured-list li > div:first-child {
+	position: relative;
+	z-index: 1;
+}
+
+.featured-list li > div:first-child::before {
+	position: absolute;
+	background: rgb(131, 60, 38);
+	background: linear-gradient(
+		90deg,
+		rgba(221, 72, 25, 1) 0%,
+		rgba(255, 87, 34, 1) 60%
+	);
+	content: " ";
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	border-top-right-radius: 48px;
+	border-bottom-right-radius: 48px;
+	box-shadow: 1px 0 4px #3e3e3ed9;
+}
+
+/*
+    .featured-list li>div:first-child::after {
+      position: absolute;
+      background-color: var(--material-orange);
+      content: ' ';
+      aspect-ratio: 1;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      transform: rotate(45deg);
+      z-index: -1;
+    }
+*/
+.featured-list li > div:nth-child(2) {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: column;
+	padding: 0.4em;
+}
+
+.featured-list li > div:first-child span {
+	font-size: 32px;
+	color: #fafafa;
+	font-weight: lighter;
+	opacity: 0.9;
+	margin: 0 0.2em;
+}
+
+.featured-list li > div:nth-child(2) h2 {
+	font-size: 14px;
+}
+
+.featured-list li > div:nth-child(2) span {
+	font-size: 11px;
+}
+
+.featured-list li > div:last-child span {
+	font-size: 48px;
+	color: var(--material-orange);
+}
+
+.featured-list span.div {
+	width: 1px;
+	height: 80%;
+	opacity: 0.8;
+	background: rgb(255, 255, 255);
+	background: linear-gradient(
+		0deg,
+		rgba(255, 255, 255, 0) 0%,
+		rgba(117, 117, 117, 1) 50%,
+		rgba(255, 255, 255, 0) 100%
+	)
+}
+/* =======
+
+>>>>>>> Stashed changes
+=======
+>>>>>>> 50933604db89d3b7209d297b27bd466ce670ca67
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-}
+} */
 
 .card-body {
   padding-top: 4%;

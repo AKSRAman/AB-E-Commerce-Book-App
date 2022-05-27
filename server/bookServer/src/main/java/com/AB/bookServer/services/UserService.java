@@ -12,10 +12,12 @@ public interface UserService {
 
 	public Response getUser();
 
+	public Response fetchUser(String token);
+	
 	public Response updateUser(ObjectId id, User inputContactData);
 	
-	public Response addInCart(ObjectId userid,Book book);
+	public Response addInCart(String token,Book book);
 	
-	public Response removeFromCart(ObjectId userid,int i);
+	public Response removeFromCart(String token,int i);
 	
 }

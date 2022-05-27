@@ -7,6 +7,8 @@ import com.AB.bookServer.model.Review;
 import com.AB.bookServer.model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import io.jsonwebtoken.Claims;
+
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Response {
 
@@ -19,6 +21,7 @@ public class Response {
 	private List<User> userList;
 	private List<Review> reviewList;
 	private String token;
+	private Claims claim;
 	
 	public Response(Boolean status, String message) {
 		this.setStatus(status);
@@ -65,6 +68,12 @@ public class Response {
 		this.setStatus(status);
 		this.setMessage(message);
 		this.setToken(token);
+	}
+	
+	public Response(Boolean status, String message, Claims claim) {
+		this.setStatus(status);
+		this.setMessage(message);
+		this.setClaim(claim);
 	}
 	
 //	public Response(Boolean status, String message, List<User> userList) {
@@ -142,6 +151,14 @@ public class Response {
 
 	public void setReview(Review review) {
 		this.review = review;
+	}
+
+	public Claims getClaim() {
+		return claim;
+	}
+
+	public void setClaim(Claims claim) {
+		this.claim = claim;
 	}
 	
 }
