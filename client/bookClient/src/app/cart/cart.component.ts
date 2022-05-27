@@ -11,18 +11,6 @@ import { HomeServices } from '../home/home.service';
 })
 export class CartComponent implements OnInit {
 
-  // constructor(private homeService: HomeServices) { }
-
-  // ngOnInit(): void {
-  //   this.fetchUserData()
-  // }
-
-  // fetchUserData() {
-  //   this.homeService.fetchUser().subscribe((res: any) => {
-  //     this.assignValue(res);
-  //   });
-  // }
-
   constructor(private bookService: BookServices, private homeService: HomeServices, private http: HttpClient) { }
 
   totalPrice: number = 0
@@ -60,7 +48,6 @@ export class CartComponent implements OnInit {
   userId: string = ""
 
   ngOnInit(): void {
-    this.getBooksData();
     this.fetchUserData();
   }
 
@@ -72,6 +59,11 @@ export class CartComponent implements OnInit {
   }
 
   fetchUserData() {
+    let token: any = localStorage.getItem("jwtToken");
+    token = JSON.parse(token);
+    if (!token) {
+      return
+    }
     this.homeService.fetchUser().subscribe((res: any) => {
       this.assignValue(res);
     });

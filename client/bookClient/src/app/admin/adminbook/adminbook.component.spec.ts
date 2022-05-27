@@ -8,9 +8,9 @@ describe('AdminbookComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminbookComponent ]
+      declarations: [AdminbookComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

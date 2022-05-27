@@ -10,28 +10,28 @@ import { Book } from '../../book.model';
 })
 export class AddNewBookComponent implements OnInit {
 
-  constructor(private bookServices:BookServices) { }
+  constructor(private bookServices: BookServices) { }
 
   ngOnInit(): void {
   }
-  tempBook:Book={
+  tempBook: Book = {
     addedOn: "",
-      author: "",
-      category: "",
-      description: "",
-      id: "",
-      imageUrl: "",
-      pages: 0,
-      price: 0,
-      publishDate: "",
-      rating: 0,
-      title: "",
-      updatedOn: "",
+    author: "",
+    category: "",
+    description: "",
+    id: "",
+    imageUrl: "",
+    pages: 0,
+    price: 0,
+    publishDate: "",
+    rating: 0,
+    title: "",
+    updatedOn: "",
   }
 
-  addNewBook(form:NgForm){
-    this.tempBook=form.value;
-  
- this.bookServices.addNewBook(this.tempBook);
+  addNewBook(form: NgForm) {
+    this.tempBook = form.value;
+
+    this.bookServices.addNewBook(this.tempBook);
   }
 }

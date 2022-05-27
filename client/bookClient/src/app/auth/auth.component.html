@@ -2,7 +2,7 @@
   <div class="signup">
     <div class="signup-content">
       <h2 class="signup-title">
-        <p>Already have Account <span (click)="onSwitchMode()">Login here?</span></p>
+        <p>Already have Account ? &nbsp; <span (click)="onSwitchMode()">Login here</span></p>
       </h2>
       <br />
       <br />
@@ -47,19 +47,17 @@
           </div>
 
           <div class="try-submit">
-            <button type="submit" [disabled]="!authForm.valid">Login
+            <button class="form-submit" type="submit" [disabled]="!authForm.valid"> Register
             </button>
             <br />
-            <button class="form-submit" type="button" (click)="onSwitchMode()"> Switch Log in
+            <button class="form-switch" type="button" (click)="onSwitchMode()"> Switch Log in
             </button>
           </div>
 
         </form>
 
         <div class="signup-image">
-
           <img alt="signUp" src="../../assets/images/signUp.jpg" />
-
         </div>
 
       </div>
@@ -71,7 +69,7 @@
   <div class="signup">
     <div class="signup-content">
       <h2 class="signup-title">
-        <p>Dont have Account <span (click)="onSwitchMode()">Sign Up here?</span></p>
+        <p>Dont have Account ? &nbsp; <span (click)="onSwitchMode()">Sign Up here</span></p>
       </h2>
       <br />
       <br />
@@ -94,18 +92,15 @@
           </div>
 
           <div class="try-submit">
-            <button type="submit" [disabled]="!authForm.valid">Login
+            <button class="form-submit" type="submit" [disabled]="!authForm.valid"> Login
             </button>
-            <button class="form-submit" type="button" (click)="onSwitchMode()"> Switch Sign Up
+            <button class="form-switch" type="button" (click)="onSwitchMode()"> Switch Sign Up
             </button>
           </div>
-
         </form>
 
         <div class="signup-image">
-
           <img alt="signUp" src="../../assets/images/signUp.jpg" />
-
         </div>
 
       </div>
@@ -113,54 +108,3 @@
   </div>
 
 </div>
-
-
-
-
-<!-- <div class="login" *ngIf="!isLogin">
-  <p> Create New Account </p>
-  <p>Already have account <span (click)="onSwitchMode()"> login here?</span></p>
-  <div class="custom">Continue With Google</div>
-  <div class="custom">Continue With FaceBook</div>
-  <div class="custom">continue With Twiter</div>
-  <p>or</p>
-  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
-    <div>
-      <input
-        type="text"
-        ngModel
-        name="name"
-        required
-        minlength="3"
-        placeholder="Name"
-      />
-    </div>
-    <div>
-      <input
-        type="email"
-        ngModel
-        name="email"
-        required
-        email
-        placeholder="Email Id"
-      />
-    </div>
-    <div>
-      <input
-        type="password"
-        id="password"
-        ngModel
-        name="password"
-        required
-        placeholder="Password"
-        minlength="6"
-      />
-    </div>
-    <div>
-
-      <button type="submit" [disabled]="!authForm.valid">Sign Up</button>|
-      <button type="button" (click)="onSwitchMode()"> Switch Login Up
-      </button>
-    </div>
-  </form>
-</div> -->

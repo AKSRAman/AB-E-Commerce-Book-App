@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book.model';
-
 import { BookServices } from './book.services';
 
 @Component({
@@ -12,8 +11,8 @@ import { BookServices } from './book.services';
 })
 
 export class BooksComponent implements OnInit {
-  currentPage:number=0;
-  lastPage:number=0;
+  currentPage: number = 0;
+  lastPage: number = 0;
   imgSrc: string = "	https://rukminim2.flixcart.com/flap/3600/3600/image/b3fe381767050079.jpg?q=80"
   images: string[] = ["https://rukminim2.flixcart.com/flap/3600/3600/image/b3fe381767050079.jpg?q=80",
     "https://rukminim2.flixcart.com/flap/3600/3600/image/539e571efc670481.jpg?q=80",
@@ -23,6 +22,7 @@ export class BooksComponent implements OnInit {
     "https://rukminim2.flixcart.com/flap/3600/3600/image/b463578cd69b58e4.png?q=80",
     "https://rukminim2.flixcart.com/flap/3600/3600/image/7f5e1a6d7cf3e1eb.jpg?q=80",
   ]
+
   allBooks: Book[] = [{
     addedOn: "",
     author: "",
@@ -38,13 +38,12 @@ export class BooksComponent implements OnInit {
     updatedOn: "",
   },];
 
-  constructor(private bookService: BookServices, private http: HttpClient, private router:Router) { }
- 
+  constructor(private bookService: BookServices, private http: HttpClient, private router: Router) { }
+
   ngOnInit(): void {
     this.getBooksData();
     this.startSlideshow();
     this.getUserData();
-    // this.getMyCookie();
   }
 
   getBooksData() {
@@ -66,11 +65,17 @@ export class BooksComponent implements OnInit {
     }, 2000)
   }
 
-gotoSinglebook(id: string|null){
-  this.router.navigate(['single',{"id":id}])
-}
+  gotoSinglebook(id: string | null) {
+    this.router.navigate(['single', { "id": id }])
+  }
+
   getUserData() {
-    this.bookService.getUser().subscribe((res: any) => {
+    let token: any = localStorage.getItem("jwtToken");
+    token = JSON.parse(token);
+    if (!token) {
+      return
+    }
+    this.bookService.getUser().subscribe((res) => {
       console.log(res, "Yess i am coming from protected route");
     });
   }
@@ -82,6 +87,9 @@ gotoSinglebook(id: string|null){
   addInCart(book: Book) {
     let token: any = localStorage.getItem("jwtToken");
     token = JSON.parse(token);
+    if (!token) {
+      return;
+    }
     const httpOptions = {
       headers: new HttpHeaders({
         'x-api-key': "I am coming from frontend",

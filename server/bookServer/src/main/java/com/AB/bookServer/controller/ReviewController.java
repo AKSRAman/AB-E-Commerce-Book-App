@@ -21,13 +21,13 @@ import com.AB.bookServer.services.ReviewService;
 @RequestMapping("/review")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ReviewController {
-	
+
 	@Autowired
 	private ReviewService reviewOperation;
-	
+
 	@PostMapping("/saveReview/{bookId}")
-	public ResponseEntity<?> createReview(@PathVariable ObjectId bookId,@RequestBody Review reviewData) {
-		Response data = reviewOperation.saveReview(bookId,reviewData);
+	public ResponseEntity<?> createReview(@PathVariable ObjectId bookId, @RequestBody Review reviewData) {
+		Response data = reviewOperation.saveReview(bookId, reviewData);
 		if (data.getStatus() == true) {
 			return ResponseEntity.ok(data);
 		}
@@ -38,21 +38,21 @@ public class ReviewController {
 	public ResponseEntity<?> getAllReview() {
 		return ResponseEntity.ok(reviewOperation.getAllReviews());
 	}
-	
+
 	@GetMapping("/getReviews/{bookId}")
-	public ResponseEntity<?> getAllSpecifiedReview( @PathVariable ObjectId bookId) {
+	public ResponseEntity<?> getAllSpecifiedReview(@PathVariable ObjectId bookId) {
 		return ResponseEntity.ok(reviewOperation.getSpecificBookReviews(bookId));
 	}
-	
+
 	@PutMapping("/updateReview/{reviewId}")
-	public ResponseEntity<?> updateReview(@PathVariable ObjectId reviewId,@RequestBody Review reviewData) {
+	public ResponseEntity<?> updateReview(@PathVariable ObjectId reviewId, @RequestBody Review reviewData) {
 		Response data = reviewOperation.updateReview(reviewId, reviewData);
 		if (data.getStatus() == true) {
 			return ResponseEntity.ok(data);
 		}
 		return ResponseEntity.status(400).body(data);
 	}
-	
+
 	@DeleteMapping("/deleteReview")
 	public ResponseEntity<?> deleteReview(@PathVariable ObjectId reviewId) {
 		Response data = reviewOperation.deleteReview(reviewId);
@@ -61,5 +61,5 @@ public class ReviewController {
 		}
 		return ResponseEntity.status(400).body(data);
 	}
-	
+
 }

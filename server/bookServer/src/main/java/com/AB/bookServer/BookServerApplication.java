@@ -14,7 +14,8 @@ public class BookServerApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/*").allowedHeaders("*").allowedOrigins("http://localhost:8080").allowedMethods("*").allowCredentials(true);
+				registry.addMapping("/*").allowedHeaders("*").allowedOrigins("http://localhost:8080")
+						.allowedMethods("*").allowCredentials(true);
 			}
 		};
 	}

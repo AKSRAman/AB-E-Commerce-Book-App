@@ -1,9 +1,9 @@
-.home{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(to right, #8e9eab, #eef2f3);
-    color: white;
-    justify-content: center;
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
+  color: white;
+  justify-content: center;
 }

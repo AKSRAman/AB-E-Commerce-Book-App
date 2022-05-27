@@ -23,9 +23,9 @@ public class Book {
 
 	private String imageUrl;
 
-	private int pages = 50;
+	private int pages;
 
-	private int price = 25;
+	private int price;
 
 	private int reviews = 0;
 

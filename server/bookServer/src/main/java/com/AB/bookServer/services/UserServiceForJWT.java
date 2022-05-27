@@ -13,13 +13,14 @@ import com.AB.bookServer.repository.UserRepository;
 
 @Service
 public class UserServiceForJWT implements UserDetailsService {
-	
+
 	@Autowired
 	private UserRepository userRepo;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepo.findByEmail(username);
-		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
+		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
+				new ArrayList<>());
 	}
 }
