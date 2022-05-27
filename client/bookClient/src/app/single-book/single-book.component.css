@@ -6,7 +6,6 @@
   align-items: center;
 }
 
-
 .signup {
   border: 2px solid black;
   background-color: white;
@@ -29,8 +28,6 @@
   display: flex;
   justify-content: space-between;
   color: white;
-  border: 2px solid rgb(6, 25, 105);
-
 }
 
 .signup-content h2 {
@@ -39,23 +36,19 @@
 
 .details {
   width: 90%;
-  border: 2px solid rgb(185, 197, 16);
   height: auto;
 }
 
 .register-form {
-  border: 2px solid rgb(196, 106, 204);
   display: flex;
   flex-direction: column;
   width: 90%;
   justify-content: center;
   align-items: center;
   margin: auto;
-  /* height: auto; */
 }
 
 .main-details {
-  /* border: 2px solid rgb(26, 43, 121); */
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -79,7 +72,6 @@
 }
 
 .signup-image {
-  /* border: 2px solid rgb(156, 10, 10); */
   justify-content: center;
   width: 30%;
   height: auto;
@@ -90,7 +82,6 @@
 }
 
 .bottom-view {
-  border: 2px solid rgb(27, 156, 10);
   width: 100%;
   min-height: 65px;
   display: flex;
@@ -132,7 +123,6 @@
 }
 
 .signup-title {
-  /* border: 2px solid rgb(10, 146, 156); */
   padding: 10px;
   background: linear-gradient(to right, #052f57, #0b82b1);
   color: white;
@@ -146,8 +136,5 @@
   color: yellow;
 }
 
-
-
 @media screen and (max-width: 1000px) {
-  
 }

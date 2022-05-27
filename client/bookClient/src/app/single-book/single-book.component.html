@@ -13,7 +13,7 @@
 
             <div class="main-details">
               <h1>{{ book.title}}</h1>
-              
+
               <ul>
                 <li>
                   <span>Author :</span> {{ book.author}}
@@ -21,7 +21,7 @@
                 <li>
                   <span>Description :</span> {{ book.description }}
                 </li>
-              
+
                 <li>
                   <span>Price :</span> {{ book.price}} ₹
                 </li>
@@ -32,12 +32,13 @@
             </div>
 
             <div class="bottom-view">
-              <button class="addToCart" type="submit" [disabled]="!authForm.valid">Add To Cart</button>
+              <button class="addToCart" type="submit" (click)="addCart()" [disabled]="!authForm.valid">Add To
+                Cart</button>
               <button class="buyNow" type="button">Buy Now</button>
             </div>
             <br />
             <div class="bottom-view">
-             
+
               <button class="addToCart" type="button">Review This Book</button>
               <button class="viewReview" type="button">View Reviews</button>
               <!-- <p>	⭐	⭐	⭐	⭐	⭐</p> -->

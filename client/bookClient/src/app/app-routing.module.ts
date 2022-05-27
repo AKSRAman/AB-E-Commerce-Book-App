@@ -12,23 +12,12 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'books', component: BooksComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'admin', component:  AdminComponent},
+  { path: 'admin', component: AdminComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'single', component: SingleBookComponent},
+  { path: 'single', component: SingleBookComponent },
   { path: '**', component: NotFoundComponent },
-
-
-//   {path:'books', component: SingleBookComponent,
-//   children: [
-//     {
-//       path: ':id', 
-//       component: SingleBookComponent,
-      
-//     }
-//   ]
-// }
- ];
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

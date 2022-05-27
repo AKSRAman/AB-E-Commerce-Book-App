@@ -43,18 +43,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
-// "/user/getUser"
 
-	// httpSecurity.csrf().disable().authorizeRequests().antMatchers("/user/login","/user/addNewUser","/user/getCookies","/books").permitAll().anyRequest()
-	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.cors().disable();
 		httpSecurity.csrf().disable().authorizeRequests()
-				.antMatchers("/user/login", "/user/", "/books", "/books/page", "/books/search","/books/{id}").permitAll()
-				.antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
-				.anyRequest().authenticated().and().exceptionHandling().and().sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+				.antMatchers("/user/login", "/user/", "/books", "/books/page", "/books/search", "/books/{id}")
+				.permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated().and()
+				.exceptionHandling().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.addFilterBefore(myFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 }

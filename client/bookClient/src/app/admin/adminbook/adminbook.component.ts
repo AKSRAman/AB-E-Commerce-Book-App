@@ -62,8 +62,13 @@ export class AdminbookComponent implements OnInit {
   }
 
   updateBook() {
-    this.bookServices.updateBook(this.tempBook);
-    alert(`Book with id ${this.tempBook.id} updated successfuly`);
+    console.log(this.tempBook, "ss")
+    this.bookServices.updateBook(this.tempBook).subscribe((res) => {
+      this.getBooksData();
+      console.log(res, "updatebook")
+      this.editMode = false
+      alert(`The Book ${this.tempBook.title} with id ${this.tempBook.id} updated successfuly`);
+    });;
   }
 
   deteteBook(id: string | null) {
@@ -74,7 +79,7 @@ export class AdminbookComponent implements OnInit {
   }
 
   fetchUserData() {
-    this.homeService.fetchUser().subscribe((res: any) => {
+    this.homeService.fetchUser().subscribe((res) => {
       console.log(res, "admin"), this.validateAdmin(res)
     });
   }

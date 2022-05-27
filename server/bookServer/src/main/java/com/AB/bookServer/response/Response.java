@@ -22,66 +22,60 @@ public class Response {
 	private List<Review> reviewList;
 	private String token;
 	private Claims claim;
-	
+
 	public Response(Boolean status, String message) {
 		this.setStatus(status);
 		this.setMessage(message);
 	}
-	
+
 	public Response(Boolean status, String message, Book book) {
 		this.setStatus(status);
 		this.setMessage(message);
 		this.setBook(book);
 	}
-	
+
 	public Response(Boolean status, String message, User user) {
 		this.setStatus(status);
 		this.setMessage(message);
 		this.setUser(user);
 	}
-	
+
 	public Response(Boolean status, String message, Review review) {
 		this.setStatus(status);
 		this.setMessage(message);
 		this.setReview(review);
 	}
-	
+
 	public Response(Boolean status, String message, List<Book> bookList) {
 		this.setStatus(status);
 		this.setMessage(message);
 		this.setBookList(bookList);
 	}
-	
+
 	public Response(Boolean status, String message, List<User> userList, Boolean check) {
 		this.setStatus(status);
 		this.setMessage(message);
 		this.setUserList(userList);
 	}
-	
-	public Response(Boolean status, String message,Boolean check, List<Review> reviewList ) {
+
+	public Response(Boolean status, String message, Boolean check, List<Review> reviewList) {
 		this.setStatus(status);
 		this.setMessage(message);
 		this.setReviewList(reviewList);
 	}
-	
+
 	public Response(Boolean status, String message, String token) {
 		this.setStatus(status);
 		this.setMessage(message);
 		this.setToken(token);
 	}
-	
+
 	public Response(Boolean status, String message, Claims claim) {
 		this.setStatus(status);
 		this.setMessage(message);
 		this.setClaim(claim);
 	}
-	
-//	public Response(Boolean status, String message, List<User> userList) {
-//		this.setStatus(status);
-//		this.setMessage(message);
-//		this.setUserList(userList);
-//	}
-	
+
 	public Boolean getStatus() {
 		return status;
 	}
@@ -97,6 +91,7 @@ public class Response {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
 	public User getUser() {
 		return user;
 	}
@@ -120,7 +115,7 @@ public class Response {
 	public void setBookList(List<Book> bookList) {
 		this.bookList = bookList;
 	}
-	
+
 	public List<User> getUserList() {
 		return userList;
 	}
@@ -160,5 +155,5 @@ public class Response {
 	public void setClaim(Claims claim) {
 		this.claim = claim;
 	}
-	
+
 }

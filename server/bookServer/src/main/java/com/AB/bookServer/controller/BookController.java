@@ -26,63 +26,55 @@ import com.AB.bookServer.services.BookService;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class BookController {
-	
+
 	@Autowired
 	private BookService bookOperation;
-	
+
 	@PostMapping("/books")
 	public ResponseEntity<?> addNewBooks(@RequestBody Book book) {
 		Response output = bookOperation.saveBook(book);
-		if(output.getStatus()==true) {
+		if (output.getStatus() == true) {
 			return ResponseEntity.ok(output);
 		}
 		return ResponseEntity.status(400).body(output);
 	}
-	
-	
+
 	@GetMapping("/books")
 	public ResponseEntity<?> getAllBooks() {
 		return ResponseEntity.ok(bookOperation.getBooks());
 	}
-	
-@GetMapping("/books/{id}")
+
+	@GetMapping("/books/{id}")
 	public ResponseEntity<?> getSinglebook(@PathVariable("id") ObjectId id) {
 		return ResponseEntity.ok(bookOperation.getSingleBook(id));
 	}
-	
-	
+
 	@PutMapping("/books/{id}")
 	public Response updateBookById(@PathVariable ObjectId id, @RequestBody Book book) {
-		return bookOperation.updateBook(id,book);
+		return bookOperation.updateBook(id, book);
 	}
 
 	@DeleteMapping("/books/{id}")
 	public Response deleteBookById(@PathVariable ObjectId id) {
 		return bookOperation.deleteBook(id);
 	}
-	
+
 	@GetMapping("/books/page")
-	public Map<String,Object>getAllBookInPage(@RequestParam (name="pageno", defaultValue="0") int pageNo,
-	        @RequestParam(name="pagesize",defaultValue="1")int pageSize,
-	        @RequestParam(name="sortby",defaultValue="id")String sortBy){
-	    return bookOperation.getAllBookInPage(pageNo, pageSize, sortBy);
-	    }
-	
+	public Map<String, Object> getAllBookInPage(@RequestParam(name = "pageno", defaultValue = "0") int pageNo,
+			@RequestParam(name = "pagesize", defaultValue = "1") int pageSize,
+			@RequestParam(name = "sortby", defaultValue = "id") String sortBy) {
+		return bookOperation.getAllBookInPage(pageNo, pageSize, sortBy);
+	}
+
 	@GetMapping("/books/search")
-	public ResponseEntity<?>getBooksBySearch(@RequestParam (name="val", defaultValue="l") String val){
-//			@RequestParam (name="pageno", defaultValue="0") int pageNo,
-//	        @RequestParam(name="pagesize",defaultValue="1")int pageSize,
-//	        @RequestParam(name="sortby",defaultValue="id")String sortBy){pageNo, pageSize, sortBy
+	public ResponseEntity<?> getBooksBySearch(@RequestParam(name = "val", defaultValue = "l") String val) {
 		try {
-		    List<Book> books = bookOperation.getBooksBySearch(val);
-		   
-		    return new ResponseEntity<>(books,HttpStatus.OK);
-		}
-		catch(Exception e) {
-			 return new ResponseEntity<>(e.getMessage(),HttpStatus.OK);
+			List<Book> books = bookOperation.getBooksBySearch(val);
+
+			return new ResponseEntity<>(books, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
 		}
 	}
-	
-	
 
 }

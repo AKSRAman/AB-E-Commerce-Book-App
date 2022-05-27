@@ -22,17 +22,17 @@ import io.jsonwebtoken.ExpiredJwtException;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter {
-	
+
 	@Autowired
 	private UserServiceForJWT customUser;
 
 	@Autowired
 	private JwtUtil jwt;
-	
+
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws ServletException, IOException {
-		
+
 		String requestTokenHeader2 = request.getHeader("x-api-key");
 		String requestTokenHeader = request.getHeader("Authorization");
 		System.out.println("filter open");

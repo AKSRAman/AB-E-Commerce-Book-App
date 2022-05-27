@@ -37,14 +37,8 @@ export class AuthServices {
     });
   }
 
-  //  let getContact: any = localStorage.getItem("update")
-  //  getContact = JSON.parse(getContact)
-  //  localStorage.removeItem("update")
-  //  localStorage.setItem("update", JSON.stringify(obj))
-  //  this.router.navigateByUrl('/contact')
-
   afterLoginUser(input: any) {
-    console.log(input,"loginyeyey")
+    console.log(input, "loginyeyey")
     if (input.status) {
       localStorage.setItem("jwtToken", JSON.stringify(input.token))
       alert("You have logged in successfully")

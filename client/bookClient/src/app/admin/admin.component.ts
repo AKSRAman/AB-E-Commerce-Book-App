@@ -45,23 +45,6 @@ export class AdminComponent implements OnInit {
   }
 
   deleteBook(book: Book) {
-    // let myApp = angular.module('myApp', ['ngCookies'])
     console.log(book, "delete")
   }
-
-//   let options = new RequestOptions({ headers: headers, withCredentials: true });
-// this.http.post(this.url, body , options);
-
-// this.httpclient.get(myUrl, {withCredentials:true})
-  // angular.module('myApp', ['ngCookies']);
-  //   app.controller('MyController',['$scope','$cookies','$cookieStore', 
-  //                      function($scope,$cookies,$cookieStore) {
-  //     var someSessionObj = { 'innerObj' : 'somesessioncookievalue'};
-
-  //   $cookies.dotobject = someSessionObj;
-  //   $scope.usingCookies = { 'cookies.dotobject' : $cookies.dotobject, "cookieStore.get" : $cookieStore.get('dotobject') };
-
-  //   $cookieStore.put('obj', someSessionObj);
-  //   $scope.usingCookieStore = { "cookieStore.get" : $cookieStore.get('obj'), 'cookies.dotobject' : $cookies.obj, };
-  //   }
 }
