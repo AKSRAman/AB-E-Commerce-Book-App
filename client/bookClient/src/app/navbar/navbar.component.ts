@@ -1,29 +1,21 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HostListener } from '@angular/core';
-<<<<<<< Updated upstream
 import { fromEvent, Observable } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
-import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
-=======
+//import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
 import { HomeServices } from '../home/home.service';
 
->>>>>>> Stashed changes
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-<<<<<<< Updated upstream
   timerId: number = 1000;
 
   constructor(private homeService: HomeServices) { }
-=======
-  timerId: number =1000;
- data:any;
-  constructor() { }
->>>>>>> Stashed changes
 
+   data:any;
   ngOnInit(): void {
 //     const searchBox = document.getElementById('searchBox') as HTMLInputElement;
 // const typeahead = fromEvent(searchBox, 'input').pipe(

@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-=======
 import { Router } from '@angular/router';
->>>>>>> Stashed changes
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book.model';
 
@@ -41,12 +38,8 @@ export class BooksComponent implements OnInit {
     updatedOn: "",
   },];
 
-<<<<<<< Updated upstream
-  constructor(private bookService: BookServices, private http: HttpClient) { }
-=======
-  constructor(private bookService: BookServices, private router:Router) { }
->>>>>>> Stashed changes
-
+  constructor(private bookService: BookServices, private http: HttpClient, private router:Router) { }
+ 
   ngOnInit(): void {
     this.getBooksData();
     this.startSlideshow();
@@ -73,15 +66,9 @@ export class BooksComponent implements OnInit {
     }, 2000)
   }
 
-<<<<<<< Updated upstream
-=======
 gotoSinglebook(id: string|null){
   this.router.navigate(['single',{"id":id}])
 }
-  
-  
-
->>>>>>> Stashed changes
   getUserData() {
     this.bookService.getUser().subscribe((res: any) => {
       console.log(res, "Yess i am coming from protected route");
@@ -106,13 +93,4 @@ gotoSinglebook(id: string|null){
         next: (response) => console.log(response), error: (error) => console.log(error),
       });
   }
-
-
-
-  // getMyCookie(){
-  //   this.bookService.getCookies().subscribe((res) => {
-  //     console.log(res,"yes cookiesFound");
-  //   });
-  // }
-
 }

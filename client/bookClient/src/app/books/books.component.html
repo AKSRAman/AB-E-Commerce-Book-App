@@ -12,13 +12,9 @@
         <p class="card-text">Author : {{book.author}} </p>
         <p class="card-text">Price : {{book.price}}</p>
       </div>
-<<<<<<< Updated upstream
-      <button class="card-btn" (click)="onEdit()">View</button>
+      <a (click)="gotoSinglebook(book.id)"> <button class="card-btn" (click)="onEdit()">View</button></a>
       <button class="card-btn" (click)="addInCart(book)">Add to Cart</button>
-=======
-      <a (click)="gotoSinglebook(book.id)"><button class="card-btn">View</button></a>
->>>>>>> Stashed changes
-    </div>
+        </div>
   </div>
 </div>
 
