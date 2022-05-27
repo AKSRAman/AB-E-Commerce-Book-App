@@ -39,10 +39,17 @@ public class BookController {
 		return ResponseEntity.status(400).body(output);
 	}
 	
+	
 	@GetMapping("/books")
 	public ResponseEntity<?> getAllBooks() {
 		return ResponseEntity.ok(bookOperation.getBooks());
 	}
+	
+@GetMapping("/books/{id}")
+	public ResponseEntity<?> getSinglebook(@PathVariable("id") ObjectId id) {
+		return ResponseEntity.ok(bookOperation.getSingleBook(id));
+	}
+	
 	
 	@PutMapping("/books/{id}")
 	public Response updateBookById(@PathVariable ObjectId id, @RequestBody Book book) {

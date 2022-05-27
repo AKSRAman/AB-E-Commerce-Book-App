@@ -38,7 +38,10 @@ export class BookServices {
   updateBook(book: Book) {
     return this.http.put<SingleBookResponse>(this.baseurl + book.id, book);
   }
-
+  getSingleBook(id:any) {
+    console.log(id);
+  return this.http.get<SingleBookResponse>(this.baseurl+"/"+id);
+}
   getUser(): Observable<any> {
     let token: any = localStorage.getItem("jwtToken");
     token = JSON.parse(token);

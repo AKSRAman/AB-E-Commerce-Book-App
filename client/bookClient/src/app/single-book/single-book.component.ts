@@ -1,31 +1,47 @@
+import { BookServices } from './../books/book.services';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book.model';
-
+import {Router ,ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-single-book',
   templateUrl: './single-book.component.html',
   styleUrls: ['./single-book.component.css']
 })
 export class SingleBookComponent implements OnInit {
-
-  constructor() { }
+  book:Book={
+    addedOn: "",
+    author: "",
+    category: "",
+    description: "",
+    id: "",
+    imageUrl: "https://rukminim2.flixcart.com/image/612/612/klmmrgw0/regionalbooks/f/3/g/the-power-of-your-subconscious-mind-original-imagypuj7qxyepyq.jpeg?q=70",
+    pages: 1111,
+    price: 1111,
+    publishDate: "",
+    rating: 0,
+    title: "PSYCOLOGY OF MIND",
+    updatedOn: "",
+  };
+ id:string|null="";
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private bookData:BookServices) { }
 
   ngOnInit(): void {
+    console.log("bobby")
+    this.activatedRoute.paramMap.subscribe((params) => {
+      this.id = params.get('id');
+      this.getbook(this.id);
+    });
   }
-  
-  book: Book = {
-    title: "Chanakya in You",
-    description: "This book is for whom who looking for an inspirational story through an Indian prospective. To be honest I personally like this book and it was the first book that I was red.",
-    author: "Pillai Radhakrishnan",
-    category: "Business & Economics",
-    imageUrl: "https://rukminim2.flixcart.com/image/832/832/kit6hzk0-0/book/l/4/l/chanakya-in-you-original-imafygxgvgwzquq3.jpeg?q=70",
-    pages: 256,
-    price: 178,
-    publishDate: "25/05/2022",
-    addedOn: null,
-    id: null,
-    rating: 0,
-    updatedOn: null
+  getbook(id:string|null){
+    this.bookData.getSingleBook(this.id).subscribe(res=>{
+      console.log(res)
+    this.book=res.book})
+     
   }
 
+  
+    
+  
+
+   
 }

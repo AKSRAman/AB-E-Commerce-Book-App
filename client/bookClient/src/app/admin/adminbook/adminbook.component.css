@@ -1,5 +1,3 @@
-
-
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
 
 body {
@@ -91,7 +89,6 @@ body {
       transform: rotate(45deg);
       z-index: -1;
     }
-
 */
 .featured-list li > div:nth-child(2) {
 	flex: 1;
@@ -138,6 +135,8 @@ body {
 /* =======
 
 >>>>>>> Stashed changes
+=======
+>>>>>>> 50933604db89d3b7209d297b27bd466ce670ca67
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 * {
   margin: 0px;

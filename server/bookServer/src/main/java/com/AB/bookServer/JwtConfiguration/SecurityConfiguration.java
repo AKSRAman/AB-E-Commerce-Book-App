@@ -3,7 +3,7 @@ package com.AB.bookServer.JwtConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -50,9 +50,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.cors().disable();
 		httpSecurity.csrf().disable().authorizeRequests()
-				.antMatchers("/user/login", "/user/", "/books", "/books/page", "/books/search").permitAll()
-				.antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
-				.anyRequest().authenticated().and().exceptionHandling().and().sessionManagement()
+				.antMatchers("/user/login", "/user/addNewUser", "/books", "/books/page", "/books/search", "/books/{id}")
+				.permitAll().anyRequest().authenticated().and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.addFilterBefore(myFilter, UsernamePasswordAuthenticationFilter.class);
 	}

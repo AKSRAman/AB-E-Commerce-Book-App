@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
-import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
+
 import { HomeServices } from '../home/home.service';
 @Component({
   selector: 'app-navbar',
@@ -14,7 +14,20 @@ export class NavbarComponent implements OnInit {
 
   constructor(private homeService: HomeServices) { }
 
+   data:any;
   ngOnInit(): void {
+//     const searchBox = document.getElementById('searchBox') as HTMLInputElement;
+// const typeahead = fromEvent(searchBox, 'input').pipe(
+//   map(e => (e.target as HTMLInputElement).value),
+//   filter(text => text.length > 3),
+//   debounceTime(1000),
+//   distinctUntilChanged(),
+//   switchMap(searchTerm => ajax(`http://localhost:8080/books/search?=${searchTerm}`))
+// );
+// typeahead.subscribe(data => {
+//  this.data=data;
+//  console.log(data);
+// });
   }
   
   loginStatus: boolean = this.homeService.loginStatus
