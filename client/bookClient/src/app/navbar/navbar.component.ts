@@ -1,13 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HostListener } from '@angular/core';
-<<<<<<< Updated upstream
 import { fromEvent, Observable } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
-=======
 import { HomeServices } from '../home/home.service';
-
->>>>>>> Stashed changes
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

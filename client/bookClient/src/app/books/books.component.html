@@ -13,8 +13,7 @@
         <p class="card-text">Price : {{book.price}}</p>
       </div>
       <button class="card-btn" (click)="onEdit()">View</button>
-      <button class="card-btn" (click)="addInCart(book)">Add to Cart</button>
+      <button class="card-btn" (click)="addInCart(book)" ng-class="color" ng-click="color='red-color'">Add to Cart</button>
     </div>
   </div>
 </div>
-

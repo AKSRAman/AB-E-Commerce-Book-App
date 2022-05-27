@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
@@ -19,21 +18,19 @@ public class User {
 	
 	private String fullName;
 	
-	@Indexed(unique=true)
 	private String email;
 	
 	private String password;
 	
 	private String address;
 	
-	@Indexed(unique=true)
 	private double mobNumber;
 	 
 	private String profilePic;
 	
 	private List<Book> booksCart;
 	
-	private Boolean isDeleted = false;
+//	private Boolean isDeleted = false;
 	
 	private Date addedOn;
 
@@ -87,12 +84,12 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public Boolean getIsDeleted() {
-		return isDeleted;
-	}
-	public void setIsDeleted(Boolean isDeleted) {
-		this.isDeleted = isDeleted;
-	}
+	//public Boolean getIsDeleted() {
+//		return isDeleted;
+//	}
+//	public void setIsDeleted(Boolean isDeleted) {
+//		this.isDeleted = isDeleted;
+//	}
 	public Date getAddedOn() {
 		return addedOn;
 	}

@@ -2,7 +2,7 @@
   <div class="signup">
     <div class="signup-content">
       <h2 class="signup-title">Product Description</h2>
-      <br />
+
       <br />
       <div class="signup-form">
         <div class="signup-image">
@@ -10,35 +10,49 @@
         </div>
         <div class="details">
           <form class="register-form" #authForm="ngForm">
-            <br />
-            <div>
-        
-                {{ book.title}}
-            
-            </div>
-          <br/>
-            <div>
-               {{ book.description }}
-           
-            </div>
-            <br />
-            <div>
-           
-            {{ book.author}}
-            
-            </div>
-            <br />
-            <div>
-                {{ book.price}}
-            </div>
-            <br />
-            <div>
-                {{ book.pages}}
+
+            <div class="main-details">
+              <h1>{{ book.title}}</h1>
+              <ul>
+                <li>
+                  <span>Author :</span> {{ book.author}}
+                </li>
+                <li>
+                  <span>Description :</span> {{ book.description }}
+                </li>
+              
+                <li>
+                  <span>Price :</span> {{ book.price}} ₹
+                </li>
+                <li>
+                  <span>Pages :</span> {{ book.pages}}
+                </li>
+              </ul>
             </div>
 
-            <div class="try-submit">
-              <button type="submit" [disabled]="!authForm.valid">Add To Cart</button>
-              <button type="button">Buy Now</button>
+            <div class="bottom-view">
+              <button class="addToCart" type="submit" [disabled]="!authForm.valid">Add To Cart</button>
+              <button class="buyNow" type="button">Buy Now</button>
+            </div>
+            <br />
+            <div class="bottom-view">
+              <div class="rating"> Rating : <span class="material-symbols-outlined fill">
+                  star
+                </span>
+                <span class="material-symbols-outlined fill">
+                  star
+                </span>
+                <span class="material-symbols-outlined fill">
+                  star
+                </span>
+                <span class="material-symbols-outlined fill">
+                  star
+                </span>
+                <span class="material-symbols-outlined fillNot">
+                  star
+                </span>
+              </div> <button class="viewReview" type="button">View Reviews</button>
+              <!-- <p>	⭐	⭐	⭐	⭐	⭐</p> -->
             </div>
           </form>
         </div>

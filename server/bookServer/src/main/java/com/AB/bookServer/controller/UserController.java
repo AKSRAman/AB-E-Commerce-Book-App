@@ -74,9 +74,6 @@ public class UserController {
 		System.out.println("I am coming from controller");
 		System.out.println(token);
 		System.out.println("Operation Successfull and Finally Closed");
-//		Cookie cookie = new Cookie("jwttoken", "aman");
-//		cookie.setHttpOnly(true);
-//		res.addCookie(cookie);
 		return ResponseEntity.ok(userOperation.getUser());
 	}
 
@@ -88,7 +85,7 @@ public class UserController {
 		}
 		return ResponseEntity.status(400).body(data);
 	}
-	
+
 	@PostMapping("/login")
 	public Response generateToken(@RequestBody AuthRequest user, HttpServletResponse response) throws Exception {
 		try {
