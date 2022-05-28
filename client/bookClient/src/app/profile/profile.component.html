@@ -1,8 +1,51 @@
-<h1>Welcome {{name}}</h1>
-<br />
-<P>Your id : {{id}}</P>
-<P>Your name : {{name}}</P>
-<P>Your email : {{email}}</P>
-<P>Your mobile : {{mobile}}</P>
-<P>Your address : {{address}}</P>
-<br />
+<div class="profile-page">
+    <br />
+    <br />
+    <div class="profile">
+        <div class="profile-header">
+            <div class="profile-cover"
+                style="background-image: url('https://t4.ftcdn.net/jpg/03/02/90/01/240_F_302900107_TBU8PsQPwoDqxjO5thFm1v2rSXMje5Ly.jpg')">
+            </div>
+            <img class="profile-avatar"
+                src="https://is4-ssl.mzstatic.com/image/thumb/Purple124/v4/db/22/ce/db22ce03-fd13-b988-b8b0-0cca9dc339d7/source/512x512bb.jpg"
+                alt="avatar" />
+            <h1 class="profile-fullname">{{name}}</h1>
+            <h2 class="profile-id">{{id}}</h2>
+        </div>
+
+        <div class="profile-main">
+            <div class="profile-content">
+                <div class="profile-subtitle">MESSAGE</div>
+                <p class="profile-detail">
+                    Hello {{name}}, Hope you are doing well, Welcome to AB-Book-Store
+                </p>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-subtitle">DETAILS</div>
+                <div class="profile-detail">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span> &nbsp; {{address}}
+                </div>
+                <div class="profile-detail">
+                    <span class="material-symbols-outlined">
+                        call
+                    </span> &nbsp; {{mobile}}
+                </div>
+                <div class="profile-detail">
+                    <span class="material-symbols-outlined">
+                        mail
+                    </span> &nbsp; {{email}}
+                </div>
+            </div>
+
+            <div class="profile-buttons">
+                <button class="welcome">Update Profile</button>
+            </div>
+            <br />
+        </div>
+    </div>
+    <br />
+    <br />
+</div>

@@ -31,12 +31,17 @@
 .signup-image {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
   float: right;
-  width: 45%;
+  width: 35%;
   text-align: center;
   height: 100%;
 }
+
+.signup-form {
+  width: 85%;
+  margin: auto;
+}
+
 .form-submit {
   display: flex;
   text-transform: uppercase;

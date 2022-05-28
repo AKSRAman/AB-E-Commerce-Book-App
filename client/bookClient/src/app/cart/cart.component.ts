@@ -15,20 +15,9 @@ export class CartComponent implements OnInit {
 
   totalPrice: number = 0
 
-  allBooks: Book[] = [{
-    addedOn: "",
-    author: "",
-    category: "",
-    description: "",
-    id: "",
-    imageUrl: "",
-    pages: 0,
-    price: 0,
-    publishDate: "",
-    rating: 0,
-    title: "",
-    updatedOn: "",
-  },];
+  allBooks: Book[] = [];
+
+  date: String = new Date().toLocaleDateString();
 
   singleBook: Book = {
     addedOn: '',
