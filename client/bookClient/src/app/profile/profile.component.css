@@ -128,3 +128,138 @@
   font-weight: 500;
   margin: auto;
 }
+
+.signup-main {
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.signup {
+  margin-top: 50px;
+  border: 2px solid black;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  height: 70vh;
+  width: 75%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.register-form {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 55%;
+  text-align: center;
+  height: 100%;
+}
+.signup-image {
+  display: flex;
+  justify-content: center;
+  float: right;
+  width: 35%;
+  text-align: center;
+  height: 100%;
+}
+
+.signup-form {
+  width: 85%;
+  margin: auto;
+}
+
+.form-submit {
+  display: flex;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-radius: 25px;
+  color: white;
+  padding: 8px 40px;
+  background: linear-gradient(to right, #043157, #0767c0);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  margin: auto;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.input {
+  height: 25px;
+  font-size: 17px;
+  border: 1px solid #052f57;
+  width: 85%;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom: 1.9px solid black;
+  border-bottom-style: 1px solid black;
+  margin-bottom: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.signup-title {
+  cursor: pointer;
+  padding: 10px;
+  background: linear-gradient(to right, #052f57, #0b82b1);
+  color: white;
+}
+
+.try-submit {
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+}
+
+.signup-title span {
+  font-weight: bold;
+  text-decoration: wavy;
+  animation: blinker 1s linear infinite;
+}
+
+.form-switch {
+  color: #0c0572;
+  font-weight: bold;
+  text-decoration: wavy;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .signup-image > img {
+    display: none;
+  }
+  .input {
+    width: 90%;
+  }
+  .register-form {
+    margin: auto;
+    float: left;
+    width: 98%;
+  }
+  .signup {
+    width: 90%;
+  }
+}
+
+.material-symbols-outlined{
+  cursor: pointer;
+}
+.profile-password{
+  display: flex;
+  margin-left: 5%;
+}

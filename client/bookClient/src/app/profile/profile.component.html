@@ -1,4 +1,4 @@
-<div class="profile-page">
+<div class="profile-page" *ngIf="!editMode">
     <br />
     <br />
     <div class="profile">
@@ -41,7 +41,8 @@
             </div>
 
             <div class="profile-buttons">
-                <button class="welcome">Update Profile</button>
+        <button type="submit" class="welcome" (click)="setEditMode(true)">Update</button>
+
             </div>
             <br />
         </div>
@@ -49,3 +50,120 @@
     <br />
     <br />
 </div>
+
+
+
+
+<div class="signup-main" *ngIf="editMode">
+    <div class="signup">
+      <div class="signup-content">
+        <h2 class="signup-title">
+          <p>
+          <span>Update Your Details </span>
+          </p>
+        </h2>
+        <br />
+        <br />
+        <div class="signup-form">
+          <form
+            class="register-form"
+            #authForm="ngForm"
+          >
+            <br />
+            <div>
+              <label htmlFor="name">
+                <i class="zmdi zmdi-account">&nbsp;&nbsp;&nbsp;</i>
+              </label>
+              <input
+                class="input"
+                type="text"
+                [(ngModel)]="tempUser.fullName"
+                name="fullName"
+                required
+                minlength="3"
+                placeholder="Name"
+              />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="email">
+                <i class="zmdi zmdi-email">&nbsp;&nbsp;&nbsp;</i>
+              </label>
+              <input
+                class="input"
+                type="email"
+                [(ngModel)]="tempUser.email"
+                name="email"
+                required
+                email
+                placeholder="Email"
+              />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="phone">
+                <i class="zmdi zmdi-phone">&nbsp;&nbsp;&nbsp;</i>
+              </label>
+              <input
+                class="input"
+                type="number"
+                [(ngModel)]="tempUser.mobNumber"
+                name="mobNumber"
+                required
+                minlength="10"
+                maxlength="10"
+                placeholder="Phone"
+              />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="work">
+                <i class="zmdi zmdi-slideshow">&nbsp;&nbsp;&nbsp;</i>
+              </label>
+              <input
+                class="input"
+                type="text"
+                [(ngModel)]="tempUser.address"
+                name="address"
+                required
+                minlength="3"
+                placeholder="Address"
+              />
+              
+            </div>
+            <br />
+            <div class="profile-password">
+              <label htmlFor="cpassword">
+                <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
+              </label>
+              <input
+                class="input"
+                type="{{typeInput}}"
+                id="password"
+                [(ngModel)]="tempUser.password"
+                name="password"
+                required
+                placeholder="Password"
+                minlength="5"
+              />
+              <span  class="material-symbols-outlined" (click)="changeType(typeInput)">
+              {{change}}
+                </span>
+
+            </div>
+  
+            <div class="try-submit">
+              <br />
+              <button type="submit" class="welcome" (click)="updateUser()" [disabled]="!authForm.valid">Save</button>
+              <button type="button" class="welcome" (click)="setEditMode(false)">Cancle</button>
+            </div>
+          </form>
+  
+          <div class="signup-image">
+            <img alt="signUp" src="https://is4-ssl.mzstatic.com/image/thumb/Purple124/v4/db/22/ce/db22ce03-fd13-b988-b8b0-0cca9dc339d7/source/512x512bb.jpg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

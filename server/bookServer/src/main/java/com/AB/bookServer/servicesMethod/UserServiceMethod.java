@@ -81,12 +81,12 @@ public class UserServiceMethod implements UserService {
 		if (findUser.isPresent()) {
 			User userToSave = findUser.get();
 			userToSave.setUpdatedOn(new Date(System.currentTimeMillis()));
-			userToSave.setFullName(userToSave.getfullName() != null ? inputUserData.getfullName() : userToSave.getfullName());
-			userToSave.setEmail(userToSave.getEmail() != null ? inputUserData.getEmail() : userToSave.getEmail());
-			userToSave.setPassword(userToSave.getPassword() != null ? inputUserData.getPassword() : userToSave.getPassword());
-			userToSave.setAddress(userToSave.getAddress() != null ? inputUserData.getAddress() : userToSave.getAddress());
-			userToSave.setMobNumber(userToSave.getMobNumber() <= 0  ? inputUserData.getMobNumber() : userToSave.getMobNumber());
-			userToSave.setProfilePic(userToSave.getProfilePic() != null ? inputUserData.getProfilePic() : userToSave.getProfilePic());
+			userToSave.setFullName(inputUserData.getfullName() != null ? inputUserData.getfullName() : userToSave.getfullName());
+			userToSave.setEmail(inputUserData.getEmail() != null ? inputUserData.getEmail() : userToSave.getEmail());
+			userToSave.setPassword(inputUserData.getPassword() != null ? inputUserData.getPassword() : userToSave.getPassword());
+			userToSave.setAddress(inputUserData.getAddress() != null ? inputUserData.getAddress() : userToSave.getAddress());
+			userToSave.setMobNumber(inputUserData.getMobNumber() > 999999999 ? inputUserData.getMobNumber() : userToSave.getMobNumber());
+			userToSave.setProfilePic(inputUserData.getProfilePic() != null ? inputUserData.getProfilePic() : userToSave.getProfilePic());
 			userRepo.save(userToSave);
 		}
 		Optional<User> findUserResponse = userRepo.findById(id);

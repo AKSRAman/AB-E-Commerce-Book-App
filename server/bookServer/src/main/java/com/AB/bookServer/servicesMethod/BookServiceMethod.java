@@ -18,6 +18,7 @@ import com.AB.bookServer.model.Book;
 import com.AB.bookServer.repository.BookRepository;
 import com.AB.bookServer.response.Response;
 import com.AB.bookServer.services.BookService;
+//import com.bobby.crud.model.Todo;
 
 @Service
 public class BookServiceMethod implements BookService {
@@ -71,6 +72,7 @@ public class BookServiceMethod implements BookService {
 
 	@Override
 	public Response getBooks() {
+//		List<Book> output = bookRepo.findAll();
 		List<Book> output = bookRepo.findIsDeleted();
 		if (!output.isEmpty()) {
 			Response data = new Response(true, "success", output);
@@ -92,36 +94,22 @@ public class BookServiceMethod implements BookService {
 	}
 	@Override
 	public Response updateBook(ObjectId id, Book bookData) {
-<<<<<<< Updated upstream
-
-=======
 		
->>>>>>> Stashed changes
 		Optional<Book> findBook = bookRepo.findById(id);
 		if (findBook.isPresent()) {
 			Book bookToSave = findBook.get();
 			bookToSave.setUpdatedOn(new Date(System.currentTimeMillis()));
 			bookToSave.setTitle(bookData.getTitle() != null ? bookData.getTitle() : bookToSave.getTitle());
 			bookToSave.setAuthor(bookData.getAuthor() != null ? bookData.getAuthor() : bookToSave.getAuthor());
-<<<<<<< Updated upstream
-			bookToSave.setDescription(
-					bookData.getDescription() != null ? bookData.getDescription() : bookToSave.getDescription());
-=======
             bookToSave.setDescription(bookData.getDescription() != null ? bookData.getDescription() : bookToSave.getDescription());
->>>>>>> Stashed changes
 			bookToSave.setPages(bookData.getPages() >= 0 ? bookData.getPages() : bookToSave.getPages());
 			bookToSave.setPrice(bookData.getPrice() >= 0 ? bookData.getPrice() : bookToSave.getPrice());
 			bookToSave.setPublishDate(
 					bookData.getPublishDate() != null ? bookData.getPublishDate() : bookToSave.getPublishDate());
-<<<<<<< Updated upstream
-			bookToSave.setCategory(bookData.getCategory() != null ? bookData.getCategory() : bookToSave.getCategory());
-			bookToSave.setImageUrl(bookData.getImageUrl() != null ? bookData.getImageUrl() : bookToSave.getImageUrl());
-=======
 			bookToSave
 					.setCategory(bookData.getCategory() != null ? bookData.getCategory() : bookToSave.getCategory());
 			bookToSave
 					.setImageUrl(bookData.getImageUrl() != null ? bookData.getImageUrl() : bookToSave.getImageUrl());
->>>>>>> Stashed changes
 			bookRepo.save(bookToSave);
 		}
 		Optional<Book> findContactResponse = bookRepo.findById(id);
