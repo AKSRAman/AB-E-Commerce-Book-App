@@ -8,7 +8,7 @@ import { HomeServices } from '../home/home.service';
 })
 export class ProfileComponent implements OnInit {
   id: string = ""
-  name: string = "";
+  name: string = ""
   email: string = ""
   mobile: number = 0
   address: string = ""

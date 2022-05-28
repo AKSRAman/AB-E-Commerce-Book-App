@@ -1,99 +1,135 @@
-.cart-main{
-    border: 1px solid black;
-    display: flex;
-    width: 100%;
+.cart-main {
+  border: 1px solid black;
+  display: flex;
+  width: 100%;
 }
 
-.cart-list{
-    border: 1px solid blueviolet;
-    width: 70%;
-    padding: 10px;
+.cart-list {
+  border: 1px solid blueviolet;
+  width: 70%;
+  padding: 10px;
+  min-height: 100vh;
+  background-image: url("https://img.freepik.com/free-vector/shopping-cart-with-gift-boxes-illustration_249405-123.jpg?w=1800");
+  background-repeat: no-repeat;
+  background-size: 128vh 90vh;
 }
 
-.cart-total{
-    border: 1px solid red;
-    width: 30%;
-    padding: 10px;
+.cart-total {
+  right: 0%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  padding: 10px;
 }
 
-.cart-cover{
-    display: flex;
-    flex-direction: column;
+.cart-cover {
+  display: flex;
+  flex-direction: column;
 }
 
-.cart-product{
-    border: 1px solid blue;
-    display: flex;
-    width: 90%;
-    height: 265px;
-    margin: auto;
+.cart-product {
+  border: 1px solid blue;
+  display: flex;
+  width: 90%;
+  height: 265px;
+  margin: auto;
 }
 
-.cart-product-image{
-    border: 1px solid red;
-    width: 20%;
+.cart-product-image {
+  border: 1px solid rgb(0, 119, 255);
+  width: 20%;
 }
 
-.cart-product-details{
-    border: 1px solid green;
-    width: 80%;
+.cart-product-details {
+  border: 1px solid green;
+  width: 80%;
 }
 
-/* .maxWidth {
-    max-width: 1250px;
+.emptyCart {
+  margin-top: 40px;
+  display: flex;
+  font-size: 35px;
+  justify-content: center;
+  color: grey;
 }
 
-div {
-    border: 1px solid red;
+.cart-bill {
+  margin-top: 20px;
+  position: sticky;
+  display: inline-block;
+  min-width: 400px;
+  min-height: 620px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  background-image: url("https://images.unsplash.com/photo-1543497415-75c0a27177c0?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ymx1ZSUyMGJvb2t8ZW58MHx8MHx8&auto=format&fit=crop&w=800");
 }
 
-.mainBox {
-    height: 600px;
+.cart-profile-img {
+  height: 70%;
 }
 
-.smallImgBox {
-    height: 130px;
-    overflow: hidden;
+.cart-description-bk {
+  background-image: linear-gradient(0deg, #1a37c7, #46b9fc);
+  border-radius: 30px;
+  position: absolute;
+  top: 70%;
+  left: -5px;
+  height: 65%;
+  width: 108%;
+  transform: skew(19deg, -9deg);
 }
 
-#deliveryCheck {
-    border: hidden;
+.cart-logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 20px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 21%;
+  left: 30px;
+  overflow: hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7);
 }
 
-#productCompany {
-    height: 30px;
+.cart-logo img {
+  height: 100%;
 }
 
-#productName {
-    height: 50px;
+.cart-description {
+  position: absolute;
+  color: #fff;
+  font-weight: 900;
+  left: 150px;
+  bottom: 16%;
 }
 
-#productPrice {
-    height: 90px;
+.cart-btn {
+  position: absolute;
+  color: #46b9fc;
+  right: 30px;
+  bottom: 5%;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
 }
 
-.priceColor {
-    color: green;
-    font-size: 14px;
+.cart-date {
+  position: absolute;
+  color: #fff;
+  left: 30px;
+  bottom: 7%;
 }
 
-#goldMember {
-    background-color: #f8f8f8;
-    box-shadow: 0px 0px 4px 1px rgb(173, 173, 173);
+.product-details {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 380px;
+  border-radius: 30px;
+  overflow: scroll;
 }
-
-#goldMember:hover {
-    cursor: pointer;
-    transform: scale(1.001);
-    box-shadow: 0px 0px 12px 2px rgb(173, 173, 173);
-}
-
-.deliveryFontColor {
-    color: #7a8090;
-}
-
-.colorGrey {
-    color: rgb(156, 156, 156);
-    font-size: small;
-    padding-left: 2%;
-} */

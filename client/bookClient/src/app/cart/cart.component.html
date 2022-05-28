@@ -1,6 +1,10 @@
 <div class="cart-main">
     <div class="cart-list">
-        <div class="cart-cover">
+        <div class="emptyCart" *ngIf="allBooks.length==0">
+            <h1>Your Cart is Empty</h1>
+        </div>
+
+        <div class="cart-cover" *ngIf="allBooks.length>0">
             <div class="cart-product" *ngFor="let book of allBooks ; index as i">
                 <div class="cart-product-image">
                     <img src="{{book.imageUrl}}" />
@@ -8,7 +12,6 @@
                 <div class="cart-product-details">
                     Sr. No. : {{i+1}}<br />
                     Title : {{book.title}}<br />
-                    Description : {{book.description}} <br />
                     Price : {{book.price}} Rupees<br />
                     Author : {{book.author}} <br />
                     Pages : {{book.pages}} <br />
@@ -18,65 +21,47 @@
         </div>
     </div>
     <div class="cart-total">
-        Total Items - {{allBooks.length}} <br />
-        Total Amount - {{totalPrice}}
-    </div>
-</div>
-
-
-<!-- <div class="container">
-
-    <div class="flex">
-      
-        <div class="col-lg mainBox m-2">
-
-            <div class="row">
-               
-                <div id="productImage" class="col-9" style="height: 500px; overflow: hidden;">{{singleBook.imageUrl}}</div>
+        <div class="cart-bill">
+            <div class="product-details">
+                <table>
+                    <tr>
+                        <th>Items</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr *ngFor="let book of allBooks ; index as i">
+                        <td>{{book.title}}</td>
+                        <td>{{book.price}}</td>
+                    </tr>
+                    <br />
+                    <tr>
+                        <th>
+                            <hr>
+                        </th>
+                        <th>
+                            <hr>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>{{allBooks.length}} Items</th>
+                        <th>{{ totalPrice}} ₹</th>
+                    </tr>
+                </table>
             </div>
-            <div class="flex mt-4">
-                <div class="col-3" style="height: 60px;"></div>
-                <div class="col d-grid">
-                    <button onclick="addProductsToCart()" class="btn btn-lg btn-outline-danger">ADD TO CART</button>
-                </div>
-                <div class="col d-grid">
-                    <button class="btn btn-lg btn-success"><a class="text-white" href="cart.html">BUY NOW</a></button>
-                </div>
-            </div>
-        </div>
+            <div class="cart-description-bk"></div>
 
-     
-        <div class="col-lg mainBox m-3">
-
-            <div>
-               {{singleBook.title}}
+            <div class="cart-logo">
+                <img alt="img" src="../../assets/images/bookLogo.jpg" />
             </div>
-            <div id="productName"></div>
-            <div id="productPrice">
-                <p class="priceColor fw-bold">Special Price</p>
+            <div class="cart-description">
+                <p>Total Items : {{allBooks.length}}</p>
+                <p>Total Price : {{ totalPrice}}</p>
             </div>
-            <a class="text-black" href="goldmembership.html">
-                <div id="goldMember" class="mx-1 my-4 px-3 border rounded-3">
-                    <p class=" m-0 fw-bold">Become a <span style="color: #9b8338;">Gold member</span> today and you get
-                        this for <span style="color: #c82506;">Free</span></p>
-                    <p class="text-black-50 m-1"></p>
-                </div>
-            </a>
-            <div class="deliveryFontColor">
-                <div id="detailsDiv"></div>
-                <p class="mt-0 mb-2 fw-bold " style="font-size: 13px;">Expiry Date: 31-Jan-2023</p>
-                <p class="m-1 ms-4 ">Free Shipping Applicable</p>
-                <p class="m-1 ms-4 ">Cash on delivery available</p>
+            <div class="cart-date">
+                <p>{{date}}</p>
             </div>
-            <div class="my-3 p-2 deliveryFontColor">
-                <span>Deliver to</span>
-                <input type="text" class="border-bottom border-dark " id="deliveryCheck">
-                <button onclick="pincodeCheck()" class="btn btn-sm btn-outline-secondary">Check</button>
+            <div class="cart-btn">
+                Check Out
             </div>
         </div>
     </div>
-
-
 </div>
-
- -->
