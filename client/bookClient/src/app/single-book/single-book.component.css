@@ -5,14 +5,12 @@
   justify-content: center;
   align-items: center;
 }
-
 .signup {
   border: 2px solid black;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid rgb(219, 197, 197);
   color: black;
   text-align: center;
   border-radius: 10px;
@@ -22,7 +20,6 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
-
 .signup-form {
   background: linear-gradient(to right, #052f57, #0b82b1);
   display: flex;
@@ -38,7 +35,6 @@
   width: 90%;
   height: auto;
 }
-
 .register-form {
   display: flex;
   flex-direction: column;

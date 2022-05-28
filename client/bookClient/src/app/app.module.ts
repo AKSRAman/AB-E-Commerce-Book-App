@@ -34,8 +34,6 @@ import { SingleBookComponent } from './single-book/single-book.component';
     AuthComponent,
     FooterComponent,
     SingleBookComponent,
-
-
   ],
   imports: [
     BrowserModule,
@@ -45,6 +43,6 @@ import { SingleBookComponent } from './single-book/single-book.component';
     FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

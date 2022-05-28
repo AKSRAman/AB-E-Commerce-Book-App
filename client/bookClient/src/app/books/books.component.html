@@ -1,19 +1,28 @@
-<div id="slider" >
-  <img src="{{imgSrc}}"/>
-   </div>
+<div id="slider">
+  <img src="{{ imgSrc }}" />
+</div>
 <div class="card-body">
   <div class="card-wrap" *ngFor="let book of allBooks">
     <div class="card-header">
-      <img src="{{book.imageUrl}}"/>
+      <img src="{{ book.imageUrl }}" />
     </div>
     <div class="card-content">
-      <h1 class="card-title">{{book.title}}</h1>
+      <h1 class="card-title">{{ book.title }}</h1>
       <div class="card-detail">
-        <p class="card-text">Author : {{book.author}} </p>
-        <p class="card-text">Price : {{book.price}}</p>
+        <p class="card-text">Author : {{ book.author }}</p>
+        <p class="card-text">Price : {{ book.price }}</p>
       </div>
-      <a (click)="gotoSinglebook(book.id)"> <button class="card-btn" (click)="onEdit()">View</button></a>
-      <button class="card-btn" (click)="addInCart(book)" ng-class="color" ng-click="color='red-color'">Add to Cart</button>
+      <a (click)="gotoSinglebook(book.id)">
+        <button class="card-btn" (click)="onEdit()">View</button></a
+      >
+      <button
+        class="card-btn"
+        (click)="addInCart(book)"
+        ng-class="color"
+        ng-click="color='red-color'"
+      >
+        Add to Cart
+      </button>
     </div>
   </div>
 </div>

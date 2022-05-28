@@ -16,6 +16,7 @@
     </div>
   </div>
 </div>
+<<<<<<< Updated upstream
 
 <!-- <div *ngIf="editMode" class="flex flex:1 ml-10"> -->
 <div class="signup-main" *ngIf="editMode">
@@ -66,6 +67,99 @@
               <button type="button" (click)="setEditMode(false,-1)">Cancle</button>
             </div>
           </form>
+=======
+ 
+ <!-- <div *ngIf="editMode" class="flex flex:1 ml-10"> -->
+  <div class="signup-main" *ngIf="editMode">
+    <div class="signup">
+      <div class="signup-content">
+        <h2 class="signup-title">Update</h2>
+        <br />
+        <br />
+        <div class="signup-form">
+          <div class="signup-image">
+            <img alt="signUp" src="{{ tempBook.imageUrl }}" />
+          </div>
+          <div class="details">
+            <form class="register-form" #authForm="ngForm">
+              <br />
+              <div>
+                <label htmlFor="name"> </label>
+                <input
+                  class="input"
+                  type="text"
+                  ngModel
+                  name="name"
+                  required
+                  minlength="3"
+                  placeholder=" Book Title"
+                [(ngModel)]="tempBook.title"/>
+              </div>
+              <br />
+              <div>
+                <label htmlFor="author"> </label>
+                <input
+                  class="input"
+                  type="text"
+                  ngModel
+                  name="author"
+                  required
+                  minlength="10"
+                  placeholder="Author Name"
+                  [(ngModel)]="tempBook.author"
+                />
+              </div>
+              <br />
+              <div>
+                <label htmlFor="phone"> </label>
+                <input
+                  class="input"
+                  type="text"
+                  ngModel
+                  name="Description"
+                  required
+                  minlength="30"
+                  placeholder="Book Description"
+                  [(ngModel)]="tempBook.description"
+                />
+              </div>
+              <br />
+              <div>
+                <label htmlFor="work"> </label>
+                <input
+                  class="input"
+                  type="number"
+                  ngModel
+                  name="address"
+                  required
+                  minlength="3"
+                  placeholder="Price"
+                  [(ngModel)]="tempBook.price"
+                />
+              </div>
+              <br />
+              <div>
+                <label htmlFor="cpassword"> </label>
+                <input
+                  class="input"
+                  type="number"
+                  id="password"
+                  ngModel
+                  name="password"
+                  required
+                  placeholder="Password"
+                  minlength="6"
+                  [(ngModel)]="tempBook.pages"
+                />
+              </div>
+  
+              <div class="try-submit">
+                <button type="submit" (click)="updateBook()"[disabled]="!authForm.valid">Save</button>
+                <button type="button" (click)="setEditMode(false,-1)">Cancle</button>
+              </div>
+            </form>
+          </div>
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>

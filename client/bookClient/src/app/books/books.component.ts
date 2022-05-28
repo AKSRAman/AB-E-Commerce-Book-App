@@ -7,9 +7,8 @@ import { BookServices } from './book.services';
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
+  styleUrls: ['./books.component.css'],
 })
-
 export class BooksComponent implements OnInit {
   currentPage: number = 0;
   lastPage: number = 0;
@@ -60,9 +59,9 @@ export class BooksComponent implements OnInit {
       if (counter == this.images.length) {
         counter = 0;
       }
-      this.imgSrc = this.images[counter]
+      this.imgSrc = this.images[counter];
       counter++;
-    }, 2000)
+    }, 2000);
   }
 
   gotoSinglebook(id: string | null) {
@@ -85,20 +84,22 @@ export class BooksComponent implements OnInit {
   }
 
   addInCart(book: Book) {
-    let token: any = localStorage.getItem("jwtToken");
+    let token: any = localStorage.getItem('jwtToken');
     token = JSON.parse(token);
     if (!token) {
       return;
     }
     const httpOptions = {
       headers: new HttpHeaders({
-        'x-api-key': "I am coming from frontend",
-        'Authorization': `Bearer ${token}`
-      })
+        'x-api-key': 'I am coming from frontend',
+        Authorization: `Bearer ${token}`,
+      }),
     };
-    this.http.post('http://localhost:8080/user/addToCart', book, httpOptions)
+    this.http
+      .post('http://localhost:8080/user/addToCart', book, httpOptions)
       .subscribe({
-        next: (response) => console.log(response), error: (error) => console.log(error),
+        next: (response) => console.log(response),
+        error: (error) => console.log(error),
       });
   }
 }

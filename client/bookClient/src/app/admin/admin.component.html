@@ -1,3 +1,8 @@
-<h1>Admin Navbar Under Processing</h1>
-<app-adminbook></app-adminbook>
-<app-add-new-book></app-add-new-book>
+<div class="adminnavbar">
+  <div (click)="onClick(true)">Add New Book</div>
+  <div (click)="onClick(false)">Admin Dashboard</div>
+</div>
+<app-add-new-book *ngIf="toggle; else books"></app-add-new-book>
+<ng-template #books>
+  <app-adminbook></app-adminbook>
+</ng-template>

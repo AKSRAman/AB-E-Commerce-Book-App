@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-single-book',
   templateUrl: './single-book.component.html',
-  styleUrls: ['./single-book.component.css']
+  styleUrls: ['./single-book.component.css'],
 })
 export class SingleBookComponent implements OnInit {
   book: Book = {
@@ -20,8 +20,8 @@ export class SingleBookComponent implements OnInit {
     price: 1111,
     publishDate: "",
     rating: 0,
-    title: "PSYCOLOGY OF MIND",
-    updatedOn: "",
+    title: '',
+    updatedOn: '',
   };
   id: string | null = "";
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private bookData: BookServices, private http: HttpClient) { }

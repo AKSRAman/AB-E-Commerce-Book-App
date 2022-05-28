@@ -60,21 +60,21 @@ export class AdminbookComponent implements OnInit {
       this.tempBook = Object.assign({}, this.allBooks[i]);
     }
   }
-
-  updateBook() {
-    console.log(this.tempBook, "ss")
-    this.bookServices.updateBook(this.tempBook).subscribe((res) => {
-      this.getBooksData();
-      console.log(res, "updatebook")
-      this.editMode = false
-      alert(`The Book ${this.tempBook.title} with id ${this.tempBook.id} updated successfuly`);
-    });;
+  
+    updateBook() {
+      this.bookServices.updateBook(this.tempBook).subscribe((res) => {
+        this.getBooksData();
+        console.log(res, "updatebook")
+        this.editMode = false
+        alert(`The Book ${this.tempBook.title} with id ${this.tempBook.id} updated successfuly`);
+      });;
+   
   }
 
   deteteBook(id: string | null) {
     this.bookServices.deleteBook(id).subscribe((res) => {
       this.getBooksData();
-      console.log(res)
+     
     });
   }
 
