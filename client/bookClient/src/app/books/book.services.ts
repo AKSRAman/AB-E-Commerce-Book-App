@@ -53,7 +53,7 @@ export class BookServices {
       });
   }
 
-  updateBook(book: Book) {
+  updateBook(book:Book) {
     let token: any = localStorage.getItem('jwtToken');
     token = JSON.parse(token);
     console.log(token);
