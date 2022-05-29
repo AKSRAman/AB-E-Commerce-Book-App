@@ -3,19 +3,44 @@
         <div class="emptyCart" *ngIf="allBooks.length==0">
             <h1>Your Cart is Empty</h1>
         </div>
+        <div class="card-cover" *ngFor="let book of allBooks ; index as i">
+            <div class="product-card ">
+                <div class="card-text">
+                    <div class="portada">
+                        <div class="portada-sr">
+                            {{i+1}}
+                        </div>
+                        <div class="portada-image">
+                            <img src="{{book.imageUrl}}" />
+                        </div>
+                    </div>
 
-        <div class="cart-cover" *ngIf="allBooks.length>0">
-            <div class="cart-product" *ngFor="let book of allBooks ; index as i">
-                <div class="cart-product-image">
-                    <img src="{{book.imageUrl}}" />
-                </div>
-                <div class="cart-product-details">
-                    Sr. No. : {{i+1}}<br />
-                    Title : {{book.title}}<br />
-                    Price : {{book.price}} Rupees<br />
-                    Author : {{book.author}} <br />
-                    Pages : {{book.pages}} <br />
-                    <button (click)="removeItem(i)">Remove</button>
+                    <div class="title-total">
+                        <div class="title">
+                            <div class="book-title">{{book.title}}<span> &nbsp;({{book.author}})</span></div>
+
+                        </div>
+                        <hr>
+                        <div class="item-details">
+                            <div class="item-price">
+                                Price : {{book.price}} ₹
+                            </div>
+                            <div class="item-button">
+                                <div class="remove-item">
+                                    <button class="remove-button" (click)="removeItem(i)"><span
+                                            class="material-symbols-outlined">
+                                            delete
+                                        </span>Remove</button>
+                                </div>
+                            </div>
+                            <!-- <div class="img-head">
+                                <div class="img-avatar">
+                                    <img alt="img" src="../../assets/images/bookLogo.jpg" />
+                                </div>
+                            </div> -->
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -54,12 +79,12 @@
             </div>
             <div class="cart-description">
                 <p>Total Items : {{allBooks.length}}</p>
-                <p>Total Price : {{ totalPrice}}</p>
+                <p>Total Price : {{ totalPrice}} ₹</p>
             </div>
             <div class="cart-date">
                 <p>{{date}}</p>
             </div>
-            <div class="cart-btn">
+            <div class="cart-btn" *ngIf="allBooks.length>0">
                 Check Out
             </div>
         </div>

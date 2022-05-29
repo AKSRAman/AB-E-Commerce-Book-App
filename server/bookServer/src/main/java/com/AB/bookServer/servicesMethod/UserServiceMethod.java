@@ -4,10 +4,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
+
+import javax.mail.internet.MimeMessage;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
 import com.AB.bookServer.JwtUtil.JwtUtil;
 import com.AB.bookServer.model.Book;
 import com.AB.bookServer.model.User;
@@ -21,21 +27,22 @@ import io.jsonwebtoken.Claims;
 public class UserServiceMethod implements UserService {
 
 	@Autowired
+	private JavaMailSender sender;
+
+	@Autowired
 	private UserRepository userRepo;
 
-	
 	@Autowired
 	private JwtUtil jwt;
-	
-	
+
 	public Claims jwtTokenDecoder(String token) {
-		if(token.startsWith("Bearer ")) {
+		if (token.startsWith("Bearer ")) {
 			String jwtToken = token.substring(7);
 			return jwt.getAllClaimsFromToken(jwtToken);
 		}
 		return jwt.getAllClaimsFromToken(token);
 	}
-	
+
 	@Override
 	public Response fetchUser(String token) {
 		Claims decodeToken = this.jwtTokenDecoder(token);
@@ -49,19 +56,24 @@ public class UserServiceMethod implements UserService {
 		Response data = new Response(false, "failed");
 		return data;
 	}
-	
+
 	@Override
 	public Response saveUser(User user) {
-		user.setBooksCart(new ArrayList<Book>());
-		user.setAddedOn(new Date(System.currentTimeMillis()));
-		User saveDoc = userRepo.save(user);
-		if (!saveDoc.toString().isEmpty()) {
-			Response data = new Response(true, "Success", saveDoc);
-			return data;
-		} else {
-			Response data = new Response(false, "Some error occured");
-			return data;
+		User emailCheck = userRepo.findByEmail(user.getEmail());
+		if (emailCheck == null) {
+			user.setBooksCart(new ArrayList<Book>());
+			user.setAddedOn(new Date(System.currentTimeMillis()));
+			User saveDoc = userRepo.save(user);
+			if (!saveDoc.toString().isEmpty()) {
+				Response data = new Response(true, "Success", saveDoc);
+				return data;
+			} else {
+				Response data = new Response(false, "Some error occured");
+				return data;
+			}
 		}
+		Response data = new Response(false, "Duplicate email");
+		return data;
 	}
 
 	@Override
@@ -93,9 +105,9 @@ public class UserServiceMethod implements UserService {
 		Response data = new Response(true, "Success", findUserResponse.get());
 		return data;
 	}
-	
+
 	@Override
-	public Response addInCart(String token,Book book) {
+	public Response addInCart(String token, Book book) {
 		Claims decodeToken = this.jwtTokenDecoder(token);
 		String userId = (String) decodeToken.get("userId");
 		ObjectId objectId = new ObjectId(userId);
@@ -111,9 +123,9 @@ public class UserServiceMethod implements UserService {
 		Response data = new Response(false, "failed");
 		return data;
 	}
-	
+
 	@Override
-	public Response removeFromCart(String token,int i) {
+	public Response removeFromCart(String token, int i) {
 		Claims decodeToken = this.jwtTokenDecoder(token);
 		String userId = (String) decodeToken.get("userId");
 		ObjectId objectId = new ObjectId(userId);
@@ -126,8 +138,54 @@ public class UserServiceMethod implements UserService {
 			Response data = new Response(true, "Success", findUserResponse.get());
 			return data;
 		}
-		Response data = new Response(false,"failed");
+		Response data = new Response(false, "failed");
 		return data;
 	}
-	
+
+	public String getRandomNumberString() {
+		Random rnd = new Random();
+		int number = rnd.nextInt(999999);
+		return String.format("%06d", number);
+	}
+
+	public Response sendEmail(String email) {
+		try {
+			User user = userRepo.findByEmail(email);
+			if (user != null) {
+				emailSender(email);
+				return new Response(true, "OTP Sent to " + email);
+			}
+			return new Response(false, "User details not found");
+		} catch (Exception ex) {
+			return new Response(false, ex.toString());
+		}
+	}
+
+	private void emailSender(String email) throws Exception {
+		User user = userRepo.findByEmail(email);
+		String otpCode = getRandomNumberString();
+		user.setOtp(otpCode);
+		userRepo.save(user);
+		MimeMessage message = sender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(message);
+		helper.setTo(email);
+		helper.setSubject("Login OTP Verification for AB-Book-Store");
+		helper.setText("Hii dear " + user.getfullName() + "," + " Your otp for login is : " + otpCode);
+		sender.send(message);
+	}
+
+	public Response verifyOtp(String email, String otp) {
+		try {
+			User user = userRepo.findByEmail(email);
+			if (user.getOtp().equals(otp)) {
+				user.setOtp(null);
+				userRepo.save(user);
+				return new Response(true, "OTP verified successful");
+			} else {
+				return new Response(false, "Not authenticate");
+			}
+		} catch (Exception err) {
+			return new Response(false, err.toString());
+		}
+	}
 }

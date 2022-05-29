@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book.model';
 import { BookServices } from './book.services';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-books',
@@ -42,7 +43,7 @@ export class BooksComponent implements OnInit {
   ngOnInit(): void {
     this.getBooksData();
     this.startSlideshow();
-    this.getUserData();
+    // this.getUserData();
   }
 
   getBooksData() {
@@ -68,16 +69,16 @@ export class BooksComponent implements OnInit {
     this.router.navigate(['single', { "id": id }])
   }
 
-  getUserData() {
-    let token: any = localStorage.getItem("jwtToken");
-    token = JSON.parse(token);
-    if (!token) {
-      return
-    }
-    this.bookService.getUser().subscribe((res) => {
-      console.log(res, "Yess i am coming from protected route");
-    });
-  }
+  // getUserData() {
+  //   let token: any = localStorage.getItem("jwtToken");
+  //   token = JSON.parse(token);
+  //   if (!token) {
+  //     return
+  //   }
+  //   this.bookService.getUser().subscribe((res) => {
+  //     console.log(res, "Yess i am coming from protected route");
+  //   });
+  // }
 
   onEdit() {
     window.scrollTo(0, 0);
@@ -87,7 +88,8 @@ export class BooksComponent implements OnInit {
     let token: any = localStorage.getItem('jwtToken');
     token = JSON.parse(token);
     if (!token) {
-      return;
+      Swal.fire("Please login to add this item in your cart", "", "error");
+      return console.log("token is not present checked by books for add to cart")
     }
     const httpOptions = {
       headers: new HttpHeaders({
@@ -98,8 +100,18 @@ export class BooksComponent implements OnInit {
     this.http
       .post('http://localhost:8080/user/addToCart', book, httpOptions)
       .subscribe({
-        next: (response) => console.log(response),
+        next: (response) => { console.log(response); this.simpleAlert(book.title) },
         error: (error) => console.log(error),
       });
+  }
+
+  simpleAlert(message: any) {
+    Swal.fire({
+      title: `${message} Added to Your Cart`,
+      text: 'Thankyou',
+      timer: 1000,
+      position: 'top-end',
+      icon: 'success',
+    });
   }
 }

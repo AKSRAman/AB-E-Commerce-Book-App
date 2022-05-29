@@ -12,17 +12,17 @@
         <p class="card-text">Author : {{ book.author }}</p>
         <p class="card-text">Price : {{ book.price }}</p>
       </div>
-      <a (click)="gotoSinglebook(book.id)">
-        <button class="card-btn" (click)="onEdit()">View</button></a
-      >
-      <button
-        class="card-btn"
-        (click)="addInCart(book)"
-        ng-class="color"
-        ng-click="color='red-color'"
-      >
-        Add to Cart
-      </button>
+      <div class="card-plate">
+        <a (click)="gotoSinglebook(book.id)">
+          <button class="card-btn" (click)="onEdit()"><span class="material-symbols-outlined">
+              visibility
+            </span></button></a>
+        <button class="card-btn" (click)="addInCart(book)">
+          <span class="material-symbols-outlined">
+            add_shopping_cart
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </div>

@@ -1,7 +1,5 @@
 package com.AB.bookServer.controller;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.bson.types.ObjectId;
@@ -47,16 +45,8 @@ public class UserController {
 	private AuthenticationManager authenticationManager;
 
 	@GetMapping("/decodeToken")
-	public ResponseEntity<?> decodeToken(@RequestParam(value = "token") String token) {
+	public ResponseEntity<?> decodeTokenjh(@RequestParam(value = "token") String token) {
 		return ResponseEntity.ok(jwt.getAllClaimsFromToken(token));
-	}
-
-	@GetMapping("/getCookies")
-	public ResponseEntity<?> getCookies(HttpServletRequest req, HttpServletResponse res) {
-		Cookie cookie = new Cookie("name", "aman");
-		cookie.setHttpOnly(true);
-		res.addCookie(cookie);
-		return ResponseEntity.ok(req.getCookies());
 	}
 
 	@PostMapping("/")
@@ -81,13 +71,36 @@ public class UserController {
 	public ResponseEntity<?> getUserBbyId(@RequestHeader(value = "Authorization") String token) {
 		Response data = userOperation.fetchUser(token);
 		if (data.getStatus() == true) {
-			return ResponseEntity.ok(data);
+			return ResponseEntity.status(201).body(data);
 		}
 		return ResponseEntity.status(400).body(data);
 	}
 
+	@PostMapping("/loginWithOtp")
+	public ResponseEntity<?> loginWithOtp(@RequestBody AuthRequest user) throws Exception {
+		System.out.println(user.getEmail());
+		Response output = userOperation.sendEmail(user.getEmail());
+		if(output.getStatus() == true) {
+			return ResponseEntity.ok(output);
+		}
+		else {
+			return ResponseEntity.status(400).body(output);
+		}
+	}
+
+	@PostMapping("/verifyOtp/{email}/{otp}")
+	public ResponseEntity<?> verifyOtp(@PathVariable String email, @PathVariable String otp) throws Exception {
+		Response output = userOperation.verifyOtp(email, otp);
+		if (output.getStatus() == true) {
+			User userFound = userRepo.findByEmail(email);
+			String token = jwt.generateToken(userFound);
+			return ResponseEntity.ok(new Response(true, "You have logged in successfully with emailId : " + email, token));
+		}
+		return ResponseEntity.status(400).body(new Response(false, "Invalid OTP", output.getUser()));
+	}
+
 	@PostMapping("/login")
-	public Response generateToken(@RequestBody AuthRequest user, HttpServletResponse response) throws Exception {
+	public Response login(@RequestBody AuthRequest user, HttpServletResponse response) throws Exception {
 		try {
 			authenticationManager
 					.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
@@ -96,10 +109,6 @@ public class UserController {
 		}
 		User userFound = userRepo.findByEmail(user.getEmail());
 		String token = jwt.generateToken(userFound);
-		Cookie cookie = new Cookie("jwtToken", token);
-		cookie.setHttpOnly(true);
-		response.addCookie(cookie);
-		response.addHeader("jwtToken", token);
 		return new Response(true, "You have logged in successfully with emailId : " + user.getEmail(), token);
 	}
 

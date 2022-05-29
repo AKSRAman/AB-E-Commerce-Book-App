@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookServices } from 'src/app/books/book.services';
 import { HomeServices } from 'src/app/home/home.service';
+import Swal from 'sweetalert2';
 import { Book } from '../../book.model';
 @Component({
   selector: 'app-adminbook',
@@ -9,6 +10,9 @@ import { Book } from '../../book.model';
   styleUrls: ['./adminbook.component.css'],
 })
 export class AdminbookComponent implements OnInit {
+  editMode = false;
+  isAdmin = false;
+
   allBooks: Book[] = [
     {
       addedOn: '',
@@ -25,9 +29,7 @@ export class AdminbookComponent implements OnInit {
       updatedOn: '',
     },
   ];
-  editMode = false;
-  isAdmin = false;
-  constructor(private bookServices: BookServices, private homeService: HomeServices, private router: Router) { }
+
   tempBook: Book = {
     addedOn: '',
     author: '',
@@ -42,9 +44,11 @@ export class AdminbookComponent implements OnInit {
     title: '',
     updatedOn: '',
   };
+
+  constructor(private bookServices: BookServices) { }
+
   ngOnInit(): void {
     this.getBooksData();
-    this.fetchUserData()
   }
 
   getBooksData() {
@@ -60,37 +64,49 @@ export class AdminbookComponent implements OnInit {
       this.tempBook = Object.assign({}, this.allBooks[i]);
     }
   }
-  
-    updateBook() {
-      this.bookServices.updateBook(this.tempBook).subscribe((res) => {
-        this.getBooksData();
-        console.log(res, "updatebook")
-        this.editMode = false
-        alert(`The Book ${this.tempBook.title} with id ${this.tempBook.id} updated successfuly`);
-      });;
-   
+
+  updateBook() {
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.bookServices.updateBook(this.tempBook).subscribe((res) => {
+          this.getBooksData();
+          console.log(res, "updatebook")
+          this.editMode = false
+          Swal.fire('Saved!', '', 'success')
+        });;
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
   }
 
   deteteBook(id: string | null) {
-    this.bookServices.deleteBook(id).subscribe((res) => {
-      this.getBooksData();
-     
-    });
-  }
-
-  fetchUserData() {
-    this.homeService.fetchUser().subscribe((res) => {
-      console.log(res, "admin"), this.validateAdmin(res)
-    });
-  }
-
-  validateAdmin(input: any) {
-    if (input.user.role == "admin") {
-      this.isAdmin = true
-      alert(`Welcome Admin ${input.user.fullName}, currently you are at admin page`)
-    } else {
-      this.router.navigateByUrl('/books')
-      alert(`Hii ${input.user.fullName} You are not admin`)
-    }
+    Swal.fire({
+      title: 'Are you sure to delete this book ?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.bookServices.deleteBook(id).subscribe((res) => {
+          this.getBooksData();
+          console.log(res)
+          Swal.fire(
+            'Deleted!',
+            'This book is deleted successfully',
+            'success'
+          )
+        });
+      }
+    })
   }
 }

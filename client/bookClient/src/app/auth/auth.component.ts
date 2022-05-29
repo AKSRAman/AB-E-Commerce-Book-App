@@ -10,23 +10,37 @@ import { AuthServices } from './auth.services';
 export class AuthComponent implements OnInit {
   isLogin = true;
 
-  constructor(private auth: AuthServices) {}
+  constructor(private auth: AuthServices) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  loginOtp = false;
+  buttonValue = "Login with Otp";
 
   onSwitchMode() {
     this.isLogin = !this.isLogin;
   }
+  
+  loginWithOtp() {
+    this.loginOtp ? (this.loginOtp = false, this.buttonValue = "Login with Otp") : (this.loginOtp = true, this.buttonValue = "Login with Password")
+  }
 
   onLogin(form: NgForm) {
-    console.log(form.value, 'amanform login');
     this.auth.userLogin(form.value);
     form.reset();
   }
 
   onRegistraion(form: NgForm) {
-    console.log(form.value, 'amanform register');
     this.auth.userRegister(form.value);
     form.reset();
   }
+
+  requestOtp(form: NgForm) {
+    this.auth.userLoginWithOtp(form.value);
+  }
+
+  verifyLogin(form: NgForm) {
+    this.auth.verifyUserWithOtp(form.value)
+  }
+
 }
