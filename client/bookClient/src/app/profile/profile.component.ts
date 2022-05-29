@@ -10,7 +10,7 @@ import { HomeServices } from '../home/home.service';
 })
 
 export class ProfileComponent implements OnInit {
-  editMode:boolean=true;
+  editMode:boolean=false;
   typeInput="password";
   change="visibility_off"
   type=false;

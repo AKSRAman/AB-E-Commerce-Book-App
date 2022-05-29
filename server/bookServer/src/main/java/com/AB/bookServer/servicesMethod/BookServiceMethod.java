@@ -31,10 +31,10 @@ public class BookServiceMethod implements BookService {
 		Sort sort = Sort.by(sortBy);
 		Pageable page = PageRequest.of(pageNo, pageSize, sort);
 		Page<Book> bookPage = bookRepo.findAll(page);
-		response.put("data", bookPage.getContent());
-		response.put("Total No Of page", bookPage.getTotalPages());
-		response.put("Total no of Elements", bookPage.getTotalElements());
-		response.put("Current Page No.", bookPage.getNumber());
+		response.put("bookList", bookPage.getContent());
+		response.put("totalPages", bookPage.getTotalPages());
+		response.put("totalElements", bookPage.getTotalElements());
+		response.put("currentPage", bookPage.getNumber());
 		return response;
 	}
 

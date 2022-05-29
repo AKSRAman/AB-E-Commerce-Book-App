@@ -13,7 +13,7 @@
 
   <div class="nav-right">
     <div class="search">
-      <input type="text" placeholder="Search..." id="searchBox" />
+      <input type="text"  (input)="dedounceSearchedBook($event,1000)" placeholder="Search..." id="searchBox" />
       <div class="search-button">
         <button>
           <span class="material-symbols-outlined"> search </span>
@@ -31,7 +31,20 @@
 <br />
 <br />
 
-<div id="debounceDiv"></div>
+<div class="debounce" *ngIf="searchBook.length > 0">
+ <div *ngFor="let book of searchBook; let i=index">
+   <div>
+     <div >
+       <img src="{{book.imageUrl}}" />
+     </div>
+     <div>
+       <h1 >{{book.title}}</h1>
+         <p class="card-text">Author : {{book.author}} </p>
+         <p class="card-text">Price : {{book.price}}</p>  
+     </div>
+ </div>
+</div>
+</div>
 
 <div class="topBar">
   <div class="top-bar-panel">

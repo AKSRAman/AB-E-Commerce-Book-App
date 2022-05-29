@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Swal from 'sweetalert2';
-
+import { Book } from '../book.model';
+import { BookServices } from '../books/book.services';
 import { HomeServices } from '../home/home.service';
 @Component({
   selector: 'app-navbar',
@@ -9,11 +10,13 @@ import { HomeServices } from '../home/home.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  searchBook:Book[]=[];
+  timerId:any;
+  value="";
+  constructor(private homeService: HomeServices,private bookService: BookServices) { }
 
-  timerId: number = 1000;
 
-  constructor(private homeService: HomeServices, private http: HttpClient) { }
-
+  
   isLogin: boolean = false
 
   ngOnInit(): void {
@@ -36,5 +39,35 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem("jwtToken");
     window.location.reload()
   }
+  loginStatus: boolean = this.homeService.loginStatus
+
+getSearchBook(){
+ 
+  this.bookService.getSearchBooks(this.value).subscribe((res)=>{console.log(res)
+    this.searchBook=res});
+
+  }
+  
+ dedounceSearchedBook(event:Event,delay:number){
+  if (this.timerId) {
+    clearTimeout(this.timerId);
+}
+  this.timerId=setTimeout(()=>{
+    this.main(event);
+  },delay);
+}
+
+main(event:Event):boolean|void{
+  this.value=(<HTMLInputElement>event.target).value;
+  if(this.value.length< 3){
+    this.searchBook=[];
+    return false;
+  }
+this.getSearchBook();
+}
+
+
+
+
 
 }

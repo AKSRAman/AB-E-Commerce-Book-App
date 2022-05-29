@@ -38,3 +38,22 @@ export interface SingleBookResponse {
 export interface Comman {
   status: boolean, message: string
 }
+export interface BookByPage{
+  totalElements:number;
+  bookList:[{
+    addedOn: "",
+    author: "",
+    category: "",
+    description: "",
+    id: "",
+    imageUrl: "",
+    pages: 0,
+    price: 0,
+    publishDate: "",
+    rating: 0,
+    title: "",
+    updatedOn: "",
+  }],
+  totalPages:number;
+  currentPage:number;
+}
