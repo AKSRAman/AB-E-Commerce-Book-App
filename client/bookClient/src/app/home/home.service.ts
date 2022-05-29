@@ -41,7 +41,7 @@ export class HomeServices {
       }),
     };
     return this.http.put<any>(
-      'http://localhost:8080/user/updateUser/' + user.id,user,httpOptions
+      'http://localhost:8080/user/' + user.id,user,httpOptions
     );
   }
 }

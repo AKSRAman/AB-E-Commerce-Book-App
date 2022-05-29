@@ -112,7 +112,7 @@ public class UserController {
 		return new Response(true, "You have logged in successfully with emailId : " + user.getEmail(), token);
 	}
 
-	@PutMapping("/updateUser/{userId}")
+	@PutMapping("/{userId}")
 	public ResponseEntity<?> updateUser(@PathVariable ObjectId userId, @RequestBody User userData) {
 		Response data = userOperation.updateUser(userId, userData);
 		if (data.getStatus() == true) {
