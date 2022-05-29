@@ -69,7 +69,7 @@ public class BookServiceMethod implements BookService {
 
 	@Override
 	public Response getBooks() {
-		List<Book> output = bookRepo.findIsDeleted();
+		List<Book> output = bookRepo.findAll();
 		if (!output.isEmpty()) {
 			Response data = new Response(true, "success", output);
 			return data;
@@ -116,9 +116,7 @@ public class BookServiceMethod implements BookService {
 	public Response deleteBook(ObjectId id) {
 		Optional<Book> findBook = bookRepo.findById(id);
 		if (findBook.isPresent()) {
-			Book bookDeleted = findBook.get();
-			bookDeleted.setIsDeleted(true);
-			bookRepo.save(bookDeleted);
+			bookRepo.deleteById(id);
 			Response data = new Response(true, "Book deleted successfully");
 			return data;
 		}

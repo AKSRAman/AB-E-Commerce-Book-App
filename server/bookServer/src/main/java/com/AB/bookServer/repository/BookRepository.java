@@ -13,9 +13,6 @@ import com.AB.bookServer.model.Book;
 @Repository
 public interface BookRepository extends MongoRepository<Book, ObjectId> {
 
-	@Query(value = "{'isDeleted':{$eq:false}}")
-	List<Book> findIsDeleted();
-
 	@Query("{ 'category': {$regex:?0   }})")
 	List<Book> findByQueryInCategory(String val);
 
