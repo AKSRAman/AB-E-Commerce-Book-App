@@ -12,9 +12,9 @@ public class Review {
 	@Id
 	private String id;
 	private String bookId;
+	private String userId;
 	private String reviewedBy = "Guest User";
 	private String review;
-	private Boolean isDeleted = false;
 	private int rating;
 	private Date reviewedAt;
 	private Date updatedOn;
@@ -59,14 +59,6 @@ public class Review {
 		this.rating = rating;
 	}
 
-	public Boolean getIsDeleted() {
-		return isDeleted;
-	}
-
-	public void setIsDeleted(Boolean isDeleted) {
-		this.isDeleted = isDeleted;
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -81,5 +73,13 @@ public class Review {
 
 	public void setUpdatedOn(Date updatedOn) {
 		this.updatedOn = updatedOn;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 }

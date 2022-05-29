@@ -81,16 +81,6 @@ export class BooksComponent implements OnInit {
     this.router.navigate(['single', { "id": id }])
   }
 
-  // getUserData() {
-  //   let token: any = localStorage.getItem("jwtToken");
-  //   token = JSON.parse(token);
-  //   if (!token) {
-  //     return
-  //   }
-  //   this.bookService.getUser().subscribe((res) => {
-  //     console.log(res, "Yess i am coming from protected route");
-  //   });
-  // }
 
   onEdit() {
     window.scrollTo(0, 0);

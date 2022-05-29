@@ -6,7 +6,6 @@
   align-items: center;
 }
 .signup {
-  border: 2px solid black;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -124,13 +123,134 @@
   color: white;
 }
 
-.rating {
-  display: flex;
-}
-
-.fill {
-  color: yellow;
-}
-
 @media screen and (max-width: 1000px) {
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 100%;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25,
+  .col-75,
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+.review-container{
+
+background: linear-gradient(to right, #14152e, #065579);
+padding: 20px;
+}
+
+.review-cover {
+  background: linear-gradient(to right, #14152e, #065579);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.review {
+  margin: 0 20px 30px;
+}
+
+.review-head {
+  text-align: center;
+  color: white;
+  font-size: 25px;
+}
+
+.review .review-content {
+  padding: 35px 25px 35px 50px;
+  margin-bottom: 35px;
+  background: #fff;
+  position: relative;
+}
+
+.review-content .review-icon {
+  width: 50px;
+  height: 45px;
+  background: #0084ff;
+  text-align: center;
+  font-size: 22px;
+  color: #fff;
+  line-height: 42px;
+  position: absolute;
+  top: 37px;
+  left: -19px;
+}
+
+.review-content .review-icon:before {
+  content: "";
+  border-bottom: 16px solid #0084ff;
+  border-left: 18px solid transparent;
+  position: absolute;
+  top: -16px;
+  left: 1px;
+}
+
+.review .description {
+  font-size: 15px;
+  font-style: italic;
+  color: #8a8a8a;
+  line-height: 23px;
+  margin: 0;
+}
+
+.review .title {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #565a58;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin: 0 0 5px 0;
+}
+
+.review .rating {
+  display: block;
+  font-size: 14px;
+  color: #0084ff;
+}
+
+.container2{
+
+  margin: auto
 }
