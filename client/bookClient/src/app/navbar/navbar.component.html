@@ -32,17 +32,18 @@
 <br />
 
 <div class="debounce" *ngIf="searchBook.length > 0">
- <div *ngFor="let book of searchBook; let i=index">
-   <div>
-     <div >
+ <div  *ngFor="let book of searchBook; let i=index">
+   <div class="debounce-child">
+     <div class="debounce-image">
        <img src="{{book.imageUrl}}" />
      </div>
-     <div>
+     <div class="debounce-details">
        <h1 >{{book.title}}</h1>
          <p class="card-text">Author : {{book.author}} </p>
          <p class="card-text">Price : {{book.price}}</p>  
      </div>
  </div>
+ 
 </div>
 </div>
 

@@ -35,8 +35,6 @@ public class Book {
 
 	private Date updatedOn;
 
-	private Boolean isDeleted = false;
-
 	public String getId() {
 		return id;
 	}
@@ -131,14 +129,6 @@ public class Book {
 
 	public void setReviews(int reviews) {
 		this.reviews = reviews;
-	}
-
-	public Boolean getIsDeleted() {
-		return isDeleted;
-	}
-
-	public void setIsDeleted(Boolean isDeleted) {
-		this.isDeleted = isDeleted;
 	}
 
 }
