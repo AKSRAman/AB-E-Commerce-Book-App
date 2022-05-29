@@ -41,18 +41,30 @@ export class BooksComponent implements OnInit {
   constructor(private bookService: BookServices, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-    this.getBooksData();
+    //this.getBooksData();
+    this.getBookDataPageWise();
     this.startSlideshow();
     // this.getUserData();
   }
-
-  getBooksData() {
-    this.bookService.getAllBooks().subscribe((res) => {
-      console.log(res.bookList);
+  getBookDataPageWise() {
+    this.bookService.getBookDataPageWise(this.currentPage).subscribe((res) => {
+      console.log(res);
       this.allBooks = res.bookList;
+      //this.currentPage = res.currentPage;
+      this.lastPage=res.totalPages;
     });
   }
-
+  onNext(){
+    this.currentPage++;
+    if(this.currentPage<this.lastPage){
+    this.getBookDataPageWise();
+    }
+  }
+  onPrev(){
+    this.currentPage--;
+    this.getBookDataPageWise();
+    
+  }
   startSlideshow() {
     this.imgSrc = this.images[5];
     let counter = 0;

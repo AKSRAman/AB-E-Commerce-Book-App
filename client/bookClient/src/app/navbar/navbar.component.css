@@ -193,6 +193,38 @@
   display: none;
 }
 
+
+
+.debounce{
+  border-radius: 15px;
+  padding:20px;
+  position:fixed;
+  right: 0%;
+  z-index: 2;
+  height:50%;
+  overflow: scroll;
+  margin-right: 12%;
+  width:28%;
+  background: linear-gradient(to right, rgb(212,205,212), #eef2f3);
+}
+.debounce>div{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px;
+  border:1px solid blue;
+  width:100%
+}
+.debounce >div>div:nth-child(1) img{
+  border:1px solid green;
+  width:20%;
+}
+.debounce >div>div{
+ display: flex;
+
+}
+
+
 @media screen and (max-width: 600px) {
   .navbar {
     display: flex;
@@ -209,5 +241,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 50px;
+ 
   }
+
 }

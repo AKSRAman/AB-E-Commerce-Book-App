@@ -83,3 +83,10 @@ align-items: center;
 }
 @media only screen and (max-width: 768px) {
 }
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
+}

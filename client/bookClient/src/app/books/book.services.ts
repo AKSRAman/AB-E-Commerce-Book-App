@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from '../book.model';
-import { AllBookResponse, Comman, SingleBookResponse } from '../response.model';
+import { AllBookResponse, BookByPage, Comman, SingleBookResponse } from '../response.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,6 +13,14 @@ export class BookServices {
 
   constructor(private http: HttpClient) {
   }
+  getBookDataPageWise(page:number){
+    return this.http.get<BookByPage>(this.baseurl+"/"+"page"+"?pageno="+page);
+  }
+ getSearchBooks(val:string){
+  return this.http.get<Book[]>(this.baseurl+"/search?val="+val);
+
+ }
+
   getAllBooks() {
     return this.http.get<AllBookResponse>(this.baseurl);
   }

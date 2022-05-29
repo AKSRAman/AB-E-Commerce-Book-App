@@ -81,7 +81,7 @@ public class BookController {
 
 	@GetMapping("/books/page")
 	public Map<String, Object> getAllBookInPage(@RequestParam(name = "pageno", defaultValue = "0") int pageNo,
-			@RequestParam(name = "pagesize", defaultValue = "1") int pageSize,
+			@RequestParam(name = "pagesize", defaultValue = "8") int pageSize,
 			@RequestParam(name = "sortby", defaultValue = "id") String sortBy) {
 		return bookOperation.getAllBookInPage(pageNo, pageSize, sortBy);
 	}

@@ -26,3 +26,7 @@
     </div>
   </div>
 </div>
+<div class="pagination"> 
+  <button class="card-btn" (click)="onPrev()" [disabled]="currentPage==0">Previous Page</button>
+  <button class="card-btn" (click)="onNext()"[disabled]="lastPage==currentPage">Next Page</button>
+</div>
