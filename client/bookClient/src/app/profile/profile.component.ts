@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { HomeServices } from '../home/home.service';
 
 @Component({
@@ -27,13 +29,20 @@ export class ProfileComponent implements OnInit {
     address: "",
     password:"",
   }
-  constructor(private homeService: HomeServices) { }
+  constructor(private homeService: HomeServices , private router:Router) { }
 
   ngOnInit(): void {
     this.fetchUserData()
   }
 
   fetchUserData() {
+    let token: any = localStorage.getItem("jwtToken");
+    token = JSON.parse(token);
+    if (!token) {
+      Swal.fire("Please login to proceed", "We are very sorry for the inconvinience", "error");
+      this.router.navigateByUrl('/auth')
+      return console.log("token is not present checked by profile")
+    }
     this.homeService.fetchUser().subscribe((res: any) => {
       this.assignValue(res);
     });
@@ -48,6 +57,7 @@ export class ProfileComponent implements OnInit {
     this.address = obj.user.address;
     this.password=obj.user.password;
   }
+
    setEditMode(mode:boolean) {
      this.editMode=mode;
      if(mode==true){

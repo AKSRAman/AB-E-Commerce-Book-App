@@ -73,13 +73,10 @@
   justify-content: space-between;
 }
 
-@media only screen and (max-width: 768px) {
-}
-
 .signup-main {
   background: linear-gradient(to right, #8e9eab, #eef2f3);
   width: 100%;
-  height: 100vh;
+  height: 82vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,6 +166,7 @@ input:focus {
   background: linear-gradient(to right, #052f57, #0b82b1);
   color: white;
 }
+
 
 @media screen and (max-width: 1000px) {
   .signup-image > img {

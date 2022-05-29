@@ -1,8 +1,11 @@
-<div class="adminnavbar">
-  <div (click)="onClick(true)">Add New Book</div>
-  <div (click)="onClick(false)">Admin Dashboard</div>
+<div *ngIf="isAdmin">
+  <div class="adminnavbar">
+    <div (click)="onClick(true)">View All Books</div>
+    <div (click)="onClick(false)">Add New Book</div>
+  </div>
+  <ng-template #books>
+    <app-add-new-book></app-add-new-book>
+  </ng-template>
+  <app-adminbook *ngIf="toggle; else books"></app-adminbook>
+  
 </div>
-<app-add-new-book *ngIf="toggle; else books"></app-add-new-book>
-<ng-template #books>
-  <app-adminbook></app-adminbook>
-</ng-template>

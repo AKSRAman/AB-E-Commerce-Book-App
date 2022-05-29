@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Book } from '../book.model';
 import { BookServices } from '../books/book.services';
+import { HomeServices } from '../home/home.service';
 //import {CookieService} from 'angular2-cookie/core';
 
 @Component({
@@ -9,9 +12,10 @@ import { BookServices } from '../books/book.services';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  
-  constructor(private bookService: BookServices) { }
-  toggle:boolean=true;
+  isAdmin: boolean = false
+
+  constructor(private bookService: BookServices, private homeService: HomeServices, private router: Router) { }
+  toggle: boolean = true;
   allBooks: Book[] = [{
     addedOn: "",
     author: "",
@@ -27,12 +31,13 @@ export class AdminComponent implements OnInit {
     updatedOn: "",
   },];
 
-  onClick(toggle:boolean){
-    this.toggle=toggle
+  onClick(toggle: boolean) {
+    this.toggle = toggle
 
   }
   ngOnInit(): void {
     this.getBooksData
+    this.fetchUserData()
   }
 
   getBooksData() {
@@ -49,5 +54,32 @@ export class AdminComponent implements OnInit {
 
   deleteBook(book: Book) {
     console.log(book, "delete")
+  }
+
+  fetchUserData() {
+    let token: any = localStorage.getItem("jwtToken");
+    token = JSON.parse(token);
+    if (!token) {
+      Swal.fire("Please login to proceed", "We are very sorry for the inconvinience", "error");
+      this.router.navigateByUrl('/auth')
+      return console.log("token is not present checked by cart")
+    }
+    this.homeService.fetchUser().subscribe((res: any) => {
+      console.log(res, "admin"), this.validateAdmin(res)
+    });
+  }
+
+  validateAdmin(input: any) {
+    if (input.user.role == "admin") {
+      this.isAdmin = true
+      Swal.fire({
+        icon: 'success',
+        title: `Welcome to Admin dashboard ${input.user.fullName}`,
+        timer: 1500
+      })
+    } else {
+      this.router.navigateByUrl('/books')
+      Swal.fire(`Hii ${input.user.fullName} You are not admin`, "", "error");
+    }
   }
 }

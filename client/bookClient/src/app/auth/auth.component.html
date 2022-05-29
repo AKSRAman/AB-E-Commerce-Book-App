@@ -2,94 +2,48 @@
   <div class="signup">
     <div class="signup-content">
       <h2 class="signup-title">
-        <p>
-          Already have Account <span (click)="onSwitchMode()">Login here?</span>
-        </p>
+        <p>Already have Account ? &nbsp; <span (click)="onSwitchMode()">Login here</span></p>
       </h2>
       <br />
       <br />
       <div class="signup-form">
-        <form
-          class="register-form"
-          #authForm="ngForm"
-          (ngSubmit)="onRegistraion(authForm)"
-        >
+        <form class="register-form" #authForm="ngForm" (ngSubmit)="onRegistraion(authForm)">
           <br />
           <div>
             <label htmlFor="name">
               <i class="zmdi zmdi-account">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input
-              class="input"
-              type="text"
-              ngModel
-              name="fullName"
-              required
-              minlength="3"
-              placeholder="Name"
-            />
+            <input class="input" type="text" ngModel name="fullName" required minlength="3" placeholder="Name" />
           </div>
           <br />
           <div>
             <label htmlFor="email">
               <i class="zmdi zmdi-email">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input
-              class="input"
-              type="email"
-              ngModel
-              name="email"
-              required
-              email
-              placeholder="Email"
-            />
+            <input class="input" type="email" ngModel name="email" required email placeholder="Email" />
           </div>
           <br />
           <div>
             <label htmlFor="phone">
               <i class="zmdi zmdi-phone">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input
-              class="input"
-              type="number"
-              ngModel
-              name="mobNumber"
-              required
-              minlength="10"
-              maxlength="10"
-              placeholder="Phone"
-            />
+            <input class="input" type="number" ngModel name="mobNumber" required minlength="10" maxlength="10"
+              placeholder="Phone" />
           </div>
           <br />
           <div>
             <label htmlFor="work">
               <i class="zmdi zmdi-slideshow">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input
-              class="input"
-              type="text"
-              ngModel
-              name="address"
-              required
-              minlength="3"
-              placeholder="Address"
-            />
+            <input class="input" type="text" ngModel name="address" required minlength="3" placeholder="Address" />
           </div>
           <br />
           <div>
             <label htmlFor="cpassword">
               <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input
-              class="input"
-              type="password"
-              id="password"
-              ngModel
-              name="password"
-              required
-              placeholder="Password"
-              minlength="5"
-            />
+            <input class="input" type="password" id="password" ngModel name="password" required placeholder="Password"
+              minlength="5" />
           </div>
 
           <div class="try-submit">
@@ -102,12 +56,15 @@
         </form>
 
         <div class="signup-image">
-          <img alt="signUp" src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7965.jpg?w=1380&t=st=1653686794~exp=1653687394~hmac=9f74158bc314d18eb2ef97f7b6850ad7f99e47d50f2eb84b2af042d592ee49a2" />
+          <img alt="signUp"
+            src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7965.jpg?w=1380&t=st=1653686794~exp=1653687394~hmac=9f74158bc314d18eb2ef97f7b6850ad7f99e47d50f2eb84b2af042d592ee49a2" />
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
 <div class="signup-main" *ngIf="isLogin">
   <div class="signup">
     <div class="signup-content">
@@ -117,49 +74,45 @@
       <br />
       <br />
       <div class="signup-form">
-        <form
-          class="register-form"
-          #authForm="ngForm"
-          (ngSubmit)="onLogin(authForm)"
-        >
+        <form class="register-form" #authForm="ngForm">
           <br />
           <div>
             <label htmlFor="email">
               <i class="zmdi zmdi-email">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input
-              class="input"
-              type="email"
-              ngModel
-              name="email"
-              required
-              email
-              placeholder="Email"
-            />
+            <input class="input" type="email" ngModel name="email" required email placeholder="Email" />
           </div>
           <br />
-          <div>
+          <div *ngIf="!loginOtp">
             <label htmlFor="cpassword">
               <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
             </label>
-            <input
-              class="input"
-              type="password"
-              id="password"
-              ngModel
-              name="password"
-              required
-              placeholder="Password"
-              minlength="5"
-            />
+            <input class="input" type="password" id="password" ngModel name="password" required placeholder="Password"
+              minlength="5" />
+          </div>
+          <div *ngIf="loginOtp">
+            <label htmlFor="cpassword">
+              <i class="zmdi zmdi-lock">&nbsp;&nbsp;&nbsp;</i>
+            </label>
+            <input class="input" type="password" id="password" ngModel name="otp" required placeholder="OTP"
+              minlength="5" />
           </div>
 
           <div class="try-submit">
-            <button class="form-submit" type="submit" [disabled]="!authForm.valid"> SIGNIN
+            <button *ngIf="loginOtp" class="form-submit" type="submit" (click)=" requestOtp(authForm)">Request
+              Otp</button>
+            <button *ngIf="!loginOtp" class="form-submit" type="submit" (click)=" onLogin(authForm)"> SIGN IN
             </button>
-            <button class="form-switch" type="button" (click)="onSwitchMode()"> Switch Sign Up
+            <button *ngIf="loginOtp" class="form-submit" type="submit" (click)=" verifyLogin(authForm)"> Submit
+            </button>
+            <button *ngIf="!loginOtp" class="form-switch" type="button" (click)="onSwitchMode()"> Switch Sign Up
             </button>
           </div>
+          <br />
+          <br />
+          <button class="form-submit" type="submit" (click)=" loginWithOtp()"> {{buttonValue}}</button>
+          <br/>
+          <p *ngIf="loginOtp">Please put your email in email box and hit the button request OTP</p>
         </form>
 
         <div class="signup-image">
@@ -168,5 +121,4 @@
       </div>
     </div>
   </div>
-
 </div>

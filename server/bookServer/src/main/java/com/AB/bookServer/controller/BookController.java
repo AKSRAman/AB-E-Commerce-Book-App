@@ -34,29 +34,49 @@ public class BookController {
 	public ResponseEntity<?> addNewBooks(@RequestBody Book book) {
 		Response output = bookOperation.saveBook(book);
 		if (output.getStatus() == true) {
-			return ResponseEntity.ok(output);
+			return ResponseEntity.status(201).body(output);
 		}
 		return ResponseEntity.status(400).body(output);
 	}
 
 	@GetMapping("/books")
 	public ResponseEntity<?> getAllBooks() {
-		return ResponseEntity.ok(bookOperation.getBooks());
+		Response data = bookOperation.getBooks();
+		if(data.getStatus() == true) {
+			return ResponseEntity.ok(data);
+		} else {
+			return ResponseEntity.status(400).body(data);
+		}
 	}
 
 	@GetMapping("/books/{id}")
 	public ResponseEntity<?> getSinglebook(@PathVariable("id") ObjectId id) {
-		return ResponseEntity.ok(bookOperation.getSingleBook(id));
+		Response data = bookOperation.getSingleBook(id);
+		if(data.getStatus() == true) {
+			return ResponseEntity.ok(data);
+		} else {
+			return ResponseEntity.status(400).body(data);
+		}
 	}
 
 	@PutMapping("/books/{id}")
-	public Response updateBookById(@PathVariable ObjectId id, @RequestBody Book book) {
-		return bookOperation.updateBook(id, book);
+	public ResponseEntity<?> updateBookById(@PathVariable ObjectId id, @RequestBody Book book) {
+		Response data =  bookOperation.updateBook(id, book);
+		if(data.getStatus() == true) {
+			return ResponseEntity.ok(data);
+		} else {
+			return ResponseEntity.status(400).body(data);
+		}
 	}
 
 	@DeleteMapping("/books/{id}")
-	public Response deleteBookById(@PathVariable ObjectId id) {
-		return bookOperation.deleteBook(id);
+	public ResponseEntity<?> deleteBookById(@PathVariable ObjectId id) {
+		Response data =  bookOperation.deleteBook(id);
+		if(data.getStatus() == true) {
+			return ResponseEntity.ok(data);
+		} else {
+			return ResponseEntity.status(400).body(data);
+		}
 	}
 
 	@GetMapping("/books/page")
@@ -70,7 +90,6 @@ public class BookController {
 	public ResponseEntity<?> getBooksBySearch(@RequestParam(name = "val", defaultValue = "l") String val) {
 		try {
 			List<Book> books = bookOperation.getBooksBySearch(val);
-
 			return new ResponseEntity<>(books, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);

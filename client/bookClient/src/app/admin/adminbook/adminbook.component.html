@@ -1,4 +1,4 @@
-<div class="card-body" *ngIf="!editMode && isAdmin">
+<div class="card-body" *ngIf="!editMode">
   <div class="card-wrap" *ngFor="let book of allBooks;let i=index">
     <div class="card-header">
       <img src="{{book.imageUrl}}" />
@@ -12,6 +12,8 @@
       <div class="button">
         <button type="submit" class="card-btn" (click)="setEditMode(true,i)">Update</button>
         <button type="submit" class="card-btn" (click)="deteteBook(book.id)">Delete</button>
+       
+
       </div>
     </div>
   </div>
@@ -64,6 +66,7 @@
             <div class="try-submit">
               <button type="submit" (click)="updateBook()" [disabled]="!authForm.valid">Save</button>
               <button type="button" (click)="setEditMode(false,-1)">Cancle</button>
+              
             </div>
           </form>
         </div>

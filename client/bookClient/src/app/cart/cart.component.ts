@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Book } from '../book.model';
 import { BookServices } from '../books/book.services';
 import { HomeServices } from '../home/home.service';
@@ -11,7 +13,7 @@ import { HomeServices } from '../home/home.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private bookService: BookServices, private homeService: HomeServices, private http: HttpClient) { }
+  constructor(private bookService: BookServices, private homeService: HomeServices, private http: HttpClient, private router: Router) { }
 
   totalPrice: number = 0
 
@@ -51,7 +53,9 @@ export class CartComponent implements OnInit {
     let token: any = localStorage.getItem("jwtToken");
     token = JSON.parse(token);
     if (!token) {
-      return
+      Swal.fire("Please login to proceed", "We are very sorry for the inconvinience", "error");
+      this.router.navigateByUrl('/auth')
+      return console.log("token is not present checked by cart")
     }
     this.homeService.fetchUser().subscribe((res: any) => {
       this.assignValue(res);
@@ -82,7 +86,7 @@ export class CartComponent implements OnInit {
         },
         error: (error) => {
           console.log(error);
-          alert('There is some error item could not be removed');
+          Swal.fire("There is some error item could not be removed", "We are very sorry for the inconvinience", "error");
         },
       });
   }

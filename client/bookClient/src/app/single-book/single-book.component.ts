@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../book.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-single-book',
   templateUrl: './single-book.component.html',
@@ -23,6 +24,8 @@ export class SingleBookComponent implements OnInit {
     title: '',
     updatedOn: '',
   };
+
+
   id: string | null = "";
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private bookData: BookServices, private http: HttpClient) { }
 
@@ -48,8 +51,12 @@ export class SingleBookComponent implements OnInit {
   }
 
   addInCart(book: Book) {
-    let token: any = localStorage.getItem("jwtToken");
+    let token: any = localStorage.getItem('jwtToken');
     token = JSON.parse(token);
+    if (!token) {
+      Swal.fire("Please login to add this item in your cart", "", "error");
+      return console.log("token is not present checked by books for add to cart")
+    }
     const httpOptions = {
       headers: new HttpHeaders({
         'x-api-key': "I am coming from frontend",
@@ -57,11 +64,21 @@ export class SingleBookComponent implements OnInit {
       })
     };
     this.http.post('http://localhost:8080/user/addToCart', book, httpOptions)
-      .subscribe({
-        next: (response) => console.log(response), error: (error) => console.log(error),
-      });
+    .subscribe({
+      next: (response) => { console.log(response); this.simpleAlert(book.title) },
+      error: (error) => console.log(error),
+    });
   }
 
+  simpleAlert(message: any) {
+    Swal.fire({
+      title: `${message} Added to Your Cart`,
+      text: 'Thankyou',
+      timer: 1000,
+      position: 'top-end',
+      icon: 'success',
+    });
+  }
 
 
 }

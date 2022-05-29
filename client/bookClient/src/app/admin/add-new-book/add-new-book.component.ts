@@ -12,7 +12,7 @@ import { Book } from '../../book.model';
 export class AddNewBookComponent implements OnInit {
 
 
-  constructor(private bookServices:BookServices ,private router:Router) { }
+  constructor(private bookServices: BookServices, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -32,10 +32,10 @@ export class AddNewBookComponent implements OnInit {
   }
 
 
-  addNewBook(){ 
-  this.bookServices.addNewBook(this.tempBook);
-this.router.navigate(['/admin/books'])
+  addNewBook() {
+    this.bookServices.addNewBook(this.tempBook);
+    this.router.navigate(['/admin/books'])
 
   }
-  
+
 }

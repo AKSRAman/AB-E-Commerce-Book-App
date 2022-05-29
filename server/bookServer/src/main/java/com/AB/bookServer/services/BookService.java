@@ -21,6 +21,6 @@ public interface BookService {
 
 	public List<Book> getBooksBySearch(String val);
 
-	public Object getSingleBook(ObjectId id);
+	public Response getSingleBook(ObjectId id);
 
 }

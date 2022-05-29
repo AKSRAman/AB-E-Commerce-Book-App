@@ -33,6 +33,8 @@ public class User {
 	private Date addedOn;
 
 	private Date updatedOn;
+	
+	private String otp;
 
 	public String getId() {
 		return id;
@@ -120,5 +122,13 @@ public class User {
 
 	public void setBooksCart(List<Book> booksCart) {
 		this.booksCart = booksCart;
+	}
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
 	}
 }
