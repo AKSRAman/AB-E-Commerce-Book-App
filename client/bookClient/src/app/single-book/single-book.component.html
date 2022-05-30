@@ -52,7 +52,7 @@
           <label for="fname">Full Name</label>
         </div>
         <div class="col-75">
-          <input type="text" ngModel name="reviewedBy" placeholder="Your name..">
+          <input type="text" ngModel name="reviewedBy" placeholder="Your name.." minlength="3">
         </div>
       </div>
       <div class="row">
@@ -75,7 +75,7 @@
           <label for="subject">Review</label>
         </div>
         <div class="col-75">
-          <textarea ngModel name="review" placeholder="Write your review.." style="height:200px"></textarea>
+          <textarea ngModel name="review" placeholder="Write your review.." style="height:200px" minlength="3"></textarea>
         </div>
       </div>
       <br />

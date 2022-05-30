@@ -98,4 +98,20 @@ export class CartComponent implements OnInit {
     }
     this.totalPrice = total;
   }
+
+  simpleAlert() {
+    Swal.fire({
+      title: `Your order has been placed successfully`,
+      text: 'Thankyou',
+      timer: 1000,
+      icon: 'success',
+    });
+  }
+
+  isCheckOut = false
+
+  checkOutDone() {
+    this.isCheckOut ? this.isCheckOut = false : this.isCheckOut = true;
+  }
+
 }
