@@ -30,12 +30,10 @@
             <br />
             <div>
               <label htmlFor="phone"> </label>
-              <input class="input" type="text" ngModel name="description" minlength="3" required placeholder="Book Description"
-                [(ngModel)]="tempBook.description" />
+              <input class="input" type="text" ngModel name="description" minlength="3" required
+                placeholder="Book Description" [(ngModel)]="tempBook.description" />
             </div>
             <br />
-
-
             <div>
               <label htmlFor="category"> </label>
               <input class="input" type="text" ngModel name="category" minlength="3" required placeholder="Category"
@@ -44,14 +42,14 @@
             <br />
             <div>
               <label htmlFor="price"> </label>
-              <input class="input" type="number" ngModel name="pages" minlength="3" required placeholder="Price"
+              <input class="input" type="number" ngModel name="price" minlength="2" required placeholder="Price"
                 [(ngModel)]="tempBook.price" />
             </div>
             <br />
             <br />
             <div>
               <label htmlFor="pages"> </label>
-              <input class="input" type="number" ngModel name="pages" minlength="3" required placeholder="Pages"
+              <input class="input" type="number" ngModel name="pages" minlength="2" required placeholder="Pages"
                 [(ngModel)]="tempBook.pages" />
             </div>
             <div class="try-submit">

@@ -12,14 +12,13 @@
       <div class="button">
         <button type="submit" class="card-btn" (click)="setEditMode(true,i)">Update</button>
         <button type="submit" class="card-btn" (click)="deteteBook(book.id)">Delete</button>
-       
+
 
       </div>
     </div>
   </div>
 </div>
 
-<!-- <div *ngIf="editMode" class="flex flex:1 ml-10"> -->
 <div class="signup-main" *ngIf="editMode">
   <div class="signup">
     <div class="signup-content">
@@ -66,7 +65,7 @@
             <div class="try-submit">
               <button type="submit" (click)="updateBook()" [disabled]="!authForm.valid">Save</button>
               <button type="button" (click)="setEditMode(false,-1)">Cancle</button>
-              
+
             </div>
           </form>
         </div>
@@ -75,8 +74,8 @@
   </div>
 </div>
 <div class="pagination">
-  <div class="pagination-child"> 
+  <div class="pagination-child">
     <button class="pagination-button" (click)="onPrev()" [disabled]="currentPage==0">Previous Page</button>
-    <button class="pagination-button" (click)="onNext()"[disabled]="lastPage==currentPage">Next Page</button>
+    <button class="pagination-button" (click)="onNext()" [disabled]="lastPage==currentPage">Next Page</button>
   </div>
 </div>

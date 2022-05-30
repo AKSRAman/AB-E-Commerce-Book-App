@@ -20,11 +20,10 @@ const routes: Routes = [
   { path: 'single', component: SingleBookComponent },
   { path: 'admin/books', component: AdminbookComponent },
   { path: '**', component: NotFoundComponent },
-  
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

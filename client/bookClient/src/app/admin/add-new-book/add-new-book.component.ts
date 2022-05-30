@@ -11,15 +11,15 @@ import { Book } from '../../book.model';
   styleUrls: ['./add-new-book.component.css'],
 })
 export class AddNewBookComponent implements OnInit {
-  constructor(private bookServices: BookServices, private router: Router) {}
+  constructor(private bookServices: BookServices, private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   tempBook: Book = {
     addedOn: '',
     author: '',
     category: '',
     description: '',
-    id:null,
+    id: null,
     imageUrl: '',
     pages: 0,
     price: 0,
@@ -31,7 +31,7 @@ export class AddNewBookComponent implements OnInit {
 
   addNewBook() {
     this.bookServices.addNewBook(this.tempBook).subscribe((res) => {
-      console.log(res), this.bookServices.getBookDataPageWise(1);this.simpleAlert()
+      console.log(res), this.bookServices.getBookDataPageWise(1); this.simpleAlert()
     });
     this.router.navigate(['/admin/books']);
   }

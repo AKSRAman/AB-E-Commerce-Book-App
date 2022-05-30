@@ -9,7 +9,7 @@ import { Book } from '../book.model';
 export class HomeServices {
   loginStatus: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   changeLoginStatus() {
     this.loginStatus = true;
@@ -41,7 +41,7 @@ export class HomeServices {
       }),
     };
     return this.http.put<any>(
-      'http://localhost:8080/user/' + user.id,user,httpOptions
+      'http://localhost:8080/user/' + user.id, user, httpOptions
     );
   }
 }

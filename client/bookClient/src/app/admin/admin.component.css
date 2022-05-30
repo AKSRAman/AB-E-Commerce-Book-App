@@ -7,7 +7,7 @@
 }
 
 .adminnavbar div {
-  display:block;
+  display: block;
   height: 40px;
   align-items: center;
   cursor: pointer;
@@ -16,6 +16,5 @@
 }
 
 .adminnavbar div:hover {
-
   border-bottom: 2px solid white;
 }

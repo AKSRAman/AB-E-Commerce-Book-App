@@ -38,9 +38,9 @@ export interface SingleBookResponse {
 export interface Comman {
   status: boolean, message: string
 }
-export interface BookByPage{
-  totalElements:number;
-  bookList:[{
+export interface BookByPage {
+  totalElements: number;
+  bookList: [{
     addedOn: "",
     author: "",
     category: "",
@@ -54,6 +54,6 @@ export interface BookByPage{
     title: "",
     updatedOn: "",
   }],
-  totalPages:number;
-  currentPage:number;
+  totalPages: number;
+  currentPage: number;
 }

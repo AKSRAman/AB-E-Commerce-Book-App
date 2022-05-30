@@ -19,9 +19,9 @@ public interface UserService {
 	public Response addInCart(String token, Book book);
 
 	public Response removeFromCart(String token, int i);
-	
+
 	public Response sendEmail(String email);
 
 	public Response verifyOtp(String email, String otp);
-	
+
 }

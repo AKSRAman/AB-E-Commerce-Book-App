@@ -20,7 +20,7 @@ export class AuthComponent implements OnInit {
   onSwitchMode() {
     this.isLogin = !this.isLogin;
   }
-  
+
   loginWithOtp() {
     this.loginOtp ? (this.loginOtp = false, this.buttonValue = "Login with Otp") : (this.loginOtp = true, this.buttonValue = "Login with Password")
   }

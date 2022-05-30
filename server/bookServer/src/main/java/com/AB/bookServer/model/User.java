@@ -33,7 +33,7 @@ public class User {
 	private Date addedOn;
 
 	private Date updatedOn;
-	
+
 	private String otp;
 
 	public String getId() {

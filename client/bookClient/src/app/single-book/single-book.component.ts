@@ -30,7 +30,7 @@ export class SingleBookComponent implements OnInit {
   id: string | null = "";
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private bookData: BookServices, private http: HttpClient) { }
 
-  reviews = [ {
+  reviews = [{
     id: null,
     bookId: null,
     userId: null,
@@ -39,7 +39,7 @@ export class SingleBookComponent implements OnInit {
     rating: 1,
     reviewedAt: null,
     updatedOn: null
-}]
+  }]
 
 
   ngOnInit(): void {
@@ -119,7 +119,7 @@ export class SingleBookComponent implements OnInit {
     this.http
       .post(`http://localhost:8080/review/saveReview/${this.id}`, review.value, httpOptions)
       .subscribe({
-        next: (response) => { console.log(response); this.myAlert() , this.fetchAllReviews(),review.reset()},
+        next: (response) => { console.log(response); this.myAlert(), this.fetchAllReviews(), review.reset() },
         error: (error) => console.log(error),
       });
   }
@@ -134,7 +134,7 @@ export class SingleBookComponent implements OnInit {
     console.log(res)
     this.reviews = res.reviewList
     this.reviews.reverse()
-    console.log(this.reviews,"hh")
+    console.log(this.reviews, "hh")
   }
 
 }

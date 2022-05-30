@@ -11,13 +11,11 @@ import { HomeServices } from '../home/home.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  searchBook:Book[]=[];
-  timerId:any;
-  value="";
-  constructor(private homeService: HomeServices,private bookService: BookServices ,private router:Router) { }
+  searchBook: Book[] = [];
+  timerId: any;
+  value = "";
+  constructor(private homeService: HomeServices, private bookService: BookServices, private router: Router) { }
 
-
-  
   isLogin: boolean = false
 
   ngOnInit(): void {
@@ -42,38 +40,40 @@ export class NavbarComponent implements OnInit {
   }
   loginStatus: boolean = this.homeService.loginStatus
 
-getSearchBook(){
- 
-  this.bookService.getSearchBooks(this.value).subscribe((res)=>{console.log(res)
-    this.searchBook=res});
+  getSearchBook() {
+
+    this.bookService.getSearchBooks(this.value).subscribe((res) => {
+      console.log(res)
+      this.searchBook = res
+    });
 
   }
-  
-  
- dedounceSearchedBook(event:Event,delay:number){
-  if (this.timerId) {
-    clearTimeout(this.timerId);
-}
-  this.timerId=setTimeout(()=>{
-    this.main(event);
-  },delay);
-}
 
-main(event:Event):boolean|void{
-  this.value=(<HTMLInputElement>event.target).value;
-  if(this.value.length< 3){
-    this.searchBook=[];
-    return false;
+
+  dedounceSearchedBook(event: Event, delay: number) {
+    if (this.timerId) {
+      clearTimeout(this.timerId);
+    }
+    this.timerId = setTimeout(() => {
+      this.main(event);
+    }, delay);
   }
-this.getSearchBook();
-}
+
+  main(event: Event): boolean | void {
+    this.value = (<HTMLInputElement>event.target).value;
+    if (this.value.length < 3) {
+      this.searchBook = [];
+      return false;
+    }
+    this.getSearchBook();
+  }
 
 
-gotoSinglebook(id: string | null) {
-  this.searchBook=[];
-  this.router.navigate(['single', { "id": id }])
+  gotoSinglebook(id: string | null) {
+    this.searchBook = [];
+    this.router.navigate(['single', { "id": id }])
 
-}
+  }
 
 
 }

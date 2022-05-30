@@ -57,17 +57,17 @@ export class AdminbookComponent implements OnInit {
       console.log(res);
       this.allBooks = res.bookList;
       //this.currentPage = res.currentPage;
-      this.lastPage=res.totalPages;
+      this.lastPage = res.totalPages;
     });
   }
 
-  onNext(){
+  onNext() {
     this.currentPage++;
-    if(this.currentPage<this.lastPage){
-    this.getBookDataPageWise();
+    if (this.currentPage < this.lastPage) {
+      this.getBookDataPageWise();
     }
   }
-  onPrev(){
+  onPrev() {
     this.currentPage--;
     this.getBookDataPageWise();
   }

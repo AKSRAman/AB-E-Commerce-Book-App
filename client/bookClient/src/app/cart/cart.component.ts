@@ -11,6 +11,7 @@ import { HomeServices } from '../home/home.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
+
 export class CartComponent implements OnInit {
 
   constructor(private bookService: BookServices, private homeService: HomeServices, private http: HttpClient, private router: Router) { }
@@ -101,6 +102,8 @@ export class CartComponent implements OnInit {
 
   simpleAlert() {
     this.isCheckOut = false
+    this.allBooks = []
+    this.totalPrice = 0
     Swal.fire({
       title: `Your order has been placed successfully`,
       text: 'Thankyou',

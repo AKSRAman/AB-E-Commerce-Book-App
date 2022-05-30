@@ -256,10 +256,10 @@ input:focus {
   }
 }
 
-.material-symbols-outlined{
+.material-symbols-outlined {
   cursor: pointer;
 }
-.profile-password{
+.profile-password {
   display: flex;
   margin-left: 5%;
 }

@@ -37,7 +37,7 @@ public class ReviewServiceMethod implements ReviewService {
 		}
 		return jwt.getAllClaimsFromToken(token);
 	}
-	
+
 	@Override
 	public Response saveReview(ObjectId bookid, Review review, String token) {
 		try {
@@ -111,5 +111,5 @@ public class ReviewServiceMethod implements ReviewService {
 		Response data = new Response(true, "Review deleted successfully");
 		return data;
 	}
-	
+
 }
