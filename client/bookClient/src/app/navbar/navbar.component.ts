@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Book } from '../book.model';
 import { BookServices } from '../books/book.services';
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit {
   searchBook:Book[]=[];
   timerId:any;
   value="";
-  constructor(private homeService: HomeServices,private bookService: BookServices) { }
+  constructor(private homeService: HomeServices,private bookService: BookServices ,private router:Router) { }
 
 
   
@@ -48,6 +49,7 @@ getSearchBook(){
 
   }
   
+  
  dedounceSearchedBook(event:Event,delay:number){
   if (this.timerId) {
     clearTimeout(this.timerId);
@@ -67,7 +69,11 @@ this.getSearchBook();
 }
 
 
+gotoSinglebook(id: string | null) {
+  this.searchBook=[];
+  this.router.navigate(['single', { "id": id }])
 
+}
 
 
 }

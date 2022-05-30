@@ -29,12 +29,12 @@ export class BooksComponent implements OnInit {
     category: "",
     description: "",
     id: "",
-    imageUrl: "https://rukminim2.flixcart.com/image/612/612/klmmrgw0/regionalbooks/f/3/g/the-power-of-your-subconscious-mind-original-imagypuj7qxyepyq.jpeg?q=70",
-    pages: 1111,
-    price: 1111,
+    imageUrl: "",
+    pages: 0,
+    price: 0,
     publishDate: "",
     rating: 0,
-    title: "PSYCOLOGY OF MIND",
+    title: "",
     updatedOn: "",
   },];
 

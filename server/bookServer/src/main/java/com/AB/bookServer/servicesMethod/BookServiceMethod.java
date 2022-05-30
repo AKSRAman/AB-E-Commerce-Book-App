@@ -1,5 +1,6 @@
 package com.AB.bookServer.servicesMethod;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -44,10 +45,20 @@ public class BookServiceMethod implements BookService {
 		List<Book> books1 = bookRepo.findByQueryInauthor(val);
 		List<Book> books2 = bookRepo.findByQueryInTitle(val);
 		books0.addAll(books1);
-		System.out.println(books0);
 		books0.addAll(books2);
-		return books0;
-	}
+		  List<Book> newList = new ArrayList<Book>();
+	        for (Book element :books0) {
+	            if (!newList.contains(element)) {
+	                newList.add(element);
+	            }
+	        }
+	        System.out.println( newList);
+	        return newList;
+	        
+	    }
+		
+		
+	
 
 	@Override
 	public Response saveBook(Book book) {

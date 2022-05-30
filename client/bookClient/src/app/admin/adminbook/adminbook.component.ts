@@ -12,7 +12,8 @@ import { Book } from '../../book.model';
 export class AdminbookComponent implements OnInit {
   editMode = false;
   isAdmin = false;
-
+  currentPage: number = 0;
+  lastPage: number = 0;
   allBooks: Book[] = [
     {
       addedOn: '',
@@ -48,16 +49,28 @@ export class AdminbookComponent implements OnInit {
   constructor(private bookServices: BookServices) { }
 
   ngOnInit(): void {
-    this.getBooksData();
+    this.getBookDataPageWise();
   }
 
-  getBooksData() {
-    this.bookServices.getAllBooks().subscribe((res) => {
-      console.log(res.bookList);
+  getBookDataPageWise() {
+    this.bookServices.getBookDataPageWise(this.currentPage).subscribe((res) => {
+      console.log(res);
       this.allBooks = res.bookList;
+      //this.currentPage = res.currentPage;
+      this.lastPage=res.totalPages;
     });
   }
 
+  onNext(){
+    this.currentPage++;
+    if(this.currentPage<this.lastPage){
+    this.getBookDataPageWise();
+    }
+  }
+  onPrev(){
+    this.currentPage--;
+    this.getBookDataPageWise();
+  }
   setEditMode(mode: boolean, i: number) {
     this.editMode = mode;
     if (mode == true) {
@@ -75,7 +88,7 @@ export class AdminbookComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.bookServices.updateBook(this.tempBook).subscribe((res) => {
-          this.getBooksData();
+          this.getBookDataPageWise();
           console.log(res, "updatebook")
           this.editMode = false
           Swal.fire('Saved!', '', 'success')
@@ -98,7 +111,7 @@ export class AdminbookComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.bookServices.deleteBook(id).subscribe((res) => {
-          this.getBooksData();
+          this.getBookDataPageWise();
           console.log(res)
           Swal.fire(
             'Deleted!',
