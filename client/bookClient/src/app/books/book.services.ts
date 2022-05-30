@@ -1,7 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 import { Book } from '../book.model';
 import { AllBookResponse, BookByPage, Comman, SingleBookResponse } from '../response.model';
 @Injectable({
@@ -13,13 +15,13 @@ export class BookServices {
 
   constructor(private http: HttpClient) {
   }
-  getBookDataPageWise(page:number){
-    return this.http.get<BookByPage>(this.baseurl+"/"+"page"+"?pageno="+page);
+  getBookDataPageWise(page: number) {
+    return this.http.get<BookByPage>(this.baseurl + "/" + "page" + "?pageno=" + page);
   }
- getSearchBooks(val:string){
-  return this.http.get<Book[]>(this.baseurl+"/search?val="+val);
+  getSearchBooks(val: string) {
+    return this.http.get<Book[]>(this.baseurl + "/search?val=" + val);
 
- }
+  }
 
   getAllBooks() {
     return this.http.get<AllBookResponse>(this.baseurl);
@@ -46,14 +48,29 @@ export class BookServices {
         Authorization: `Bearer ${token}`,
       }),
     };
+<<<<<<< Updated upstream
     return this.http
       .post<SingleBookResponse>(this.baseurl, newBook, httpOptions)
       .subscribe((res) => {
-        console.log(res);
+        console.log(res); this.simpleAlert()
       });
+=======
+    return this.http.post<SingleBookResponse>(this.baseurl, newBook, httpOptions)
+
+>>>>>>> Stashed changes
   }
 
-  updateBook(book:Book) {
+  simpleAlert() {
+    Swal.fire({
+      title: `Book saved successfully `,
+      text: 'Thankyou',
+      timer: 1000,
+      icon: 'success',
+    });
+  }
+
+
+  updateBook(book: Book) {
     let token: any = localStorage.getItem('jwtToken');
     token = JSON.parse(token);
     console.log(token);

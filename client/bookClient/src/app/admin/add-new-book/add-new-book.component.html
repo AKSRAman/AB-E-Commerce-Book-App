@@ -1,116 +1,67 @@
 <div class="signup-main">
-    <div class="signup">
-      <div class="signup-content">
-        <h2 class="signup-title">Add New book</h2>
-        <br />
-        <br />
-        <div class="signup-form">
-          <div class="signup-image">
-            <img alt="Enter New Book URL" src="{{ tempBook.imageUrl }}" />
-          </div>
-          <div class="details">
-            <form class="register-form" #authForm="ngForm">
-                <div>
-                    <label htmlFor="name"> </label>
-                    <input
-                      class="input"
-                      type="text"
-                      ngModel
-                      name="title"
-                      required
-                      placeholder="Image Url"
-                    [(ngModel)]="tempBook.imageUrl"/>
-                  </div>
-              <br />
-              <div>
-                <label htmlFor="name"> </label>
-                <input
-                  class="input"
-                  type="text"
-                  ngModel
-                  name="title"
-                  required
-                  minlength="3"
-                  placeholder=" Book Title"
-                [(ngModel)]="tempBook.title"/>
-              </div>
-              <br />
-              <div>
-                <label htmlFor="author"> </label>
-                <input
-                  class="input"
-                  type="text"
-                  ngModel
-                  name="author"
-                  required
-                  placeholder="Author Name"
-                  [(ngModel)]="tempBook.author"
-                />
-              </div>
-              <br />
-              <div>
-                <label htmlFor="phone"> </label>
-                <input
-                  class="input"
-                  type="text"
-                  ngModel
-                  name="description"
-                  required
-                  placeholder="Book Description"
-                  [(ngModel)]="tempBook.description"
-                />
-              </div>
-              <br />
-             
-             
-              <div>
-                <label htmlFor="category"> </label>
-                <input
-                  class="input"
-                  type="text"
-                  ngModel
-                  name="category"
-                  required
-                   placeholder="Category"
-                  [(ngModel)]="tempBook.category"
-                />
-              </div>
-              <br/>
-              <div>
-                <label htmlFor="price"> </label>
-                <input
-                  class="input"
-                  type="number"
-                  ngModel
-                  name="pages"
-                  required
-                  placeholder="Price"
-                  [(ngModel)]="tempBook.price"
-                />
-              </div>
-              <br />
-              <br/>
-              <div>
-                <label htmlFor="pages"> </label>
-                <input
-                  class="input"
-                  type="number"
-                  ngModel
-                  name="pages"
-                  required
-                  placeholder="Pages"
-                  [(ngModel)]="tempBook.pages"
-                />
-              </div>
+  <div class="signup">
+    <div class="signup-content">
+      <h2 class="signup-title">Add New book</h2>
+      <br />
+      <br />
+      <div class="signup-form">
+        <div class="signup-image">
+          <img alt="Enter New Book URL" src="{{ tempBook.imageUrl }}" />
+        </div>
+        <div class="details">
+          <form class="register-form" #authForm="ngForm">
+            <div>
+              <label htmlFor="name"> </label>
+              <input class="input" type="text" ngModel name="title" required placeholder="Image Url"
+                [(ngModel)]="tempBook.imageUrl" />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="name"> </label>
+              <input class="input" type="text" ngModel name="title" required minlength="3" placeholder=" Book Title"
+                [(ngModel)]="tempBook.title" />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="author"> </label>
+              <input class="input" type="text" ngModel name="author" required placeholder="Author Name"
+                [(ngModel)]="tempBook.author" />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="phone"> </label>
+              <input class="input" type="text" ngModel name="description" required placeholder="Book Description"
+                [(ngModel)]="tempBook.description" />
+            </div>
+            <br />
 
-              <div class="try-submit">
-                <button type="submit" (click)="addNewBook()"[disabled]="!authForm.valid">Save</button>
-                <button type="button">Cancle</button>
-              </div>
-            </form>
-          </div>
+
+            <div>
+              <label htmlFor="category"> </label>
+              <input class="input" type="text" ngModel name="category" required placeholder="Category"
+                [(ngModel)]="tempBook.category" />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="price"> </label>
+              <input class="input" type="number" ngModel name="pages" required placeholder="Price"
+                [(ngModel)]="tempBook.price" />
+            </div>
+            <br />
+            <br />
+            <div>
+              <label htmlFor="pages"> </label>
+              <input class="input" type="number" ngModel name="pages" required placeholder="Pages"
+                [(ngModel)]="tempBook.pages" />
+            </div>
+
+            <div class="try-submit">
+              <button type="submit" (click)="addNewBook()" [disabled]="!authForm.valid">Save</button>
+              <button type="button">Cancle</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

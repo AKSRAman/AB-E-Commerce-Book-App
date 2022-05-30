@@ -12,7 +12,6 @@
           <form class="register-form" #authForm="ngForm">
             <div class="main-details">
               <h1>{{ book.title}}</h1>
-
               <ul>
                 <li>
                   <span>Author :</span> {{ book.author}}
@@ -29,17 +28,11 @@
                 </li>
               </ul>
             </div>
-
             <div class="bottom-view">
               <button class="addToCart" type="submit" (click)="addCart()" [disabled]="!authForm.valid">Add To
                 Cart</button>
-                <button class="addToCart" type="button">Review This Book</button>
             </div>
             <br />
-            <!-- <div class="bottom-view">
-             
-              <button class="viewReview" type="button">View Reviews</button>
-            </div> -->
           </form>
         </div>
       </div>
@@ -47,19 +40,82 @@
   </div>
 </div>
 
-<!-- <div class="rating"> Rating : <span class="material-symbols-outlined fill">
-  star
-</span>
-<span class="material-symbols-outlined fill">
-  star
-</span>
-<span class="material-symbols-outlined fill">
-  star
-</span>
-<span class="material-symbols-outlined fill">
-  star
-</span>
-<span class="material-symbols-outlined fillNot">
-  star
-</span>
-</div> -->
+<div class="review-container">
+  <div class="container">
+    <div class="Review Head">
+      <h1>Review This Book</h1>
+    </div>
+  
+    <form #reviewForm="ngForm">
+      <div class="row">
+        <div class="col-25">
+          <label for="fname">Full Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" ngModel name="reviewedBy" placeholder="Your name..">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="country">Rating</label>
+        </div>
+        <div class="col-75">
+          <select ngModel name="rating" value="1" >
+            <option value="" selected disabled hidden>Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="subject">Review</label>
+        </div>
+        <div class="col-75">
+          <textarea ngModel name="review" placeholder="Write your review.." style="height:200px"></textarea>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <br />
+        <button class="addToCart" type="submit" [disabled]="!reviewForm.valid" (click)="postReview(reviewForm)"> Review
+          This Book
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<div class="review-cover">
+  <div class="review-head">
+    <h1> Reader's Review </h1>
+  </div>
+  <br />
+  <div *ngFor="let obj of reviews ; index as i">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="review">
+            <div class="review-content">
+              <div class="review-icon">
+               
+              </div>
+              <p class="description">
+                {{obj.review}}
+              </p>
+            </div>
+            <h3 class="title">Reviewed By : {{obj.reviewedBy}}</h3>
+            <span class="rating">Rating : {{obj.rating}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+  </div>
+
+</div>

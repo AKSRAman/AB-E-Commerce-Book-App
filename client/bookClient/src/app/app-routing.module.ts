@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
@@ -8,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthComponent } from './auth/auth.component';
 import { SingleBookComponent } from './single-book/single-book.component';
+import { AdminbookComponent } from './admin/adminbook/adminbook.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'books', component: BooksComponent },
@@ -16,7 +18,9 @@ const routes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'single', component: SingleBookComponent },
+  { path: 'admin/books', component: AdminbookComponent },
   { path: '**', component: NotFoundComponent },
+  
 ];
 
 @NgModule({

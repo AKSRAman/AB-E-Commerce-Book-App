@@ -7,9 +7,9 @@ import com.AB.bookServer.response.Response;
 
 public interface ReviewService {
 
-	public Response saveReview(ObjectId bookid, Review review);
+	public Response saveReview(ObjectId bookid, Review review, String Token);
 
-	public Response getSpecificBookReviews(ObjectId bookid);
+	public Response getSpecificBookReviews(String bookid);
 
 	public Response getAllReviews();
 

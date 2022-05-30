@@ -105,18 +105,11 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  /* min-width: 25%; */
   padding: 8px;
   border-radius: 8px;
   transition: 0.3s;
   cursor: pointer;
 }
-
-/* .nav-item:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  border: 1px solid #c4c4c4;
-} */
 
 .nav-item > a {
   color: white;

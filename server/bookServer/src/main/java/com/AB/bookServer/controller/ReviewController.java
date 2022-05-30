@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,8 +27,8 @@ public class ReviewController {
 	private ReviewService reviewOperation;
 
 	@PostMapping("/saveReview/{bookId}")
-	public ResponseEntity<?> createReview(@PathVariable ObjectId bookId, @RequestBody Review reviewData) {
-		Response data = reviewOperation.saveReview(bookId, reviewData);
+	public ResponseEntity<?> createReview(@PathVariable ObjectId bookId, @RequestBody Review reviewData,@RequestHeader(value = "Authorization") String token) {
+		Response data = reviewOperation.saveReview(bookId, reviewData,token);
 		if (data.getStatus() == true) {
 			return ResponseEntity.ok(data);
 		}
@@ -40,8 +41,12 @@ public class ReviewController {
 	}
 
 	@GetMapping("/getReviews/{bookId}")
-	public ResponseEntity<?> getAllSpecifiedReview(@PathVariable ObjectId bookId) {
-		return ResponseEntity.ok(reviewOperation.getSpecificBookReviews(bookId));
+	public ResponseEntity<?> getAllSpecifiedReview(@PathVariable String bookId) {
+		Response output = reviewOperation.getSpecificBookReviews(bookId);
+		if (output.getStatus() == true) {
+			return ResponseEntity.ok(output);
+		}
+		return ResponseEntity.status(400).body(output);
 	}
 
 	@PutMapping("/updateReview/{reviewId}")

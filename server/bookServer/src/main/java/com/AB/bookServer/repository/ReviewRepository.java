@@ -10,5 +10,5 @@ import com.AB.bookServer.model.Review;
 
 public interface ReviewRepository extends MongoRepository<Review, ObjectId> {
 	@Query("{bookId:?0}")
-	List<Review> findByBookId(ObjectId bookId);
+	List<Review> findByBookId(String bookId);
 }
