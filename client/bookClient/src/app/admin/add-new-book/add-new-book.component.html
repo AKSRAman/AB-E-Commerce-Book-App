@@ -12,7 +12,7 @@
           <form class="register-form" #authForm="ngForm">
             <div>
               <label htmlFor="name"> </label>
-              <input class="input" type="text" ngModel name="title" required placeholder="Image Url"
+              <input class="input" type="text" ngModel name="title" required minlength="3" placeholder="Image Url"
                 [(ngModel)]="tempBook.imageUrl" />
             </div>
             <br />
@@ -24,13 +24,13 @@
             <br />
             <div>
               <label htmlFor="author"> </label>
-              <input class="input" type="text" ngModel name="author" required placeholder="Author Name"
+              <input class="input" type="text" ngModel name="author" minlength="3" required placeholder="Author Name"
                 [(ngModel)]="tempBook.author" />
             </div>
             <br />
             <div>
               <label htmlFor="phone"> </label>
-              <input class="input" type="text" ngModel name="description" required placeholder="Book Description"
+              <input class="input" type="text" ngModel name="description" minlength="3" required placeholder="Book Description"
                 [(ngModel)]="tempBook.description" />
             </div>
             <br />
@@ -38,20 +38,20 @@
 
             <div>
               <label htmlFor="category"> </label>
-              <input class="input" type="text" ngModel name="category" required placeholder="Category"
+              <input class="input" type="text" ngModel name="category" minlength="3" required placeholder="Category"
                 [(ngModel)]="tempBook.category" />
             </div>
             <br />
             <div>
               <label htmlFor="price"> </label>
-              <input class="input" type="number" ngModel name="pages" required placeholder="Price"
+              <input class="input" type="number" ngModel name="pages" minlength="3" required placeholder="Price"
                 [(ngModel)]="tempBook.price" />
             </div>
             <br />
             <br />
             <div>
               <label htmlFor="pages"> </label>
-              <input class="input" type="number" ngModel name="pages" required placeholder="Pages"
+              <input class="input" type="number" ngModel name="pages" minlength="3" required placeholder="Pages"
                 [(ngModel)]="tempBook.pages" />
             </div>
             <div class="try-submit">
