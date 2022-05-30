@@ -94,10 +94,10 @@
 <!-- Order -->
 
 <div class="row" *ngIf="isCheckOut">
-   
-<h1> <br/> &nbsp; &nbsp; &nbsp; It is only a dummy form no input<br/></h1>
-<br/>
-<br/>
+
+    <h1> <br /> &nbsp; &nbsp; &nbsp; It is only a dummy form no input required<br /></h1>
+    <br />
+    <br />
 
     <div class="col-75">
         <div class="container">
@@ -138,7 +138,8 @@
                         <label for="cname">Name on Card</label>
                         <input type="text" id="cname" name="cardname" placeholder="Name on Card" ngModel minlength="3">
                         <label for="ccnum">Card number</label>
-                        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" ngModel minlength="12">
+                        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" ngModel
+                            minlength="12">
                         <label for="expmonth">Exp Month</label>
                         <input type="text" id="expmonth" name="expmonth" placeholder="Month" ngModel minlength="3">
 
@@ -155,13 +156,13 @@
                     </div>
                 </div>
                 <label>
-                    <input type="checkbox" checked="checked" name="sameadr" > Shipping address same as billing
+                    <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
                 </label>
                 <div class="bill-button">
-                    <button type="submit" (click)="simpleAlert()" [disabled]="!paymentForm.valid" class="btn">Place Order</button> &nbsp; &nbsp;
+                    <button type="submit" [disabled]="!paymentForm.valid" class="btn" (click)="simpleAlert()">Place
+                        Order</button> &nbsp; &nbsp;
                     <button type="submit" (click)="checkOutDone()" class="btn">Cancle</button>
                 </div>
-
             </form>
         </div>
     </div>

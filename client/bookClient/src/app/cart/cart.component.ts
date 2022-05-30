@@ -100,6 +100,7 @@ export class CartComponent implements OnInit {
   }
 
   simpleAlert() {
+    this.isCheckOut = false
     Swal.fire({
       title: `Your order has been placed successfully`,
       text: 'Thankyou',
