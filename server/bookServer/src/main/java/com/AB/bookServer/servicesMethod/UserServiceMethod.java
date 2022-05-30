@@ -93,12 +93,17 @@ public class UserServiceMethod implements UserService {
 		if (findUser.isPresent()) {
 			User userToSave = findUser.get();
 			userToSave.setUpdatedOn(new Date(System.currentTimeMillis()));
-			userToSave.setFullName(inputUserData.getfullName() != null ? inputUserData.getfullName() : userToSave.getfullName());
+			userToSave.setFullName(
+					inputUserData.getfullName() != null ? inputUserData.getfullName() : userToSave.getfullName());
 			userToSave.setEmail(inputUserData.getEmail() != null ? inputUserData.getEmail() : userToSave.getEmail());
-			userToSave.setPassword(inputUserData.getPassword() != null ? inputUserData.getPassword() : userToSave.getPassword());
-			userToSave.setAddress(inputUserData.getAddress() != null ? inputUserData.getAddress() : userToSave.getAddress());
-			userToSave.setMobNumber(inputUserData.getMobNumber() > 999999999 ? inputUserData.getMobNumber() : userToSave.getMobNumber());
-			userToSave.setProfilePic(inputUserData.getProfilePic() != null ? inputUserData.getProfilePic() : userToSave.getProfilePic());
+			userToSave.setPassword(
+					inputUserData.getPassword() != null ? inputUserData.getPassword() : userToSave.getPassword());
+			userToSave.setAddress(
+					inputUserData.getAddress() != null ? inputUserData.getAddress() : userToSave.getAddress());
+			userToSave.setMobNumber(inputUserData.getMobNumber() > 999999999 ? inputUserData.getMobNumber()
+					: userToSave.getMobNumber());
+			userToSave.setProfilePic(
+					inputUserData.getProfilePic() != null ? inputUserData.getProfilePic() : userToSave.getProfilePic());
 			userRepo.save(userToSave);
 		}
 		Optional<User> findUserResponse = userRepo.findById(id);

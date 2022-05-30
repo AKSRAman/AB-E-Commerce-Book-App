@@ -45,7 +45,7 @@
     <div class="Review Head">
       <h1>Review This Book</h1>
     </div>
-  
+
     <form #reviewForm="ngForm">
       <div class="row">
         <div class="col-25">
@@ -60,7 +60,7 @@
           <label for="country">Rating</label>
         </div>
         <div class="col-75">
-          <select ngModel name="rating" value="1" >
+          <select ngModel name="rating" value="1">
             <option value="" selected disabled hidden>Select</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -75,7 +75,8 @@
           <label for="subject">Review</label>
         </div>
         <div class="col-75">
-          <textarea ngModel name="review" placeholder="Write your review.." style="height:200px" minlength="3"></textarea>
+          <textarea ngModel name="review" placeholder="Write your review.." style="height:200px"
+            minlength="3"></textarea>
         </div>
       </div>
       <br />
@@ -103,7 +104,7 @@
           <div class="review">
             <div class="review-content">
               <div class="review-icon">
-               
+
               </div>
               <p class="description">
                 {{obj.review}}

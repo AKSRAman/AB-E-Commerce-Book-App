@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
       return console.log("token is not present checked by home")
     }
     this.homeService.fetchUser().subscribe((res: any) => {
-        console.log(res, 'i am coming via decoded jwt');
+      console.log(res, 'i am coming via decoded jwt');
     });
   }
 

@@ -145,7 +145,6 @@
   text-decoration: none !important;
   border-bottom: none;
   background: transparent;
-  /* border: 1px solid white; */
 }
 
 .search input::placeholder {
@@ -159,7 +158,6 @@
 
 .search-button {
   width: 22%;
-  /* border: 1px solid #c4c4c4; */
 }
 
 .search-button button {

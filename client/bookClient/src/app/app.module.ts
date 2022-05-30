@@ -45,4 +45,4 @@ import { SingleBookComponent } from './single-book/single-book.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

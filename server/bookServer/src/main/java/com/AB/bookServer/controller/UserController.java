@@ -80,10 +80,9 @@ public class UserController {
 	public ResponseEntity<?> loginWithOtp(@RequestBody AuthRequest user) throws Exception {
 		System.out.println(user.getEmail());
 		Response output = userOperation.sendEmail(user.getEmail());
-		if(output.getStatus() == true) {
+		if (output.getStatus() == true) {
 			return ResponseEntity.ok(output);
-		}
-		else {
+		} else {
 			return ResponseEntity.status(400).body(output);
 		}
 	}
@@ -94,7 +93,8 @@ public class UserController {
 		if (output.getStatus() == true) {
 			User userFound = userRepo.findByEmail(email);
 			String token = jwt.generateToken(userFound);
-			return ResponseEntity.ok(new Response(true, "You have logged in successfully with emailId : " + email, token));
+			return ResponseEntity
+					.ok(new Response(true, "You have logged in successfully with emailId : " + email, token));
 		}
 		return ResponseEntity.status(400).body(new Response(false, "Invalid OTP", output.getUser()));
 	}

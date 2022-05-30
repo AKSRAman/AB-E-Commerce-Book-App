@@ -46,19 +46,16 @@ public class BookServiceMethod implements BookService {
 		List<Book> books2 = bookRepo.findByQueryInTitle(val);
 		books0.addAll(books1);
 		books0.addAll(books2);
-		  List<Book> newList = new ArrayList<Book>();
-	        for (Book element :books0) {
-	            if (!newList.contains(element)) {
-	                newList.add(element);
-	            }
-	        }
-	        System.out.println( newList);
-	        return newList;
-	        
-	    }
-		
-		
-	
+		List<Book> newList = new ArrayList<Book>();
+		for (Book element : books0) {
+			if (!newList.contains(element)) {
+				newList.add(element);
+			}
+		}
+		System.out.println(newList);
+		return newList;
+
+	}
 
 	@Override
 	public Response saveBook(Book book) {

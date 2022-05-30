@@ -48,7 +48,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.cors().disable();
 		httpSecurity.csrf().disable().authorizeRequests()
-				.antMatchers("/user/login","/user/loginWithOtp","/user/verifyOtp/{email}/{otp}", "/user/", "/books", "/books/page", "/books/search", "/books/{id}","/review/getReviews/{bookId}")
+				.antMatchers("/user/login", "/user/loginWithOtp", "/user/verifyOtp/{email}/{otp}", "/user/", "/books",
+						"/books/page", "/books/search", "/books/{id}", "/review/getReviews/{bookId}")
 				.permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated().and()
 				.exceptionHandling().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.addFilterBefore(myFilter, UsernamePasswordAuthenticationFilter.class);

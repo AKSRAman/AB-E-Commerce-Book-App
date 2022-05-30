@@ -37,8 +37,8 @@ export class AuthServices {
   }
 
   userLoginWithOtp(input: NgForm) {
-    console.log(input,1)
-    this.http.post('http://localhost:8080/user/loginWithOtp',input).subscribe({
+    console.log(input, 1)
+    this.http.post('http://localhost:8080/user/loginWithOtp', input).subscribe({
       next: (response) => this.sentOtpUser(response),
       error: (error) => console.log(error),
     });
@@ -65,7 +65,7 @@ export class AuthServices {
       localStorage.setItem('jwtToken', JSON.stringify(input.token));
       Swal.fire(`Thank You`, `You have logged in succesfully!`, `success`).then(() =>
         window.location.reload()
-       // this.router.navigateByUrl('/books')
+        // this.router.navigateByUrl('/books')
       )
     } else {
       Swal.fire("Oops...", "We are very sorry , due to some error you could not be logged in", "error");
