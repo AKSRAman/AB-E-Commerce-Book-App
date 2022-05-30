@@ -51,14 +51,7 @@ export class BookServices {
     return this.http.post<SingleBookResponse>(this.baseurl, newBook, httpOptions);
   }
 
-  simpleAlert() {
-    Swal.fire({
-      title: `Book saved successfully `,
-      text: 'Thankyou',
-      timer: 1000,
-      icon: 'success',
-    });
-  }
+  
 
 
   updateBook(book: Book) {

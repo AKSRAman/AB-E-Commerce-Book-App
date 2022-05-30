@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BookServices } from 'src/app/books/book.services';
+import Swal from 'sweetalert2';
 import { Book } from '../../book.model';
 
 @Component({
@@ -30,9 +31,17 @@ export class AddNewBookComponent implements OnInit {
 
   addNewBook() {
     this.bookServices.addNewBook(this.tempBook).subscribe((res) => {
-      console.log(res), this.bookServices.getBookDataPageWise(1);
+      console.log(res), this.bookServices.getBookDataPageWise(1);this.simpleAlert()
     });
     this.router.navigate(['/admin/books']);
-    window.location.reload();
+  }
+
+  simpleAlert() {
+    Swal.fire({
+      title: `Book saved successfully `,
+      text: 'Thankyou',
+      timer: 1000,
+      icon: 'success',
+    });
   }
 }
