@@ -48,16 +48,7 @@ export class BookServices {
         Authorization: `Bearer ${token}`,
       }),
     };
-<<<<<<< Updated upstream
-    return this.http
-      .post<SingleBookResponse>(this.baseurl, newBook, httpOptions)
-      .subscribe((res) => {
-        console.log(res); this.simpleAlert()
-      });
-=======
-    return this.http.post<SingleBookResponse>(this.baseurl, newBook, httpOptions)
-
->>>>>>> Stashed changes
+    return this.http.post<SingleBookResponse>(this.baseurl, newBook, httpOptions);
   }
 
   simpleAlert() {
