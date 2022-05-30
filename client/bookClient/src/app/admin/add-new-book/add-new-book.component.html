@@ -54,7 +54,6 @@
               <input class="input" type="number" ngModel name="pages" required placeholder="Pages"
                 [(ngModel)]="tempBook.pages" />
             </div>
-
             <div class="try-submit">
               <button type="submit" (click)="addNewBook()" [disabled]="!authForm.valid">Save</button>
               <button type="button">Cancle</button>

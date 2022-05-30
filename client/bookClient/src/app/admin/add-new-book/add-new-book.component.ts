@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BookServices } from 'src/app/books/book.services';
+import Swal from 'sweetalert2';
 import { Book } from '../../book.model';
 
 @Component({
@@ -12,19 +13,6 @@ import { Book } from '../../book.model';
 export class AddNewBookComponent implements OnInit {
   constructor(private bookServices: BookServices, private router: Router) {}
 
-<<<<<<< Updated upstream
-  constructor(private bookServices: BookServices, private router: Router) { }
-
-  ngOnInit(): void {
-  }
-  tempBook: Book = {
-    addedOn: "",
-    author: "",
-    category: "",
-    description: "",
-    id: null,
-    imageUrl: "",
-=======
   ngOnInit(): void {}
   tempBook: Book = {
     addedOn: '',
@@ -33,29 +21,27 @@ export class AddNewBookComponent implements OnInit {
     description: '',
     id:null,
     imageUrl: '',
->>>>>>> Stashed changes
     pages: 0,
     price: 0,
     publishDate: '',
     rating: 0,
-<<<<<<< Updated upstream
-    title: "",
-    updatedOn: "",
-  }
-
-  addNewBook() {
-    this.bookServices.addNewBook(this.tempBook);
-=======
     title: '',
     updatedOn: '',
   };
 
   addNewBook() {
     this.bookServices.addNewBook(this.tempBook).subscribe((res) => {
-      console.log(res), this.bookServices.getBookDataPageWise(1);
+      console.log(res), this.bookServices.getBookDataPageWise(1);this.simpleAlert()
     });
     this.router.navigate(['/admin/books']);
-    window.location.reload();
->>>>>>> Stashed changes
+  }
+
+  simpleAlert() {
+    Swal.fire({
+      title: `Book saved successfully `,
+      text: 'Thankyou',
+      timer: 1000,
+      icon: 'success',
+    });
   }
 }

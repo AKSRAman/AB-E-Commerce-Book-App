@@ -68,7 +68,7 @@ export class SingleBookComponent implements OnInit {
     let token: any = localStorage.getItem('jwtToken');
     token = JSON.parse(token);
     if (!token) {
-      Swal.fire("Please login to add this item in your cart", "", "error");
+      Swal.fire("Please login to add  review on this Book", "", "error");
       return console.log("token is not present checked by books for add to cart")
     }
     const httpOptions = {
@@ -107,7 +107,7 @@ export class SingleBookComponent implements OnInit {
     let token: any = localStorage.getItem('jwtToken');
     token = JSON.parse(token);
     if (!token) {
-      Swal.fire("Please login to add this item in your cart", "", "error");
+      Swal.fire("Please login to add review on this book", "", "error");
       return console.log("token is not present checked by books for add to cart")
     }
     const httpOptions = {
